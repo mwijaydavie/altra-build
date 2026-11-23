@@ -303,3 +303,76 @@ input[type="range"].altra-range::-moz-range-thumb {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * ALTRA COMMAND — portal & field surfaces
+ * ------------------------------------------------------------------ */
+@layer base {
+  .command-surface {
+    color-scheme: dark;
+  }
+  .command-surface ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  .command-surface ::-webkit-scrollbar-track {
+    background: rgb(255 255 255 / 0.03);
+  }
+  .command-surface ::-webkit-scrollbar-thumb {
+    background: rgb(247 188 50 / 0.22);
+    border: 2px solid #0f1117;
+  }
+  .command-surface ::-webkit-scrollbar-thumb:hover {
+    background: rgb(247 188 50 / 0.4);
+  }
+}
+
+/* Slow radar sweep used on the field SOS control */
+@keyframes altra-radar {
+  from {
+    transform: scale(0.7);
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+.radar-ring {
+  animation: altra-radar 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes altra-sync {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+.sync-arrow {
+  animation: altra-sync 1.6s ease-in-out infinite;
+}
+
+/* Print: purchase orders and incident reports */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+  body:has(#po-document) > *:not(:has(#po-document)),
+  body:has(#incident-document) > *:not(:has(#incident-document)) {
+    display: none !important;
+  }
+  #po-document,
+  #incident-document {
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    background: #ffffff !important;
+  }
+}

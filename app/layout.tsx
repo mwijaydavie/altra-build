@@ -4,11 +4,6 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 
-import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Preloader } from "@/components/layout/Preloader";
-import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { company } from "@/data/siteData";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://altrabuild.co.tz";
@@ -75,24 +70,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-TZ" className="antialiased">
-      <body>
-        <noscript>
-          <style>{`[data-preloader]{display:none !important}`}</style>
-        </noscript>
-        <SmoothScrollProvider>
-          <Preloader />
-          <ScrollProgress />
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[130] focus:bg-ink focus:px-4 focus:py-2 focus:font-mono focus:text-[11px] focus:uppercase focus:tracking-[0.14em] focus:text-paper"
-          >
-            Skip to content
-          </a>
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
