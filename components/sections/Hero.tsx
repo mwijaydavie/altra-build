@@ -92,7 +92,9 @@ export function Hero() {
             <Logo variant="mark" tone="inverse" height={22} className="opacity-90" />
             <span className="live-dot inline-block size-1.5 rounded-full bg-gold" />
             <p className="eyebrow text-paper/60">
-              {company.hq} <span className="mx-1 text-paper/25">/</span> {company.coordinates}
+              {company.hq}
+              <span className="mx-1 hidden text-paper/25 sm:inline">/</span>
+              <span className="mt-1 block sm:mt-0 sm:inline">{company.coordinates}</span>
             </p>
           </div>
           <p data-hero-meta className="hidden text-right meta text-paper/35 sm:block">

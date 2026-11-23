@@ -35,6 +35,7 @@ function ErrorLine({ message }: { message?: string }) {
 export function ContactRFQ() {
   const [reference, setReference] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
+  const [prefilled, setPrefilled] = useState(false);
 
   const form = useForm<RFQValues>({
     resolver: zodResolver(rfqSchema),
@@ -74,6 +75,7 @@ export function ContactRFQ() {
       if (typeof payload.area === "number" && payload.area >= 100) {
         setValue("area", Math.round(payload.area));
       }
+      if (payload.discipline || typeof payload.area === "number") setPrefilled(true);
     };
 
     try {
@@ -112,7 +114,7 @@ export function ContactRFQ() {
     <section id="rfq" className="scroll-mt-20 border-t border-ink/15 bg-cream py-14 text-ink lg:py-20">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold-deep">07</span>
               <span className="eyebrow text-ink/45">Request for tender</span>
@@ -175,7 +177,7 @@ export function ContactRFQ() {
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0">
             {reference ? (
               <div className="relative overflow-hidden border border-ink/15 bg-paper p-7 sm:p-9">
                 <div className="flex size-11 items-center justify-center rounded-full bg-gold text-ink">
@@ -235,6 +237,13 @@ export function ContactRFQ() {
                     Secure
                   </span>
                 </div>
+
+                {prefilled && (
+                  <p className="mt-4 flex items-start gap-2 border border-gold-deep/25 bg-gold/10 px-3 py-2.5 text-[12px] leading-relaxed text-ink/65">
+                    <Check className="mt-0.5 size-3.5 shrink-0 text-gold-deep" />
+                    Prefilled from your estimator — adjust anything before sending.
+                  </p>
+                )}
 
                 <div className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-2">
                   <div>

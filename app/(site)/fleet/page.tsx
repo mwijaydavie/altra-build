@@ -16,6 +16,7 @@ export default function FleetPage() {
     <>
       <PageHero
         label="Fleet & BIM"
+        kicker="Plant & digital delivery"
         title="Owned plant. Measured models."
         deck="We do not rent the critical path. Thirty-eight owned units, in-house LiDAR survey and federated BIM models keep the programme in our hands."
         meta={[

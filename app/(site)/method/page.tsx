@@ -17,6 +17,7 @@ export default function MethodPage() {
     <>
       <PageHero
         label="Method & Safety"
+        kicker="Delivery system"
         title="Method before machinery."
         deck="Every site starts with measured ground and a written sequence. Safety is a hold point, not a poster: ISO 45001, daily briefings, and a stop-work authority that anyone can use."
         meta={[

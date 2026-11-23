@@ -32,11 +32,11 @@ export default function ProjectsIndexPage() {
               Every published record carries its contract value, structural quantities, programme and
               audited outcomes. Anonymous references are available on request under NDA.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <MagneticButton href="/contact" variant="gold" size="md">
+            <div className="flex flex-col gap-3 [&>div]:w-full sm:flex-row sm:flex-wrap sm:[&>div]:w-auto">
+              <MagneticButton href="/contact" variant="gold" size="md" className="w-full justify-center sm:w-auto">
                 Discuss a project
               </MagneticButton>
-              <MagneticButton href="/" variant="outline-light" size="md">
+              <MagneticButton href="/" variant="outline-light" size="md" className="w-full justify-center sm:w-auto">
                 Back to overview
               </MagneticButton>
             </div>

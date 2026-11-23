@@ -16,6 +16,7 @@ export default function ContactPage() {
     <>
       <PageHero
         label="Contact"
+        kicker="Tender desk"
         title="Bring us the hard site."
         deck="Tidal ground, occupied buildings, fixed energisation dates. Send the brief and the tender desk will acknowledge within two working hours."
         meta={[

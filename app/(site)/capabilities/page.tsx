@@ -16,6 +16,7 @@ export default function CapabilitiesPage() {
     <>
       <PageHero
         label="Capabilities"
+        kicker="Core engineering"
         title="Four divisions. One standard of execution."
         deck="Bridges, towers, plants and occupied-building retrofits — each division runs its own plant and engineering leads, coordinated by one project director who owns your programme."
         meta={[

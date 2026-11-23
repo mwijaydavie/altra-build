@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   Bell,
   Boxes,
+  Building2,
   ChevronDown,
   ChevronRight,
   CircleDot,
@@ -42,6 +43,7 @@ const ROLE_LABEL: Record<Role, string> = {
 
 const NAV = [
   { href: "/dashboard", label: "Command centre", icon: LayoutDashboard, staff: false },
+  { href: "/dashboard/projects", label: "Project register", icon: Building2, staff: false },
   { href: "/dashboard/procurement", label: "Procurement", icon: Boxes, staff: true },
   { href: "/dashboard/safety", label: "Safety & compliance", icon: ShieldCheck, staff: true },
   { href: "/field", label: "Field app", icon: Smartphone, staff: true },

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
   label: string;
+  kicker?: string;
   title: string;
   deck?: string;
   meta?: { k: string; v: string }[];
@@ -17,6 +18,7 @@ interface PageHeroProps {
 /** Shared inner-page masthead. Large type, short deck, no wall of copy. */
 export function PageHero({
   label,
+  kicker,
   title,
   deck,
   meta,
@@ -28,7 +30,7 @@ export function PageHero({
     <section
       className={cn(
         "relative overflow-hidden pb-11 pt-[108px] lg:pb-12 lg:pt-[146px]",
-        dark ? "bg-ink text-paper" : "bg-paper text-ink",
+        dark ? "border-b border-paper/12 bg-ink text-paper" : "bg-paper text-ink",
       )}
     >
       <div
@@ -53,7 +55,7 @@ export function PageHero({
           <span className={dark ? "text-paper/70" : "text-ink/70"}>{label}</span>
         </nav>
 
-        <p className={cn("eyebrow mt-6", dark ? "text-gold" : "text-gold-deep")}>{label}</p>
+        <p className={cn("eyebrow mt-6", dark ? "text-gold" : "text-gold-deep")}>{kicker ?? label}</p>
 
         <TextMotion
           as="h1"

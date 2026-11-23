@@ -78,6 +78,11 @@ export default function SafetyPage() {
   const incidentRows = incidentFilter === "all" ? incidents : incidents.filter((incident) => incident.status === incidentFilter);
   const openIncidents = incidents.filter((incident) => incident.status !== "resolved").length;
   const overdue = checklist.filter((item) => item.status === "overdue").length;
+  const hseActivity = audit
+    .filter((entry) => entry.entity === "safety_incidents")
+    .slice()
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .slice(0, 3);
 
   const standards = ["ISO 45001", "OSHA", "Company"].map((standard) => {
     const rows = checklist.filter((item) => item.standard === standard);
@@ -125,7 +130,7 @@ export default function SafetyPage() {
           </div>
 
           <div className="mt-4 flex items-center gap-5">
-            <div className="relative h-[104px] w-[104px] shrink-0">
+            <div className="relative h-[116px] w-[116px] shrink-0">
               <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
                 <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(247,242,231,0.1)" strokeWidth="10" />
                 <circle
@@ -144,7 +149,7 @@ export default function SafetyPage() {
                 <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-paper/35">clauses met</span>
               </div>
             </div>
-            <div className="min-w-0 flex-1 space-y-2.5">
+            <div className="min-w-0 flex-1 space-y-3.5">
               {standards.map((row) => (
                 <div key={row.standard}>
                   <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.1em]">
@@ -164,19 +169,47 @@ export default function SafetyPage() {
             </div>
           </div>
 
-          <div className="mt-auto grid grid-cols-3 gap-2 border-t border-paper/10 pt-3">
-            {[
-              { label: "LTI free", value: "26 mo" },
-              { label: "TRIR", value: "0.00" },
-              { label: "Overdue", value: `${overdue}` },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-paper/30">{stat.label}</p>
-                <p className={cn("mt-0.5 font-mono text-[13px] tabular-nums", stat.label === "Overdue" && overdue ? "text-[#F26D5B]" : "text-paper/80")}>
-                  {stat.value}
-                </p>
-              </div>
-            ))}
+          <div className="mt-5 border-t border-paper/10 pt-3">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30">Latest HSE activity</p>
+            <ul className="mt-2.5 space-y-2.5">
+              {hseActivity.map((entry) => (
+                <li key={entry.id} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 bg-gold" />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-[11.5px] leading-snug text-paper/75">{entry.action}</p>
+                    <p className="mt-0.5 line-clamp-2 font-mono text-[9.5px] uppercase leading-snug tracking-[0.08em] text-paper/30">
+                      {people[entry.actorId] ?? "HSE desk"} · {entry.detail}
+                    </p>
+                  </div>
+                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.08em] text-paper/25">
+                    {relative(entry.createdAt)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-auto">
+            <div className="border-t border-paper/10 pt-3">
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/80">Stop-work authority</p>
+              <p className="mt-1.5 text-[11.5px] leading-relaxed text-paper/45">
+                Any worker can halt a task for an unsafe condition. No penalty, no escalation.
+              </p>
+            </div>
+            <div className="mt-3 grid grid-cols-3 gap-2 border-t border-paper/10 pt-3">
+              {[
+                { label: "LTI free", value: "26 mo" },
+                { label: "TRIR", value: "0.00" },
+                { label: "Overdue", value: `${overdue}` },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">{stat.label}</p>
+                  <p className={cn("mt-0.5 font-mono text-[13px] tabular-nums", stat.label === "Overdue" && overdue ? "text-[#F26D5B]" : "text-paper/80")}>
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </Panel>
 

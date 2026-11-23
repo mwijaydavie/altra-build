@@ -37,7 +37,7 @@ import {
   TrafficDot,
 } from "@/components/dashboard/ui";
 import { useMoveTask, useOpsSnapshot } from "@/lib/ops/hooks";
-import { formatDate, pct, relative, statusLabel, tzs } from "@/lib/ops/format";
+import { compact, formatDate, pct, relative, statusLabel, tzs } from "@/lib/ops/format";
 import { cn } from "@/lib/utils";
 import type { Role, TaskStatus } from "@/types/construction";
 
@@ -328,7 +328,7 @@ export function ProjectWorkspace({ projectId, role }: { projectId: string; role:
               <PanelHeader eyebrow="Safety" title="Site safety posture" />
               <div className="p-4">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-3xl font-semibold text-paper">{Math.round(project.safeManHours / 1000)}K</span>
+                  <span className="font-display text-3xl font-semibold text-paper">{compact(project.safeManHours)}</span>
                   <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/35">safe man-hours</span>
                 </div>
                 <ul className="mt-4 space-y-2">

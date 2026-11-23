@@ -142,7 +142,7 @@ export function SosPanel({
           placeholder="Add detail (optional)"
           className="mt-2 h-11 w-full border border-paper/12 bg-[#0F1117] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-[#F26D5B]/60 focus:outline-none"
         />
-        <p className="mt-2 flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+        <p className="mt-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
           <MapPin className="h-3 w-3" />
           {geo ? `${geo.lat.toFixed(5)}, ${geo.lng.toFixed(5)}` : "Acquiring GPS fix…"}
         </p>
@@ -186,7 +186,7 @@ export function SosPanel({
           <span className="font-display text-[17px] font-semibold uppercase tracking-[0.08em]">
             {holding ? "Keep holding…" : "Hold to broadcast SOS"}
           </span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/40">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/40">
             {HOLD_MS / 1000}s hold · all sites notified
           </span>
         </button>
