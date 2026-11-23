@@ -42,9 +42,9 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-[11px] tracking-[0.14em]",
-  md: "h-12 px-6 text-[12px] tracking-[0.14em]",
-  lg: "h-14 px-8 text-[13px] tracking-[0.16em]",
+  sm: "h-9 px-4 text-[12.5px] tracking-[0.14em]",
+  md: "h-12 px-6 text-[14px] tracking-[0.14em]",
+  lg: "h-14 px-8 text-[15.5px] tracking-[0.16em]",
 };
 
 export function MagneticButton(props: LinkProps | ButtonProps) {
@@ -75,7 +75,7 @@ export function MagneticButton(props: LinkProps | ButtonProps) {
 
   const inner = (
     <>
-      <span className="relative z-10 flex items-center gap-2 font-mono font-medium uppercase">
+      <span className="relative z-10 flex items-center gap-2 whitespace-nowrap font-mono font-medium uppercase">
         {children}
         {icon && (
           <ArrowUpRight

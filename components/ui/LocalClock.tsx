@@ -26,7 +26,7 @@ export function LocalClock({ timezone = "Africa/Dar_es_Salaam" }: { timezone?: s
   }, [timezone]);
 
   return (
-    <span className="font-mono text-[11px] tabular-nums tracking-[0.12em] text-paper/70">
+    <span className="font-mono text-[12.5px] tabular-nums tracking-[0.12em] text-paper/70">
       {time ?? "--:--:--"} <span className="text-paper/35">EAT</span>
     </span>
   );

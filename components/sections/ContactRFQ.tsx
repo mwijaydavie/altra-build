@@ -17,7 +17,7 @@ import { SplitHeading } from "@/components/ui/SplitHeading";
 import { cn } from "@/lib/utils";
 
 const inputBase =
-  "w-full border-b border-ink/20 bg-transparent pb-2.5 pt-1 text-[14px] text-ink outline-none transition-colors placeholder:text-ink/25 focus:border-gold-deep";
+  "w-full border-b border-ink/20 bg-transparent pb-2.5 pt-1 text-[16px] text-ink outline-none transition-colors placeholder:text-ink/25 focus:border-gold-deep";
 
 function Label({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
   return (
@@ -29,7 +29,7 @@ function Label({ htmlFor, children }: { htmlFor: string; children: React.ReactNo
 
 function ErrorLine({ message }: { message?: string }) {
   if (!message) return null;
-  return <p className="mt-1.5 font-mono text-[9.5px] uppercase tracking-[0.06em] text-hazard">{message}</p>;
+  return <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-hazard">{message}</p>;
 }
 
 export function ContactRFQ() {
@@ -109,18 +109,18 @@ export function ContactRFQ() {
   }
 
   return (
-    <section id="rfq" className="scroll-mt-20 border-t border-ink/15 bg-cream py-20 text-ink lg:py-28">
+    <section id="rfq" className="scroll-mt-20 border-t border-ink/15 bg-cream py-14 text-ink lg:py-20">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
             <div className="flex items-baseline gap-3">
-              <span className="meta text-gold-deep">08</span>
+              <span className="meta text-gold-deep">07</span>
               <span className="eyebrow text-ink/45">Request for tender</span>
             </div>
             <SplitHeading as="h2" className="display-lg mt-5 uppercase">
               Tell us what has to stand.
             </SplitHeading>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-ink/60">
+            <p className="mt-5 max-w-md text-[15.5px] leading-relaxed text-ink/60">
               Send us the outline — site, scale, programme. A pre-construction engineer replies within
               two working days with the questions that matter, not a brochure.
             </p>
@@ -132,10 +132,10 @@ export function ContactRFQ() {
                 { k: "03", t: "Tender or budget", d: "Measured tender within 10 working days of site data." },
               ].map((step) => (
                 <div key={step.k} className="flex gap-4">
-                  <span className="mt-0.5 font-mono text-[10px] tracking-[0.1em] text-gold-deep">{step.k}</span>
+                  <span className="mt-0.5 font-mono text-[11.5px] tracking-[0.1em] text-gold-deep">{step.k}</span>
                   <div>
-                    <p className="text-[13px] font-medium text-ink">{step.t}</p>
-                    <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink/45">{step.d}</p>
+                    <p className="text-[15.5px] font-medium text-ink">{step.t}</p>
+                    <p className="mt-0.5 text-[13px] leading-relaxed text-ink/45">{step.d}</p>
                   </div>
                 </div>
               ))}
@@ -146,21 +146,21 @@ export function ContactRFQ() {
                 <Mail className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
                 <span>
                   <span className="meta block text-ink/35">Tender desk</span>
-                  <span className="mt-1 block text-[12px] text-ink/75 group-hover:text-ink">{company.email}</span>
+                  <span className="mt-1 block text-[14px] text-ink/75 group-hover:text-ink">{company.email}</span>
                 </span>
               </a>
               <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="group flex items-start gap-2.5">
                 <Phone className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
                 <span>
                   <span className="meta block text-ink/35">Head office</span>
-                  <span className="mt-1 block text-[12px] text-ink/75 group-hover:text-ink">{company.phone}</span>
+                  <span className="mt-1 block text-[14px] text-ink/75 group-hover:text-ink">{company.phone}</span>
                 </span>
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
                 <span>
                   <span className="meta block text-ink/35">Head office</span>
-                  <span className="mt-1 block text-[12px] leading-relaxed text-ink/60">
+                  <span className="mt-1 block text-[14px] leading-relaxed text-ink/60">
                     Msasani Peninsula, Dar es Salaam
                   </span>
                 </span>
@@ -169,7 +169,7 @@ export function ContactRFQ() {
                 <ShieldCheck className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
                 <span>
                   <span className="meta block text-ink/35">Emergency site line</span>
-                  <span className="mt-1 block text-[12px] text-hazard">{company.emergency}</span>
+                  <span className="mt-1 block text-[14px] text-hazard">{company.emergency}</span>
                 </span>
               </div>
             </div>
@@ -182,9 +182,9 @@ export function ContactRFQ() {
                   <Check className="size-5" strokeWidth={2.4} />
                 </div>
                 <h3 className="display-md mt-6">Enquiry received.</h3>
-                <p className="mt-3 max-w-md text-[13px] leading-relaxed text-ink/60">
+                <p className="mt-3 max-w-md text-[15.5px] leading-relaxed text-ink/60">
                   Your reference is{" "}
-                  <span className="font-mono text-[12px] tracking-[0.06em] text-ink">{reference}</span>.
+                  <span className="font-mono text-[14px] tracking-[0.06em] text-ink">{reference}</span>.
                   A pre-construction engineer will acknowledge within two working hours and schedule a
                   technical call within two working days.
                 </p>
@@ -196,8 +196,8 @@ export function ContactRFQ() {
                     { t: "Tender", d: "Budget or measured tender issued." },
                   ].map((item) => (
                     <div key={item.t}>
-                      <p className="font-display text-[13px] text-ink">{item.t}</p>
-                      <p className="mt-1 text-[10.5px] leading-relaxed text-ink/45">{item.d}</p>
+                      <p className="font-display text-[15.5px] text-ink">{item.t}</p>
+                      <p className="mt-1 text-[12px] leading-relaxed text-ink/45">{item.d}</p>
                     </div>
                   ))}
                 </div>
@@ -216,7 +216,7 @@ export function ContactRFQ() {
                       setReference(null);
                       reset();
                     }}
-                    className="inline-flex h-12 items-center border border-ink/20 px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink/60 transition-colors hover:border-ink hover:text-ink"
+                    className="inline-flex h-12 items-center border border-ink/20 px-5 font-mono text-[12.5px] uppercase tracking-[0.14em] text-ink/60 transition-colors hover:border-ink hover:text-ink"
                   >
                     Submit another enquiry
                   </button>
@@ -230,7 +230,7 @@ export function ContactRFQ() {
               >
                 <div className="flex items-center justify-between border-b border-ink/10 pb-4">
                   <p className="eyebrow text-ink/45">Tender enquiry · AB/RFQ</p>
-                  <span className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-ink/30">
+                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
                     <span className="size-1.5 rounded-full bg-gold" />
                     Secure
                   </span>
@@ -295,7 +295,7 @@ export function ContactRFQ() {
                           className="sr-only"
                           {...register("discipline")}
                         />
-                        <span className="font-mono text-[9.5px] uppercase tracking-[0.06em]">
+                        <span className="font-mono text-[11px] uppercase tracking-[0.06em]">
                           {division.shortName}
                         </span>
                       </label>
@@ -378,7 +378,7 @@ export function ContactRFQ() {
                     />
                     <Check className="pointer-events-none absolute size-3 text-gold opacity-0 peer-checked:opacity-100" strokeWidth={3} />
                   </span>
-                  <span className="text-[11px] leading-relaxed text-ink/50">
+                  <span className="text-[12.5px] leading-relaxed text-ink/50">
                     I agree to Altra Build processing this enquiry for tender purposes, in line with the
                     Tanzanian Personal Data Protection Act.
                   </span>
@@ -386,7 +386,7 @@ export function ContactRFQ() {
                 <ErrorLine message={errors.consent?.message} />
 
                 {serverError && (
-                  <p className="mt-4 border border-hazard/30 bg-hazard/5 px-3 py-2 text-[11px] text-hazard">
+                  <p className="mt-4 border border-hazard/30 bg-hazard/5 px-3 py-2 text-[12.5px] text-hazard">
                     {serverError}
                   </p>
                 )}
@@ -405,7 +405,7 @@ export function ContactRFQ() {
                       </>
                     )}
                   </MagneticButton>
-                  <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.08em] text-ink/30">
+                  <p className="font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-ink/30">
                     Encrypted · NDA available
                     <br />
                     Reply within 2 working hours

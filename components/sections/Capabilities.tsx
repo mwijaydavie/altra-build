@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
 import { divisions } from "@/data/siteData";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
 
@@ -13,27 +12,23 @@ export function Capabilities() {
   const [active, setActive] = useState(0);
   const division = divisions[active] ?? divisions[0]!;
 
+  // Deep link: /capabilities?division=civil opens that division.
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("division");
+    const index = divisions.findIndex((item) => item.id === wanted);
+    if (index >= 0) setActive(index);
+  }, []);
+
   return (
-    <section id="capabilities" className="scroll-mt-24 bg-paper py-20 text-ink lg:py-28">
+    <section id="capabilities" className="scroll-mt-24 bg-paper py-14 text-ink lg:py-20">
       <div className="shell">
-        <SectionHeading
-          index="01"
-          label="Core engineering capabilities"
-          title="Four divisions. One standard of execution."
-          description="Each division runs its own plant, its own engineering leads and its own quality regime — coordinated through a single project director who owns your programme end to end."
-          action={
-            <a
-              href="/#rfq"
-              className="group inline-flex items-center gap-2 border-b border-ink/20 pb-1 font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:border-ink hover:text-ink"
-            >
-              Discuss a scope
-              <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          }
-        />
+        <div className="flex items-center justify-between border-t border-ink/15 pt-5">
+          <p className="eyebrow text-ink/45">Select a division</p>
+          <p className="meta text-ink/35">04 / divisions</p>
+        </div>
 
         {/* Interactive — desktop */}
-        <div className="mt-14 hidden gap-12 lg:grid lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mt-8 hidden gap-12 lg:grid lg:grid-cols-[0.95fr_1.05fr]">
           <div className="border-b border-ink/10">
             {divisions.map((item, index) => {
               const isActive = index === active;
@@ -58,7 +53,7 @@ export function Capabilities() {
                   />
                   <span
                     className={cn(
-                      "ml-4 mt-1 font-mono text-[11px] tracking-[0.14em] transition-colors",
+                      "ml-4 mt-1 font-mono text-[12.5px] tracking-[0.14em] transition-colors",
                       isActive ? "text-gold-deep" : "text-ink/35",
                     )}
                   >
@@ -78,12 +73,12 @@ export function Capabilities() {
                         {item.ref}
                       </span>
                     </span>
-                    <span className="mt-2 block text-[13px] leading-relaxed text-ink/50">
+                    <span className="mt-2 block text-[15.5px] leading-relaxed text-ink/50">
                       {item.summary}
                     </span>
                     <span
                       className={cn(
-                        "mt-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-500",
+                        "mt-4 flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.16em] transition-all duration-500",
                         isActive ? "text-gold-deep opacity-100" : "text-ink/40 opacity-70",
                       )}
                     >
@@ -118,10 +113,10 @@ export function Capabilities() {
 
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-paper">
               <div className="flex items-start justify-between">
-                <span className="border border-paper/25 bg-ink/40 px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/80 backdrop-blur">
+                <span className="border border-paper/25 bg-ink/40 px-2.5 py-1.5 font-mono text-[11.5px] uppercase tracking-[0.16em] text-paper/80 backdrop-blur">
                   {division.ref} / {division.index}
                 </span>
-                <span className="max-w-[16ch] text-right font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-paper/55">
+                <span className="max-w-[16ch] text-right font-mono text-[11.5px] uppercase leading-relaxed tracking-[0.14em] text-paper/55">
                   {division.kicker}
                 </span>
               </div>
@@ -131,7 +126,7 @@ export function Capabilities() {
                   {division.specs.map((spec) => (
                     <div key={spec.label}>
                       <p className="font-display text-xl leading-none text-gold">{spec.value}</p>
-                      <p className="mt-2 text-[10px] uppercase leading-snug tracking-[0.1em] text-paper/50">
+                      <p className="mt-2 text-[11.5px] uppercase leading-snug tracking-[0.1em] text-paper/50">
                         {spec.label}
                       </p>
                     </div>
@@ -139,7 +134,7 @@ export function Capabilities() {
                 </div>
                 <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2">
                   {division.capabilities.slice(0, 4).map((capability) => (
-                    <li key={capability} className="flex items-start gap-1.5 text-[11.5px] leading-snug text-paper/70">
+                    <li key={capability} className="flex items-start gap-1.5 text-[13px] leading-snug text-paper/70">
                       <Check className="mt-0.5 size-3 shrink-0 text-gold" strokeWidth={2} />
                       {capability}
                     </li>
@@ -168,16 +163,16 @@ export function Capabilities() {
                     <p className="meta text-gold">{item.ref}</p>
                     <h3 className="display-md mt-1 text-paper">{item.shortName}</h3>
                   </div>
-                  <span className="font-mono text-[10px] text-paper/50">{item.index}</span>
+                  <span className="font-mono text-[11.5px] text-paper/50">{item.index}</span>
                 </div>
               </div>
               <div className="p-5">
-                <p className="text-[13px] leading-relaxed text-ink/60">{item.summary}</p>
+                <p className="text-[15.5px] leading-relaxed text-ink/60">{item.summary}</p>
                 <div className="mt-5 grid grid-cols-3 gap-3 border-t border-ink/10 pt-4">
                   {item.specs.map((spec) => (
                     <div key={spec.label}>
                       <p className="font-display text-lg leading-none text-ink">{spec.value}</p>
-                      <p className="mt-1.5 text-[9.5px] uppercase leading-snug tracking-[0.08em] text-ink/40">
+                      <p className="mt-1.5 text-[11px] uppercase leading-snug tracking-[0.08em] text-ink/40">
                         {spec.label}
                       </p>
                     </div>

@@ -55,13 +55,30 @@ export const company = {
     "Kifaru — Swahili for rhinoceros — carries armour without aggression and weight with precision. It is how we build: heavily engineered, quietly executed, and impossible to move.",
 } as const;
 
-export const navigation: { label: string; href: string; meta: string }[] = [
-  { label: "Capabilities", href: "/#capabilities", meta: "04 divisions" },
-  { label: "Major Projects", href: "/#projects", meta: "Selected work" },
-  { label: "Method & Safety", href: "/#method", meta: "ISO 45001" },
-  { label: "Fleet & BIM", href: "/#fleet", meta: "Level 3" },
-  { label: "Client Portal", href: "/portal", meta: "Sign in" },
+export type NavItem = {
+  label: string;
+  href: string;
+  meta: string;
+  group: "primary" | "utility";
+  index: string;
+};
+
+/** Header + hinge-menu navigation. One page per idea — no anchor-only IA. */
+export const navigation: NavItem[] = [
+  { label: "Capabilities", href: "/capabilities", meta: "Four divisions", group: "primary", index: "01" },
+  { label: "Projects", href: "/projects", meta: "214 commissions", group: "primary", index: "02" },
+  { label: "Method & Safety", href: "/method", meta: "ISO 45001", group: "primary", index: "03" },
+  { label: "Fleet & BIM", href: "/fleet", meta: "Level 3", group: "primary", index: "04" },
+  { label: "About", href: "/about", meta: "Since 2009", group: "primary", index: "05" },
+  { label: "Estimator", href: "/estimator", meta: "Budget in 60 seconds", group: "utility", index: "06" },
+  { label: "Contact", href: "/contact", meta: "Tender desk · 2h SLA", group: "utility", index: "07" },
+  { label: "Client Portal", href: "/portal", meta: "Sign in", group: "utility", index: "08" },
+  { label: "Field App", href: "/field", meta: "Offline site log", group: "utility", index: "09" },
+  { label: "Brand", href: "/brand", meta: "Standards & assets", group: "utility", index: "10" },
 ];
+
+export const primaryNavigation = navigation.filter((item) => item.group === "primary");
+export const utilityNavigation = navigation.filter((item) => item.group === "utility");
 
 export const offices: Office[] = [
   {

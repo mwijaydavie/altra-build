@@ -13,14 +13,13 @@ const statusStyles: Record<string, string> = {
 
 export function FleetBim() {
   return (
-    <section id="fleet" className="scroll-mt-24 bg-ink py-20 text-paper lg:py-28">
+    <section id="fleet" className="scroll-mt-24 bg-ink py-14 text-paper lg:py-20">
       <div className="shell">
         <SectionHeading
           tone="dark"
           index="04"
           label="Machinery, fleet & digital delivery"
           title="Own the plant. Own the programme."
-          description="We are not a broker with a phone book of subcontractors. Our fleet, batching plants and survey instruments are bought, maintained and operated in-house — which is why we can commit to a date."
           action={
             <div className="flex items-center gap-2 border border-paper/15 px-3 py-2">
               <Radar className="size-3.5 text-gold" strokeWidth={1.8} />
@@ -47,7 +46,7 @@ export function FleetBim() {
                     96 owned machines. 3 batching plants. 1 standard.
                   </p>
                 </div>
-                <span className="border border-paper/25 bg-ink/50 px-2.5 py-1.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-paper/60 backdrop-blur">
+                <span className="border border-paper/25 bg-ink/50 px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper/60 backdrop-blur">
                   Fleet uptime 96.4%
                 </span>
               </div>
@@ -67,17 +66,17 @@ export function FleetBim() {
                 >
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="font-mono text-[10px] tracking-[0.1em] text-gold">{machine.tag}</span>
-                      <span className="text-[13px] text-paper/85">{machine.name}</span>
-                      <span className={cn("font-mono text-[9px] uppercase tracking-[0.12em]", statusStyles[machine.status])}>
+                      <span className="font-mono text-[11.5px] tracking-[0.1em] text-gold">{machine.tag}</span>
+                      <span className="text-[15.5px] text-paper/85">{machine.name}</span>
+                      <span className={cn("font-mono text-[10.5px] uppercase tracking-[0.12em]", statusStyles[machine.status])}>
                         {machine.status}
                       </span>
                     </div>
-                    <p className="mt-1 truncate text-[10.5px] text-paper/35">{machine.capability}</p>
+                    <p className="mt-1 truncate text-[12px] text-paper/35">{machine.capability}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-display text-base leading-none text-paper">{machine.units}</p>
-                    <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+                    <p className="font-display text-[17px] leading-none text-paper">{machine.units}</p>
+                    <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/30">
                       {machine.telemetry[0]?.value}
                     </p>
                   </div>
@@ -98,7 +97,7 @@ export function FleetBim() {
                 The model is the contract. Everything else is evidence.
               </h3>
             </div>
-            <p className="max-w-xs text-[11.5px] leading-relaxed text-paper/45">
+            <p className="max-w-xs text-[13px] leading-relaxed text-paper/45">
               Every project runs a federated common data environment. Clients get read access to the
               same model, programme and quality records our teams work from.
             </p>
@@ -112,12 +111,12 @@ export function FleetBim() {
                 className="group relative bg-ink p-5 transition-colors hover:bg-ink-800"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <h4 className="font-display text-[15px] tracking-tight text-paper/90">{item.name}</h4>
+                  <h4 className="font-display text-[17px] tracking-tight text-paper/90">{item.name}</h4>
                   <span className="shrink-0 border border-paper/15 px-2 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/40">
                     {item.tag}
                   </span>
                 </div>
-                <p className="mt-2.5 text-[11.5px] leading-relaxed text-paper/45">{item.detail}</p>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-paper/45">{item.detail}</p>
                 <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
               </Reveal>
             ))}

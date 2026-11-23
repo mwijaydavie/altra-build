@@ -1,8 +1,9 @@
 # Altra Build — Engineering tomorrow's horizons
 
-A production-grade marketing site and client portal for **Altra Build Limited**, a Tanzanian
-general contractor and civil engineering firm. Built with Next.js 15 (App Router), React 19,
-strict TypeScript, Tailwind CSS v4, GSAP + ScrollTrigger, Lenis and Framer Motion.
+A production-grade marketing site, client portal and **construction operations platform** for
+**Altra Build Limited**, a Tanzanian general contractor and civil engineering firm. Built with
+Next.js 15 (App Router), React 19, strict TypeScript, Tailwind CSS v4, GSAP + ScrollTrigger, Lenis,
+Framer Motion, TanStack Query, Recharts and a Supabase/Postgres schema with row-level security.
 
 The identity is derived directly from the supplied logo: the rhino emblem (*kifaru*), the
 obsidian/gold palette and the “altra build” lockup are used as real interface material — navigation,
@@ -66,19 +67,51 @@ The traced SVGs are faithful reconstructions; re-run `npm run brand` after any l
 
 ## What is implemented
 
-### Marketing site (`/`)
+### Marketing site — multi-page, not a scroll
 
-- **Hero** — layered parallax photography, line-masked headline, KPI counters, technical metadata,
-  rotating brand seal.
-- **Capabilities** — four divisions with hover-synced imagery, specs and capability lists
-  (stacked cards on touch).
-- **Projects** — GSAP horizontal pin/scrub gallery with progress rail, mobile fallback stack.
-- **Method & safety** — accessible accordion process, live-style safety HUD, ESG benchmarks.
-- **Fleet & BIM** — asset register, telemetry, ISO 19650 / LOD 400 capability grid.
-- **Tender estimator** — live order-of-cost model (discipline, area, location, ground, finish),
-  downloadable branded scope of work, hand-off into the RFQ form.
-- **Portal teaser, testimonials, RFQ form** — forms validated with Zod + React Hook Form and posted
-  to an API route that returns an issued reference.
+The single long landing page was split into real routes. Home is now five blocks (hero, practice,
+divisions, three selected records, closing CTA); everything deeper has its own URL, nav entry,
+metadata and sitemap entry.
+
+| Route | Contents |
+| --- | --- |
+| `/` | Hero + short practice manifesto + four division doors + three project records + CTA |
+| `/capabilities` | Deep-linked division switcher (`?division=civil`) + related routes |
+| `/projects` | Full project index; `/projects/[slug]` case studies |
+| `/method` | Method, safety accordion, HSE HUD, certifications, client verdicts |
+| `/fleet` | Plant register, telemetry, ISO 19650 / LOD 400 capability |
+| `/about` | Practice story, four stats, brand card, credentials, offices |
+| `/estimator` | Order-of-cost tool; hands off to the RFQ form |
+| `/contact` | RFQ form, acknowledgement/tender SLA, tender-desk contacts |
+| `/portal`, `/brand`, `/legal/*` | Demo client portal, brand standards, legal |
+
+Navigation is page-based (`data/siteData.ts` → `navigation`, `primaryNavigation`,
+`utilityNavigation`) with no anchor-only items. Header links point at routes; the old
+`/#capabilities` style links are gone.
+
+**Typography / copy rules**
+
+- Base body copy is 17 px with 1.6 line-height; marketing prose is 17–18 px, `meta`/`eyebrow`
+  labels are 12 px, and no prose sits below 13.5 px.
+- Home is ~4,500 px tall on a 1440×900 desktop (it was a ten-section page); mobile uses compact
+  division rows and a snap-scrolling project rail instead of stacking every card.
+- The screenshot-era Intro block was cut from two long paragraphs to one short statement plus three
+  one-line principles; section decks no longer repeat the page hero deck.
+
+**Interaction layer**
+
+- `components/ui/TextMotion.tsx` — word-masked reveal in the spirit of the supplied Framer
+  `TextMotion` module. Framer's `.js` modules cannot be installed into a Next build, so the
+  behaviour (staggered word rise, brand easing, reduced-motion fallback) is reimplemented natively
+  on `framer-motion`.
+- `components/layout/HingeMenu.tsx` — full-screen navigation where two leaves swing open around a
+  centre hinge (`rotateY` + perspective), replacing the old mobile-only drawer. Opens from the
+  header at every breakpoint; includes search, tender desk, offices, CTA and credits.
+- `components/layout/SiteSearch.tsx` — the VengeanceUI `search-modal` pattern (filter chips,
+  live-filtered rows, quick actions, keyboard hints) ported natively with lucide icons and the
+  Altra palette, replacing its `@phosphor-icons/react` dependency. Opens from the header, the hinge
+  menu, or `⌘K` / `Ctrl+K`; arrow keys + Enter navigate; results are indexed from
+  `lib/siteSearch.ts` (pages, divisions, projects).
 
 ### Client portal (`/portal`)
 
@@ -111,26 +144,137 @@ library — all downloadable.
 
 ---
 
+## ALTRA COMMAND — operations portal (`/dashboard`)
+
+A Procore-class operations HUD for four roles, plus an offline-first field app. All data is served
+from `lib/ops/store.ts`, a seeded repository that mirrors `supabase/schema.sql`; the same read models
+are returned when Supabase is connected, so the UI never talks to the database directly.
+
+### Demo roles
+
+Switch roles from the account menu in the sidebar (or `POST /api/ops/session` with `{ "role": … }`).
+The session cookie stores a profile id and is validated on every request.
+
+| Role | Person | Scope |
+| --- | --- | --- |
+| `executive` | Neema Mwakalinga — CEO | All nine sites, full finance, approvals, audit |
+| `pm` | Baraka Mwakyusa — Project Director | Assigned sites only, approvals, audit |
+| `engineer` | Halima Juma — Site Engineer | Assigned sites, field logs, observations, no approvals |
+| `client` | Zahara Kimaro — Tumaini Estates | Read-only single-project view; no procurement, HSE register or cost breakdowns |
+
+`lib/ops/permissions.ts` is the capability matrix; each entry has a matching RLS policy in
+`supabase/schema.sql` (`executive`, `pm`, `engineer`, `client`).
+
+### Surfaces
+
+- **`/dashboard`** — capital deployed vs budget, active sites and live workforce, critical-path
+  variance, safe man-hours without LTI. Recharts burn chart (outflow vs milestone billing, 6M/12M),
+  offline-safe vector map of Tanzania with green/amber/red site status, live alerts with
+  acknowledgement, project register with filters, one-click change-order approvals, audit trail.
+- **`/dashboard/projects/[id]`** — Overview, Programme (Gantt phase timeline + drag-and-drop Kanban),
+  Daily logs, Financials (invoices, cost structure, burn), Documents. Phase completion across
+  Foundation → Superstructure → MEP → Envelope → Fit-out.
+- **`/dashboard/procurement`** — stock table for steel, cement, aggregate and ready-mix with
+  cover-vs-reorder meters, low-stock exceptions, requisition approvals and delivery confirmation.
+  **Generate PO** opens a live document preview (letterhead, VAT, terms, signatures) with
+  `Print / save PDF`; print CSS hides the app chrome and prints only the order.
+- **`/dashboard/safety`** — ISO 45001 / OSHA Tanzania checklist, compliance score, severity × status
+  matrix, incident register with signed sign-off, audit trail and a printable incident report.
+- **`/field`** — mobile-first PWA (installable, field-scoped service worker): 48 px+ targets, 3-tap
+  daily log (weather → crew +/− → submit), delay chips, camera capture with geolocation and
+  timestamp watermark burned into the image, offline IndexedDB queue with automatic replay, safety
+  observations and a hold-to-broadcast SOS safety stop.
+
+### API
+
+| Route | Methods | Notes |
+| --- | --- | --- |
+| `/api/ops/snapshot` | `GET` | One scoped read model for every dashboard surface |
+| `/api/ops/session` | `GET` `POST` `DELETE` | Demo session / role switch |
+| `/api/ops/logs` | `GET` `POST` | Daily site logs |
+| `/api/ops/incidents` | `GET` `POST` `PATCH` | Observations; sign-off restricted to PM/exec |
+| `/api/ops/requisitions` | `GET` `POST` `PATCH` | Approve, reject, confirm delivery |
+| `/api/ops/rfis` | `GET` `POST` | Raise RFIs |
+| `/api/ops/rfis/[id]/decision` | `POST` | One-click change-order approval |
+| `/api/ops/tasks` | `GET` `PATCH` | Kanban / Gantt status moves |
+| `/api/ops/alerts` | `PATCH` | Acknowledge an exception |
+| `/api/ops/sos` | `POST` | Safety-stop broadcast with coordinates |
+| `/api/ops/sync` | `POST` | Idempotent offline queue replay (`clientUuid`) |
+
+All mutations validate with Zod (`lib/ops/validation.ts`), check the role capability **and** the
+project scope, and write an audit entry.
+
+### Supabase
+
+```bash
+# 1. create a project, then apply the schema (Supabase CLI)
+supabase db push          # or paste supabase/schema.sql into the SQL editor
+
+# 2. configure the browser client
+NEXT_PUBLIC_SUPABASE_URL=…
+NEXT_PUBLIC_SUPABASE_ANON_KEY=…
+```
+
+`schema.sql` creates enums, 15 tables (profiles, projects, members, phases, tasks, daily logs,
+incidents, checklist, alerts, inventory, requisitions, RFIs/change orders, invoices, monthly
+financials, documents, audit), indexes, triggers (updated-at, manpower totals, safe man-hours
+roll-up, phase status, audit), RLS helpers (`app_role`, `is_executive`, `is_project_member`,
+`can_see_project`), per-role policies, reporting views and seed checklist/inventory rows. Profile
+rows are created automatically from `auth.users` via the `handle_new_user` trigger.
+
+The demo repository is deliberately in-memory: mutations reset when the server restarts.
+
+---
+
 ## Structure
 
 ```
 app/                 routes, metadata, sitemap/robots/manifest, API, icons
+app/(site)/          marketing routes + client portal (Lenis / brand chrome)
+app/dashboard/       ALTRA COMMAND layout, executive HUD, project, procurement, safety
+app/field/           field PWA shell + /field/manifest.webmanifest
+app/api/ops/         scoped operational API
 components/
   layout/            Navbar, Footer, Preloader
-  sections/          Hero, Intro, Capabilities, ProjectsShowcase, MethodSafety,
-                     FleetBim, Estimator, PortalTeaser, Testimonials, ContactRFQ
+  home/              HomeManifesto, HomeDivisions, HomeProjects, HomeCta
+  marketing/         PageHero, RelatedLinks
+  sections/          Hero, Intro, Capabilities, MethodSafety, FleetBim, Estimator,
+                     Testimonials, ContactRFQ
   portal/            PortalClient (demo auth + dashboard)
+  dashboard/         Shell, KPIs, burn chart, map, Gantt, Kanban, approvals, PO generator,
+                     safety matrix, incident report
+  field/             FieldApp, quick log/incident forms, photo capture, sync badge, SOS
   providers/         SmoothScrollProvider (Lenis ↔ GSAP)
-  ui/                Logo, BrandSeal, MagneticButton, SplitHeading, Counter, Reveal,
-                     SectionHeading, LocalClock
-data/siteData.ts     all copy, projects, fleet, safety, estimator rates, brand system
-lib/                 gsap registration, estimator model, Zod schemas, utilities
+  ui/                Logo, BrandSeal, MagneticButton, SplitHeading, TextMotion, Counter,
+                     Reveal, SectionHeading, LocalClock
+data/siteData.ts     all marketing copy, projects, fleet, safety, estimator, brand system
+data/opsData.ts      seeded operational dataset (programme, logs, incidents, POs, finance)
+lib/ops/             repository, permissions, session, validation, formatters, hooks
+lib/siteSearch.ts    marketing search index (pages, divisions, projects)
+lib/field/queue.ts   IndexedDB offline queue + idempotent replay
+supabase/schema.sql  Postgres schema, triggers, RLS, seed
 public/brand/        generated identity assets
 public/images/       photography
+public/sw.js         field-scoped service worker
 scripts/             brand tracing + raster pipeline
 ```
 
 ---
+
+## QA notes
+
+- TypeScript strict, `npx tsc --noEmit` and `npm run build` are clean.
+- Desktop (1440) and mobile (390) layouts are verified headlessly for every marketing route plus
+  the hinge menu and search overlay; the field app's bottom navigation targets are 68 px tall,
+  above the 48 px minimum.
+- Marketing type scale is checked at both breakpoints: body ≥17 px, labels 12 px, measure ≤65ch;
+  home desktop height ≈4,500 px and mobile ≈6,500 px including the footer.
+- Offline flow verified by toggling the browser offline: the daily log persists to IndexedDB, the
+  badge shows the queue depth, and it syncs to zero on reconnect.
+- No third-party network requests: fonts, images and the Tanzania map are local/inline, so the
+  dashboard and field app render inside an isolated iframe preview.
+- Printing the PO or incident report hides the app chrome via `:has()` print rules and prints only
+  the document (use the browser dialog's “Save as PDF”).
 
 ## Content note
 

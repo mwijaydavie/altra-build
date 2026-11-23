@@ -8,8 +8,11 @@ const nextConfig: NextConfig = {
     deviceSizes: [420, 640, 828, 1080, 1280, 1600, 1920, 2560],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    optimizePackageImports: ["lucide-react", "framer-motion", "recharts"],
   },
+  // The field app and command centre are demoed inside an iframe preview — the
+  // dev overlay badge would sit on top of the fixed field navigation.
+  devIndicators: false,
   async headers() {
     return [
       {
