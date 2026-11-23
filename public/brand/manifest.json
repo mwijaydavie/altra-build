@@ -1,0 +1,42 @@
+{
+  "brand": "Altra Build",
+  "palette": {
+    "cream": "#FFF3E7",
+    "gold": "#F7BC32",
+    "ink": "#1C1C26",
+    "inkSoft": "#262633",
+    "concrete": "#8C8577",
+    "hazard": "#E05A1B"
+  },
+  "geometry": {
+    "lockup": {
+      "width": 471,
+      "height": 77,
+      "ratio": 6.1169
+    },
+    "mark": {
+      "width": 82,
+      "height": 77,
+      "circle": {
+        "cx": 38.5,
+        "cy": 37.5,
+        "r": 35.5
+      }
+    },
+    "clearspace": "0.5 × emblem diameter",
+    "minWidth": {
+      "digital": "28px emblem / 96px lockup",
+      "print": "8mm emblem / 30mm lockup"
+    }
+  },
+  "assets": {
+    "lockup": "/brand/altra-logo.svg",
+    "lockupInverse": "/brand/altra-logo-inverse.svg",
+    "emblem": "/brand/altra-mark.svg",
+    "emblemInverse": "/brand/altra-mark-inverse.svg",
+    "wordmark": "/brand/altra-wordmark.svg",
+    "mono": "/brand/altra-logo-mono-ink.svg",
+    "print": "/brand/altra-lockup.jpg",
+    "social": "/brand/og-image.png"
+  }
+}
