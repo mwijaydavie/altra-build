@@ -28,12 +28,12 @@ export default function ProjectsIndexPage() {
             Built, audited, still standing.
           </SplitHeading>
           <div className="mt-8 flex flex-col justify-between gap-6 border-t border-paper/15 pt-6 sm:flex-row sm:items-end">
-            <p className="max-w-md text-sm leading-relaxed text-paper/55">
+            <p className="max-w-md text-[15.5px] leading-relaxed text-paper/55">
               Every published record carries its contract value, structural quantities, programme and
               audited outcomes. Anonymous references are available on request under NDA.
             </p>
             <div className="flex flex-wrap gap-3">
-              <MagneticButton href="/#rfq" variant="gold" size="md">
+              <MagneticButton href="/contact" variant="gold" size="md">
                 Discuss a project
               </MagneticButton>
               <MagneticButton href="/" variant="outline-light" size="md">
@@ -60,7 +60,7 @@ export default function ProjectsIndexPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70" />
                     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-paper">
-                      <span className="border border-paper/25 bg-ink/40 px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper/75 backdrop-blur">
+                      <span className="border border-paper/25 bg-ink/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/75 backdrop-blur">
                         {project.code}
                       </span>
                       <span className="flex size-10 items-center justify-center rounded-full border border-paper/30 text-paper transition-colors group-hover:border-gold group-hover:bg-gold group-hover:text-ink">
@@ -74,13 +74,13 @@ export default function ProjectsIndexPage() {
                         {project.sector} · {project.location}
                       </p>
                       <h2 className="display-md mt-2 uppercase">{project.name}</h2>
-                      <p className="mt-2 max-w-md text-[13px] leading-relaxed text-ink/55">
+                      <p className="mt-2 max-w-md text-[15.5px] leading-relaxed text-ink/55">
                         {project.summary}
                       </p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="font-display text-2xl leading-none text-ink">{project.year}</p>
-                      <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-ink/35">
+                      <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/35">
                         {project.status}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function ProjectsIndexPage() {
           </div>
 
           <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-ink/15 pt-8 sm:flex-row sm:items-center">
-            <p className="max-w-md text-[13px] leading-relaxed text-ink/50">
+            <p className="max-w-md text-[15.5px] leading-relaxed text-ink/50">
               Want the full record for a project similar to yours? The tender desk can share redacted
               method statements and references.
             </p>

@@ -49,7 +49,7 @@ export function SectionHeading({
           {description && (
             <p
               className={cn(
-                "mt-5 max-w-xl text-sm leading-relaxed sm:text-[15px]",
+                "mt-5 max-w-xl text-[15.5px] leading-relaxed sm:text-[17px]",
                 dark ? "text-paper/55" : "text-ink/60",
               )}
             >

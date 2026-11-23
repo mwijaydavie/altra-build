@@ -67,19 +67,51 @@ The traced SVGs are faithful reconstructions; re-run `npm run brand` after any l
 
 ## What is implemented
 
-### Marketing site (`/`)
+### Marketing site — multi-page, not a scroll
 
-- **Hero** — layered parallax photography, line-masked headline, KPI counters, technical metadata,
-  rotating brand seal.
-- **Capabilities** — four divisions with hover-synced imagery, specs and capability lists
-  (stacked cards on touch).
-- **Projects** — GSAP horizontal pin/scrub gallery with progress rail, mobile fallback stack.
-- **Method & safety** — accessible accordion process, live-style safety HUD, ESG benchmarks.
-- **Fleet & BIM** — asset register, telemetry, ISO 19650 / LOD 400 capability grid.
-- **Tender estimator** — live order-of-cost model (discipline, area, location, ground, finish),
-  downloadable branded scope of work, hand-off into the RFQ form.
-- **Portal teaser, testimonials, RFQ form** — forms validated with Zod + React Hook Form and posted
-  to an API route that returns an issued reference.
+The single long landing page was split into real routes. Home is now five blocks (hero, practice,
+divisions, three selected records, closing CTA); everything deeper has its own URL, nav entry,
+metadata and sitemap entry.
+
+| Route | Contents |
+| --- | --- |
+| `/` | Hero + short practice manifesto + four division doors + three project records + CTA |
+| `/capabilities` | Deep-linked division switcher (`?division=civil`) + related routes |
+| `/projects` | Full project index; `/projects/[slug]` case studies |
+| `/method` | Method, safety accordion, HSE HUD, certifications, client verdicts |
+| `/fleet` | Plant register, telemetry, ISO 19650 / LOD 400 capability |
+| `/about` | Practice story, four stats, brand card, credentials, offices |
+| `/estimator` | Order-of-cost tool; hands off to the RFQ form |
+| `/contact` | RFQ form, acknowledgement/tender SLA, tender-desk contacts |
+| `/portal`, `/brand`, `/legal/*` | Demo client portal, brand standards, legal |
+
+Navigation is page-based (`data/siteData.ts` → `navigation`, `primaryNavigation`,
+`utilityNavigation`) with no anchor-only items. Header links point at routes; the old
+`/#capabilities` style links are gone.
+
+**Typography / copy rules**
+
+- Base body copy is 17 px with 1.6 line-height; marketing prose is 17–18 px, `meta`/`eyebrow`
+  labels are 12 px, and no prose sits below 13.5 px.
+- Home is ~4,500 px tall on a 1440×900 desktop (it was a ten-section page); mobile uses compact
+  division rows and a snap-scrolling project rail instead of stacking every card.
+- The screenshot-era Intro block was cut from two long paragraphs to one short statement plus three
+  one-line principles; section decks no longer repeat the page hero deck.
+
+**Interaction layer**
+
+- `components/ui/TextMotion.tsx` — word-masked reveal in the spirit of the supplied Framer
+  `TextMotion` module. Framer's `.js` modules cannot be installed into a Next build, so the
+  behaviour (staggered word rise, brand easing, reduced-motion fallback) is reimplemented natively
+  on `framer-motion`.
+- `components/layout/HingeMenu.tsx` — full-screen navigation where two leaves swing open around a
+  centre hinge (`rotateY` + perspective), replacing the old mobile-only drawer. Opens from the
+  header at every breakpoint; includes search, tender desk, offices, CTA and credits.
+- `components/layout/SiteSearch.tsx` — the VengeanceUI `search-modal` pattern (filter chips,
+  live-filtered rows, quick actions, keyboard hints) ported natively with lucide icons and the
+  Altra palette, replacing its `@phosphor-icons/react` dependency. Opens from the header, the hinge
+  menu, or `⌘K` / `Ctrl+K`; arrow keys + Enter navigate; results are indexed from
+  `lib/siteSearch.ts` (pages, divisions, projects).
 
 ### Client portal (`/portal`)
 
@@ -204,18 +236,21 @@ app/field/           field PWA shell + /field/manifest.webmanifest
 app/api/ops/         scoped operational API
 components/
   layout/            Navbar, Footer, Preloader
-  sections/          Hero, Intro, Capabilities, ProjectsShowcase, MethodSafety,
-                     FleetBim, Estimator, PortalTeaser, Testimonials, ContactRFQ
+  home/              HomeManifesto, HomeDivisions, HomeProjects, HomeCta
+  marketing/         PageHero, RelatedLinks
+  sections/          Hero, Intro, Capabilities, MethodSafety, FleetBim, Estimator,
+                     Testimonials, ContactRFQ
   portal/            PortalClient (demo auth + dashboard)
   dashboard/         Shell, KPIs, burn chart, map, Gantt, Kanban, approvals, PO generator,
                      safety matrix, incident report
   field/             FieldApp, quick log/incident forms, photo capture, sync badge, SOS
   providers/         SmoothScrollProvider (Lenis ↔ GSAP)
-  ui/                Logo, BrandSeal, MagneticButton, SplitHeading, Counter, Reveal,
-                     SectionHeading, LocalClock
+  ui/                Logo, BrandSeal, MagneticButton, SplitHeading, TextMotion, Counter,
+                     Reveal, SectionHeading, LocalClock
 data/siteData.ts     all marketing copy, projects, fleet, safety, estimator, brand system
 data/opsData.ts      seeded operational dataset (programme, logs, incidents, POs, finance)
 lib/ops/             repository, permissions, session, validation, formatters, hooks
+lib/siteSearch.ts    marketing search index (pages, divisions, projects)
 lib/field/queue.ts   IndexedDB offline queue + idempotent replay
 supabase/schema.sql  Postgres schema, triggers, RLS, seed
 public/brand/        generated identity assets
@@ -229,8 +264,11 @@ scripts/             brand tracing + raster pipeline
 ## QA notes
 
 - TypeScript strict, `npx tsc --noEmit` and `npm run build` are clean.
-- Desktop (1440) and mobile (390) layouts are verified headlessly; the field app's bottom navigation
-  targets are 68 px tall, above the 48 px minimum.
+- Desktop (1440) and mobile (390) layouts are verified headlessly for every marketing route plus
+  the hinge menu and search overlay; the field app's bottom navigation targets are 68 px tall,
+  above the 48 px minimum.
+- Marketing type scale is checked at both breakpoints: body ≥17 px, labels 12 px, measure ≤65ch;
+  home desktop height ≈4,500 px and mobile ≈6,500 px including the footer.
 - Offline flow verified by toggling the browser offline: the daily log persists to IndexedDB, the
   badge shows the queue depth, and it syncs to zero on reconnect.
 - No third-party network requests: fonts, images and the Tanzania map are local/inline, so the

@@ -2,17 +2,16 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { company, heroRibbon } from "@/data/siteData";
 import { Counter } from "@/components/ui/Counter";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Logo } from "@/components/ui/Logo";
-import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
-  const { scrollTo } = useSmoothScroll();
 
   useGSAP(
     () => {
@@ -86,7 +85,7 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-0 -z-10 text-paper blueprint opacity-[0.18]" aria-hidden />
 
-      <div className="shell relative flex flex-1 flex-col justify-between pb-8 pt-[104px] sm:pt-[112px] lg:pb-7 lg:pt-[112px]">
+      <div className="shell relative flex flex-1 flex-col justify-between pb-8 pt-[96px] sm:pt-[104px] lg:pb-7 lg:pt-[104px]">
         {/* top meta row */}
         <div className="flex items-start justify-between gap-6">
           <div data-hero-meta className="flex items-center gap-3">
@@ -104,7 +103,7 @@ export function Hero() {
         </div>
 
         {/* headline */}
-        <div data-hero-content className="mt-10 max-w-4xl sm:mt-12">
+        <div data-hero-content className="mt-8 max-w-4xl sm:mt-9">
           <p data-hero-fade className="eyebrow mb-5 flex items-center gap-3 text-gold">
             <span className="inline-block h-px w-9 bg-gold" />
             Civil · Structures · Industrial
@@ -132,16 +131,16 @@ export function Hero() {
             ))}
           </h1>
 
-          <div className="mt-6 flex max-w-2xl flex-col gap-6">
-            <p data-hero-fade className="max-w-xl text-[15px] leading-relaxed text-paper/65 sm:text-base">
+          <div className="mt-5 flex max-w-2xl flex-col gap-5">
+            <p data-hero-fade className="max-w-xl text-[17px] leading-relaxed text-paper/65 sm:text-[17px]">
               {company.proposition} Delivered by Tanzanian engineers, to international standards,
               since {company.founded}.
             </p>
             <div data-hero-fade className="flex flex-wrap items-center gap-3">
-              <MagneticButton href="/#rfq" size="lg">
+              <MagneticButton href="/contact" size="lg">
                 Request project tender
               </MagneticButton>
-              <MagneticButton href="/#projects" size="lg" variant="outline-light">
+              <MagneticButton href="/projects" size="lg" variant="outline-light">
                 View major projects
               </MagneticButton>
             </div>
@@ -149,7 +148,7 @@ export function Hero() {
         </div>
 
         {/* ribbon */}
-        <div className="mt-9 flex items-end justify-between gap-8 sm:mt-10">
+        <div className="mt-7 flex items-end justify-between gap-8 sm:mt-8">
           <dl className="grid w-full grid-cols-2 gap-x-5 gap-y-7 border-t border-paper/15 pt-6 sm:gap-x-8 lg:grid-cols-4">
             {heroRibbon.map((metric, index) => (
               <div key={metric.id} data-hero-meta>
@@ -161,7 +160,7 @@ export function Hero() {
                     suffix={metric.suffix}
                   />
                 </dd>
-                <dt className="mt-2.5 text-[10.5px] uppercase leading-snug tracking-[0.12em] text-paper/45">
+                <dt className="mt-2.5 text-[12px] uppercase leading-snug tracking-[0.12em] text-paper/45">
                   {metric.label}
                 </dt>
                 {index === 0 && <span className="sr-only">Signature metric</span>}
@@ -169,17 +168,16 @@ export function Hero() {
             ))}
           </dl>
 
-          <button
-            type="button"
-            onClick={() => scrollTo("#capabilities", -70)}
+          <Link
+            href="/capabilities"
             className="group hidden shrink-0 flex-col items-center gap-3 self-end lg:flex"
-            aria-label="Scroll to capabilities"
+            aria-label="Go to capabilities"
           >
             <span className="meta rotate-180 text-paper/35 [writing-mode:vertical-rl]">Scroll to survey</span>
             <span className="flex size-11 items-center justify-center rounded-full border border-paper/25 text-paper/60 transition-colors group-hover:border-gold group-hover:text-gold">
               <ArrowDown className="size-4 motion-safe:animate-bounce" strokeWidth={1.5} />
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 

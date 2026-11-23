@@ -107,7 +107,7 @@ export function PortalClient() {
             <h1 className="display-lg mt-5 uppercase">
               Your project, <span className="text-outline">live.</span>
             </h1>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-paper/55">
+            <p className="mt-5 max-w-md text-[15.5px] leading-relaxed text-paper/55">
               Programme, documents, RFIs, invoices and safety records — the same dashboard our project
               directors work from, scoped to your contract.
             </p>
@@ -121,7 +121,7 @@ export function PortalClient() {
               ].map((item) => (
                 <div key={item.k}>
                   <dd className="font-display text-xl leading-none text-paper">{item.v}</dd>
-                  <dt className="mt-2 text-[9.5px] uppercase tracking-[0.08em] text-paper/35">{item.k}</dt>
+                  <dt className="mt-2 text-[11px] uppercase tracking-[0.08em] text-paper/35">{item.k}</dt>
                 </div>
               ))}
             </dl>
@@ -129,8 +129,8 @@ export function PortalClient() {
             <div className="mt-10 flex items-start gap-3 border border-paper/15 bg-paper/[0.03] p-4">
               <Logo variant="mark" tone="inverse" height={32} />
               <div>
-                <p className="font-mono text-[9.5px] uppercase tracking-[0.12em] text-gold">Demo access</p>
-                <p className="mt-1.5 text-[11.5px] leading-relaxed text-paper/45">
+                <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-gold">Demo access</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-paper/45">
                   Use <span className="text-paper/75">{DEMO.email}</span> with{" "}
                   <span className="text-paper/75">{DEMO.password}</span> to explore the portal.
                 </p>
@@ -141,7 +141,7 @@ export function PortalClient() {
           <div className="border border-paper/15 bg-ink-800 p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-paper/10 pb-4">
               <p className="eyebrow text-paper/45">Client sign in</p>
-              <span className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+              <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/30">
                 <span className="size-1.5 rounded-full bg-gold" />
                 TLS 1.3
               </span>
@@ -163,12 +163,12 @@ export function PortalClient() {
                     type="email"
                     autoComplete="email"
                     placeholder="you@company.co.tz"
-                    className="w-full bg-transparent text-sm text-paper outline-none placeholder:text-paper/20"
+                    className="w-full bg-transparent text-[15.5px] text-paper outline-none placeholder:text-paper/20"
                     {...form.register("email")}
                   />
                 </div>
                 {form.formState.errors.email && (
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.06em] text-hazard">
+                  <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.06em] text-hazard">
                     {form.formState.errors.email.message}
                   </p>
                 )}
@@ -185,12 +185,12 @@ export function PortalClient() {
                     type="password"
                     autoComplete="current-password"
                     placeholder="••••••••"
-                    className="w-full bg-transparent text-sm text-paper outline-none placeholder:text-paper/20"
+                    className="w-full bg-transparent text-[15.5px] text-paper outline-none placeholder:text-paper/20"
                     {...form.register("password")}
                   />
                 </div>
                 {form.formState.errors.password && (
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.06em] text-hazard">
+                  <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.06em] text-hazard">
                     {form.formState.errors.password.message}
                   </p>
                 )}
@@ -206,14 +206,14 @@ export function PortalClient() {
                     form.setValue("email", DEMO.email);
                     form.setValue("password", DEMO.password);
                   }}
-                  className="inline-flex h-12 items-center border border-paper/20 px-5 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/60 transition-colors hover:border-gold hover:text-gold"
+                  className="inline-flex h-12 items-center border border-paper/20 px-5 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/60 transition-colors hover:border-gold hover:text-gold"
                 >
                   Use demo access
                 </button>
               </div>
             </form>
 
-            <p className="mt-6 border-t border-paper/10 pt-4 text-[10.5px] leading-relaxed text-paper/30">
+            <p className="mt-6 border-t border-paper/10 pt-4 text-[12px] leading-relaxed text-paper/30">
               Access is issued per organisation and protected by SSO or MFA. Lost credentials? Contact
               your account manager or email tender@altrabuild.co.tz.
             </p>
@@ -237,15 +237,15 @@ export function PortalClient() {
           <div className="flex items-center gap-3">
             <Logo variant="mark" tone="inverse" height={30} />
             <div>
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-gold">Altra Portal</p>
-              <p className="mt-0.5 text-[12px] text-paper/55">Tumaini Estates · Client access</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-gold">Altra Portal</p>
+              <p className="mt-0.5 text-[14px] text-paper/55">Tumaini Estates · Client access</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={downloadReport}
-              className="hidden h-9 items-center gap-2 border border-paper/20 px-3 font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/60 transition-colors hover:border-gold hover:text-gold sm:flex"
+              className="hidden h-9 items-center gap-2 border border-paper/20 px-3 font-mono text-[11px] uppercase tracking-[0.1em] text-paper/60 transition-colors hover:border-gold hover:text-gold sm:flex"
             >
               <Download className="size-3" />
               Export record
@@ -253,7 +253,7 @@ export function PortalClient() {
             <button
               type="button"
               onClick={signOut}
-              className="flex h-9 items-center gap-2 border border-paper/20 px-3 font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/60 transition-colors hover:border-hazard hover:text-hazard"
+              className="flex h-9 items-center gap-2 border border-paper/20 px-3 font-mono text-[11px] uppercase tracking-[0.1em] text-paper/60 transition-colors hover:border-hazard hover:text-hazard"
             >
               <LogOut className="size-3" />
               Sign out
@@ -280,7 +280,7 @@ export function PortalClient() {
                     )}
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold/80">
+                      <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-gold/80">
                         {item.code}
                       </span>
                       <span
@@ -292,12 +292,12 @@ export function PortalClient() {
                         {item.status}
                       </span>
                     </div>
-                    <p className="mt-1.5 text-[13px] text-paper/85">{item.name}</p>
+                    <p className="mt-1.5 text-[15.5px] text-paper/85">{item.name}</p>
                     <div className="mt-3 flex items-center gap-3">
                       <div className="h-[3px] flex-1 bg-paper/10">
                         <div className="h-full bg-gold" style={{ width: `${item.progress}%` }} />
                       </div>
-                      <span className="font-mono text-[9px] text-paper/40">{item.progress}%</span>
+                      <span className="font-mono text-[10.5px] text-paper/40">{item.progress}%</span>
                     </div>
                   </button>
                 ))}
@@ -322,11 +322,11 @@ export function PortalClient() {
 
             <div className="border border-paper/10 bg-ink-800 p-4">
               <p className="meta text-paper/30">Your account manager</p>
-              <p className="mt-2 text-[13px] text-paper/80">Eng. Neema Mwakalinga</p>
-              <p className="mt-1 text-[10.5px] text-paper/40">Project Director · +255 754 118 220</p>
+              <p className="mt-2 text-[15.5px] text-paper/80">Eng. Neema Mwakalinga</p>
+              <p className="mt-1 text-[12px] text-paper/40">Project Director · +255 754 118 220</p>
               <a
                 href="mailto:neema.mwakalinga@altrabuild.co.tz"
-                className="mt-3 flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-gold/80 hover:text-gold"
+                className="mt-3 flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-gold/80 hover:text-gold"
               >
                 Message
                 <ArrowRight className="size-3" />
@@ -338,9 +338,9 @@ export function PortalClient() {
           <div className="border border-paper/10 bg-paper/[0.03] p-5 sm:p-6">
             <div className="flex flex-wrap items-start justify-between gap-4 border-b border-paper/10 pb-5">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-gold">{project.code}</p>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-gold">{project.code}</p>
                 <h2 className="display-md mt-2 text-paper">{project.name}</h2>
-                <p className="mt-1.5 text-[11.5px] text-paper/40">
+                <p className="mt-1.5 text-[13px] text-paper/40">
                   {project.phase} · {project.contractValue}
                 </p>
               </div>
@@ -355,15 +355,15 @@ export function PortalClient() {
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div className="border border-paper/10 p-4">
                 <p className="meta text-paper/30">Next milestone</p>
-                <p className="mt-2 text-[12.5px] leading-snug text-paper/75">{project.nextMilestone}</p>
-                <p className="mt-1 font-mono text-[9.5px] text-gold/70">{project.nextMilestoneDate}</p>
+                <p className="mt-2 text-[14.5px] leading-snug text-paper/75">{project.nextMilestone}</p>
+                <p className="mt-1 font-mono text-[11px] text-gold/70">{project.nextMilestoneDate}</p>
               </div>
               <div className="border border-paper/10 p-4">
                 <p className="meta text-paper/30">Safety · project to date</p>
-                <p className="mt-2 text-[12.5px] leading-snug text-paper/75">
+                <p className="mt-2 text-[14.5px] leading-snug text-paper/75">
                   0 lost-time injuries · 612,000 man-hours
                 </p>
-                <p className="mt-1 flex items-center gap-1.5 font-mono text-[9.5px] text-paper/35">
+                <p className="mt-1 flex items-center gap-1.5 font-mono text-[11px] text-paper/35">
                   <ShieldCheck className="size-3 text-gold" />
                   Kifaru Standard verified
                 </p>
@@ -379,7 +379,7 @@ export function PortalClient() {
                 <ul className="mt-3 space-y-2.5">
                   {project.documents.map((doc) => (
                     <li key={doc.name} className="flex items-start justify-between gap-2">
-                      <span className="text-[11px] leading-snug text-paper/60">{doc.name}</span>
+                      <span className="text-[12.5px] leading-snug text-paper/60">{doc.name}</span>
                       <span className="shrink-0 font-mono text-[8px] text-paper/25">{doc.updated}</span>
                     </li>
                   ))}
@@ -393,8 +393,8 @@ export function PortalClient() {
                 <ul className="mt-3 space-y-2.5">
                   {project.invoices.map((invoice) => (
                     <li key={invoice.ref} className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-[9px] text-paper/55">{invoice.ref}</span>
-                      <span className="text-[10.5px] text-paper/50">{invoice.amount}</span>
+                      <span className="font-mono text-[10.5px] text-paper/55">{invoice.ref}</span>
+                      <span className="text-[12px] text-paper/50">{invoice.amount}</span>
                       <span
                         className={cn(
                           "font-mono text-[8px] uppercase tracking-[0.06em]",
@@ -425,7 +425,7 @@ export function PortalClient() {
                         <Check className="mt-0.5 size-3 shrink-0 text-gold" />
                       )}
                       <div>
-                        <p className="text-[11px] leading-snug text-paper/60">{rfi.subject}</p>
+                        <p className="text-[12.5px] leading-snug text-paper/60">{rfi.subject}</p>
                         <p className="mt-0.5 font-mono text-[8px] text-paper/25">
                           {rfi.ref} · {rfi.status}
                         </p>
@@ -441,7 +441,7 @@ export function PortalClient() {
                 </div>
                 <ul className="mt-3 space-y-2">
                   {portalActivity.slice(0, 4).map((entry) => (
-                    <li key={entry.text} className="flex items-baseline gap-2 text-[10.5px] text-paper/45">
+                    <li key={entry.text} className="flex items-baseline gap-2 text-[12px] text-paper/45">
                       <span className="font-mono text-[8px] text-paper/25">{entry.time}</span>
                       <span className="flex-1 leading-snug">{entry.text}</span>
                     </li>
@@ -451,12 +451,12 @@ export function PortalClient() {
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-paper/10 pt-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.08em] text-paper/25">
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-paper/25">
                 Data synced from site · updated 07:42 EAT
               </p>
               <a
-                href="/#rfq"
-                className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-gold/80 hover:text-gold"
+                href="/contact"
+                className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-gold/80 hover:text-gold"
               >
                 Raise a new scope
                 <ArrowRight className="size-3" />

@@ -1,12 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
-import { certifications, company, divisions, navigation, offices, projects } from "@/data/siteData";
+import { certifications, company, offices, primaryNavigation, utilityNavigation } from "@/data/siteData";
 import { Logo } from "@/components/ui/Logo";
 import { LocalClock } from "@/components/ui/LocalClock";
-import { Reveal } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function Footer() {
+  const pathname = usePathname();
+  const showCta = !["/", "/contact", "/portal", "/brand"].includes(pathname) && !pathname.startsWith("/legal") && !pathname.startsWith("/dashboard") && !pathname.startsWith("/field");
+
   return (
     <footer className="relative overflow-hidden bg-ink text-paper">
       <div className="pointer-events-none absolute inset-0 text-paper blueprint opacity-[0.35]" aria-hidden />
@@ -21,37 +26,35 @@ export function Footer() {
       />
 
       <div className="shell relative">
-        {/* CTA band */}
-        <div className="grid gap-10 border-b border-paper/10 py-16 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:py-20">
-          <Reveal>
-            <p className="eyebrow flex items-center gap-3 text-gold">
-              <span className="inline-block h-px w-8 bg-gold" />
-              Next tender cycle — Q1 2027
-            </p>
-            <h2 className="display-lg mt-6 max-w-2xl uppercase">
-              Bring us the <span className="text-gold">hard site.</span>
-            </h2>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-paper/55">
-              Tidal ground, occupied buildings, fixed energisation dates. If the programme looks
-              impossible on the tender drawings, that is usually where we do our best work.
-            </p>
-          </Reveal>
-          <Reveal delay={0.08} className="flex flex-wrap gap-3 lg:justify-end">
-            <MagneticButton href="/#rfq" size="lg">
-              Request project tender
-            </MagneticButton>
-            <MagneticButton href="/portal" size="lg" variant="outline-light">
-              Client portal
-            </MagneticButton>
-          </Reveal>
-        </div>
+        {showCta && (
+          <div className="grid gap-8 border-b border-paper/10 py-12 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:py-14">
+            <div>
+              <p className="eyebrow flex items-center gap-3 text-gold">
+                <span className="inline-block h-px w-8 bg-gold" />
+                Next tender cycle — Q1 2027
+              </p>
+              <h2 className="display-lg mt-5 max-w-xl uppercase">Have a programme to test?</h2>
+              <p className="mt-4 max-w-[54ch] text-[16.5px] leading-relaxed text-paper/60">
+                Send the outline — site, scale, dates. The tender desk replies within two working hours.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <MagneticButton href="/contact" size="md">
+                Request project tender
+              </MagneticButton>
+              <MagneticButton href="/estimator" size="md" variant="outline-light">
+                Get an estimate
+              </MagneticButton>
+            </div>
+          </div>
+        )}
 
         {/* Grid */}
         <div className="grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_1.1fr_0.9fr] lg:gap-10">
           <div>
             <Logo variant="lockup" tone="inverse" height={38} />
-            <p className="mt-6 max-w-xs text-sm leading-relaxed text-paper/55">{company.trademark}</p>
-            <p className="mt-6 text-sm leading-relaxed text-paper/70">
+            <p className="mt-6 max-w-xs text-[15.5px] leading-relaxed text-paper/55">{company.trademark}</p>
+            <p className="mt-6 text-[15.5px] leading-relaxed text-paper/70">
               {offices[0]?.address}
               <br />
               {company.hq}
@@ -59,12 +62,12 @@ export function Footer() {
             <div className="mt-6 space-y-2.5">
               <a
                 href={`tel:${company.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] text-paper/60 transition-colors hover:text-gold"
+                className="flex items-center gap-2 font-mono text-[12.5px] tracking-[0.08em] text-paper/60 transition-colors hover:text-gold"
               >
                 <Phone className="size-3.5" strokeWidth={1.6} />
                 {company.phone}
               </a>
-              <p className="flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] text-paper/40">
+              <p className="flex items-center gap-2 font-mono text-[12.5px] tracking-[0.08em] text-paper/40">
                 <MapPin className="size-3.5" strokeWidth={1.6} />
                 {company.coordinates}
               </p>
@@ -75,33 +78,28 @@ export function Footer() {
             <div>
               <p className="eyebrow text-paper/35">Navigate</p>
               <ul className="mt-4 space-y-2.5">
-                {navigation.map((item) => (
+                {primaryNavigation.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm text-paper/70 transition-colors hover:text-gold"
+                      className="text-[15.5px] text-paper/70 transition-colors hover:text-gold"
                     >
                       {item.label}
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link href="/brand" className="text-sm text-paper/70 transition-colors hover:text-gold">
-                    Brand standards
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>
-              <p className="eyebrow text-paper/35">Divisions</p>
+              <p className="eyebrow text-paper/35">More</p>
               <ul className="mt-4 space-y-2.5">
-                {divisions.map((division) => (
-                  <li key={division.id}>
+                {utilityNavigation.map((item) => (
+                  <li key={item.href}>
                     <Link
-                      href={`/#capabilities`}
-                      className="text-sm text-paper/70 transition-colors hover:text-gold"
+                      href={item.href}
+                      className="text-[15.5px] text-paper/70 transition-colors hover:text-gold"
                     >
-                      {division.shortName}
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -115,10 +113,10 @@ export function Footer() {
               {offices.map((office) => (
                 <li key={office.id} className="py-3.5 first:pt-0">
                   <div className="flex items-baseline justify-between gap-3">
-                    <p className="text-sm text-paper/85">{office.city}</p>
+                    <p className="text-[15.5px] text-paper/85">{office.city}</p>
                     <span className="meta text-paper/35">{office.kind}</span>
                   </div>
-                  <p className="mt-1 text-xs leading-relaxed text-paper/45">{office.address}</p>
+                  <p className="mt-1 text-[13.5px] leading-relaxed text-paper/45">{office.address}</p>
                 </li>
               ))}
             </ul>
@@ -130,8 +128,8 @@ export function Footer() {
               <ul className="mt-4 space-y-2">
                 {certifications.map((cert) => (
                   <li key={cert.code} className="flex items-baseline gap-2">
-                    <span className="font-mono text-[10px] text-gold">{cert.code}</span>
-                    <span className="text-[11px] text-paper/40">{cert.since}</span>
+                    <span className="font-mono text-[11.5px] text-gold">{cert.code}</span>
+                    <span className="text-[12.5px] text-paper/40">{cert.since}</span>
                   </li>
                 ))}
               </ul>
@@ -145,7 +143,7 @@ export function Footer() {
               >
                 {company.emergency}
               </a>
-              <p className="mt-1 text-[11px] text-paper/40">Incidents, utilities strikes, site security</p>
+              <p className="mt-1 text-[12.5px] text-paper/40">Incidents, utilities strikes, site security</p>
             </div>
 
             <div>

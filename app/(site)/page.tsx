@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { Intro } from "@/components/sections/Intro";
-import { Capabilities } from "@/components/sections/Capabilities";
-import { ProjectsShowcase } from "@/components/sections/ProjectsShowcase";
-import { MethodSafety } from "@/components/sections/MethodSafety";
-import { FleetBim } from "@/components/sections/FleetBim";
-import { Estimator } from "@/components/sections/Estimator";
-import { PortalTeaser } from "@/components/sections/PortalTeaser";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { ContactRFQ } from "@/components/sections/ContactRFQ";
-import { company, metrics, projects } from "@/data/siteData";
+import { HomeManifesto } from "@/components/home/HomeManifesto";
+import { HomeDivisions } from "@/components/home/HomeDivisions";
+import { HomeProjects } from "@/components/home/HomeProjects";
+import { HomeCta } from "@/components/home/HomeCta";
+import { company } from "@/data/siteData";
 
 export const metadata: Metadata = {
   title: "Civil engineering, high-rise & industrial construction — Tanzania",
@@ -48,6 +43,10 @@ const jsonLd = {
   numberOfEmployees: { "@type": "QuantitativeValue", value: 1480 },
 };
 
+/**
+ * Home is deliberately short: hero → practice → divisions → three records →
+ * one CTA. Deeper content lives on its own routes so nothing is a long scroll.
+ */
 export default function HomePage() {
   return (
     <>
@@ -56,15 +55,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <Intro />
-      <Capabilities />
-      <ProjectsShowcase />
-      <MethodSafety />
-      <FleetBim />
-      <Estimator />
-      <PortalTeaser />
-      <Testimonials />
-      <ContactRFQ />
+      <HomeManifesto />
+      <HomeDivisions />
+      <HomeProjects />
+      <HomeCta />
     </>
   );
 }

@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="relative overflow-hidden bg-ink pb-12 pt-28 text-paper lg:pb-16 lg:pt-36">
         <div className="pointer-events-none absolute inset-0 text-paper blueprint opacity-20" aria-hidden />
         <div className="shell relative">
-          <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/40">
+          <div className="flex flex-wrap items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/40">
             <Link href="/projects" className="flex items-center gap-1.5 transition-colors hover:text-gold">
               <ArrowLeft className="size-3" />
               Project index
@@ -64,21 +64,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={
-                    "flex items-center gap-1.5 px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] " +
+                    "flex items-center gap-1.5 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] " +
                     (project.status === "Completed" ? "bg-gold text-ink" : "border border-gold/50 text-gold")
                   }
                 >
                   <span className="size-1 rounded-full bg-current" />
                   {project.status}
                 </span>
-                <span className="border border-paper/20 px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper/60">
+                <span className="border border-paper/20 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/60">
                   {division.name}
                 </span>
               </div>
               <SplitHeading as="h1" className="display-xl mt-6 uppercase">
                 {project.name}
               </SplitHeading>
-              <p className="mt-6 max-w-2xl text-sm leading-relaxed text-paper/60 sm:text-[15px]">
+              <p className="mt-6 max-w-2xl text-[15.5px] leading-relaxed text-paper/60 sm:text-[17px]">
                 {project.summary}
               </p>
             </div>
@@ -92,12 +92,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               ].map((item) => (
                 <div key={item.k}>
                   <dt className="meta text-paper/35">{item.k}</dt>
-                  <dd className="mt-1.5 text-[12.5px] leading-snug text-paper/80">{item.v}</dd>
+                  <dd className="mt-1.5 text-[14.5px] leading-snug text-paper/80">{item.v}</dd>
                 </div>
               ))}
               <div className="col-span-2 flex items-center gap-2 text-paper/35">
                 <MapPin className="size-3" />
-                <span className="font-mono text-[9.5px] tracking-[0.1em]">{project.coordinates}</span>
+                <span className="font-mono text-[11px] tracking-[0.1em]">{project.coordinates}</span>
               </div>
             </dl>
           </div>
@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-ink/30" />
         <div className="absolute bottom-5 left-0 right-0">
-          <div className="shell flex items-center justify-between gap-4 font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper/60">
+          <div className="shell flex items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/60">
             <span>{division.ref} / {project.code.split("/").slice(-1)[0]}</span>
             <span>Fig. 01 — {project.sector}</span>
           </div>
@@ -137,11 +137,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-12 grid gap-10 sm:grid-cols-2">
               <div>
                 <p className="meta text-ink/35">Brief</p>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-ink/60">{project.brief}</p>
+                <p className="mt-3 text-[16px] leading-relaxed text-ink/60">{project.brief}</p>
               </div>
               <div>
                 <p className="meta text-ink/35">Response</p>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-ink/60">{project.response}</p>
+                <p className="mt-3 text-[16px] leading-relaxed text-ink/60">{project.response}</p>
               </div>
             </div>
 
@@ -149,7 +149,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="meta text-ink/35">Audited outcomes</p>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {project.outcomes.map((outcome) => (
-                  <li key={outcome} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-ink/70">
+                  <li key={outcome} className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-ink/70">
                     <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center bg-ink text-paper">
                       <Check className="size-2.5" strokeWidth={3} />
                     </span>
@@ -168,13 +168,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="mt-6 space-y-0">
                 {project.phases.map((phase, index) => (
                   <div key={phase.id} className="flex items-start gap-4 border-t border-ink/10 py-4">
-                    <span className="mt-0.5 font-mono text-[10px] text-ink/30">
+                    <span className="mt-0.5 font-mono text-[11.5px] text-ink/30">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <p className="text-[13px] text-ink/80">{phase.name}</p>
-                        <p className="font-mono text-[9.5px] uppercase tracking-[0.08em] text-ink/35">
+                        <p className="text-[15.5px] text-ink/80">{phase.name}</p>
+                        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink/35">
                           {phase.window}
                         </p>
                       </div>
@@ -209,9 +209,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <dl className="mt-2 divide-y divide-ink/10">
                 {project.specs.map((spec) => (
                   <div key={spec.label} className="flex items-baseline justify-between gap-4 py-2.5">
-                    <dt className="text-[10.5px] uppercase tracking-[0.06em] text-ink/40">{spec.label}</dt>
-                    <dd className="text-right font-display text-[13px] text-ink">
-                      {spec.value} {spec.unit && <span className="text-[10px] text-ink/40">{spec.unit}</span>}
+                    <dt className="text-[12px] uppercase tracking-[0.06em] text-ink/40">{spec.label}</dt>
+                    <dd className="text-right font-display text-[15.5px] text-ink">
+                      {spec.value} {spec.unit && <span className="text-[11.5px] text-ink/40">{spec.unit}</span>}
                     </dd>
                   </div>
                 ))}
@@ -220,18 +220,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="bg-ink p-5 text-paper">
               <p className="eyebrow text-gold">Similar scope?</p>
-              <p className="mt-3 text-[13px] leading-relaxed text-paper/60">
+              <p className="mt-3 text-[15.5px] leading-relaxed text-paper/60">
                 We can share redacted method statements, plant lists and client references for this
                 class of work.
               </p>
               <div className="mt-5">
-                <MagneticButton href="/#rfq" size="md" className="w-full justify-center">
+                <MagneticButton href="/contact" size="md" className="w-full justify-center">
                   Request tender
                 </MagneticButton>
               </div>
               <a
                 href={`mailto:${company.email}`}
-                className="mt-3 flex items-center justify-center gap-1.5 border border-paper/20 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/60 transition-colors hover:border-gold hover:text-gold"
+                className="mt-3 flex items-center justify-center gap-1.5 border border-paper/20 py-2.5 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/60 transition-colors hover:border-gold hover:text-gold"
               >
                 Email tender desk
                 <ArrowUpRight className="size-3" />
@@ -255,7 +255,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       className="object-cover"
                     />
                   </div>
-                  <figcaption className="mt-2.5 flex items-baseline justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.1em] text-ink/35">
+                  <figcaption className="mt-2.5 flex items-baseline justify-between gap-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/35">
                     <span>{image.caption}</span>
                     <span>Fig. {String(index + 2).padStart(2, "0")}</span>
                   </figcaption>
@@ -274,8 +274,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </blockquote>
             <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3 border-t border-ink/15 pt-4">
               <div>
-                <p className="text-[13px] font-medium text-ink">{project.quote.author}</p>
-                <p className="mt-1 text-[11px] text-ink/45">{project.quote.role}</p>
+                <p className="text-[15.5px] font-medium text-ink">{project.quote.author}</p>
+                <p className="mt-1 text-[12.5px] text-ink/45">{project.quote.role}</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {project.awards.map((award) => (

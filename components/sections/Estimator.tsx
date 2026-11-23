@@ -12,9 +12,8 @@ import {
 } from "@/data/siteData";
 import { estimateProject } from "@/lib/estimator";
 import { cn, formatTZS, usdFromTzs } from "@/lib/utils";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
+import { useRouter } from "next/navigation";
 
 function OptionGrid({
   options,
@@ -45,7 +44,7 @@ function OptionGrid({
             )}
           >
             <span className="flex items-center justify-between gap-3">
-              <span className="font-display text-[13.5px] tracking-tight">{option.label}</span>
+              <span className="font-display text-[16px] tracking-tight">{option.label}</span>
               {selected ? (
                 <Check className="size-3.5 shrink-0 text-gold" strokeWidth={2.4} />
               ) : (
@@ -55,7 +54,7 @@ function OptionGrid({
             {option.detail && (
               <span
                 className={cn(
-                  "mt-1 block font-mono text-[9px] uppercase leading-relaxed tracking-[0.08em]",
+                  "mt-1 block font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em]",
                   selected ? "text-paper/45" : "text-ink/35",
                 )}
               >
@@ -70,7 +69,7 @@ function OptionGrid({
 }
 
 export function Estimator() {
-  const { scrollTo } = useSmoothScroll();
+  const router = useRouter();
   const [typeId, setTypeId] = useState("commercial");
   const [area, setArea] = useState(estimatorConfig.defaultArea);
   const [locationId, setLocationId] = useState("dar");
@@ -178,20 +177,13 @@ export function Estimator() {
       /* storage may be unavailable */
     }
     window.dispatchEvent(new CustomEvent("altra:prefill", { detail: payload }));
-    scrollTo("#rfq", -70);
+    router.push("/contact");
   }
 
   return (
-    <section id="estimator" className="scroll-mt-24 bg-paper py-20 text-ink lg:py-28">
+    <section id="estimator" className="scroll-mt-24 bg-paper py-14 text-ink lg:py-20">
       <div className="shell">
-        <SectionHeading
-          index="05"
-          label="Tender intelligence"
-          title="Price the shape of your project in ninety seconds."
-          description="Our order-of-cost model uses delivered rates from 214 Tanzanian commissions. It will not replace a tender — it will tell you whether your budget and programme are in the same room."
-        />
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-10">
+        <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-10">
           <div className="space-y-8">
             {/* Step 1 */}
             <div>
@@ -238,7 +230,7 @@ export function Estimator() {
                       aria-label="Gross floor area in square metres"
                       className="w-[7ch] border-b border-ink/30 bg-transparent pb-1 font-display text-[clamp(2.2rem,5vw,3rem)] leading-none tracking-tight text-ink outline-none focus:border-gold-deep [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none"
                     />
-                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink/40">m²</span>
+                    <span className="font-mono text-[13.5px] uppercase tracking-[0.14em] text-ink/40">m²</span>
                   </div>
                   <div className="flex gap-2">
                     {[2500, 8500, 25000, 50000].map((preset) => (
@@ -247,7 +239,7 @@ export function Estimator() {
                         type="button"
                         onClick={() => setArea(preset)}
                         className={cn(
-                          "border px-2 py-1 font-mono text-[9.5px] uppercase tracking-[0.08em] transition-colors",
+                          "border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors",
                           area === preset
                             ? "border-ink bg-ink text-paper"
                             : "border-ink/15 text-ink/50 hover:border-ink/40 hover:text-ink",
@@ -269,7 +261,7 @@ export function Estimator() {
                   className="altra-range mt-6"
                   style={{ "--fill": `${fillPercent}%` } as React.CSSProperties}
                 />
-                <div className="mt-2 flex justify-between font-mono text-[9px] uppercase tracking-[0.1em] text-ink/30">
+                <div className="mt-2 flex justify-between font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
                   <span>{estimatorConfig.minArea} m²</span>
                   <span>{estimatorConfig.maxArea.toLocaleString("en-US")} m²</span>
                 </div>
@@ -302,7 +294,7 @@ export function Estimator() {
                           aria-pressed={selected}
                           title={option.detail}
                           className={cn(
-                            "border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.06em] transition-colors",
+                            "border px-3 py-1.5 font-mono text-[11.5px] uppercase tracking-[0.06em] transition-colors",
                             selected
                               ? "border-gold-deep bg-gold/20 text-ink"
                               : "border-ink/15 text-ink/55 hover:border-ink/40 hover:text-ink",
@@ -332,12 +324,12 @@ export function Estimator() {
                     <Image src="/brand/altra-mark-inverse.svg" alt="" width={30} height={28} unoptimized />
                     <div>
                     <p className="eyebrow text-gold">Indicative order of cost</p>
-                    <p className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.12em] text-paper/35">
+                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/35">
                       REF: AB/EST/2026 · v4.2
                     </p>
                     </div>
                   </div>
-                  <span className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/40">
+                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/40">
                     <span className="live-dot size-1.5 rounded-full bg-gold" />
                     Live
                   </span>
@@ -349,7 +341,7 @@ export function Estimator() {
                     <br />
                     <span className="text-paper/40">—</span> {formatTZS(estimate.high)}
                   </p>
-                  <p className="mt-2 font-mono text-[10px] tracking-[0.1em] text-paper/40">
+                  <p className="mt-2 font-mono text-[11.5px] tracking-[0.1em] text-paper/40">
                     {usdFromTzs(estimate.low)} – {usdFromTzs(estimate.high)}
                   </p>
                 </div>
@@ -364,10 +356,10 @@ export function Estimator() {
                     { label: "Contingency", value: `${Math.round(estimatorConfig.contingency * 100)}% incl.` },
                   ].map((item) => (
                     <div key={item.label}>
-                      <dt className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+                      <dt className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/35">
                         {item.label}
                       </dt>
-                      <dd className="mt-1 font-display text-[15px] leading-none text-paper">{item.value}</dd>
+                      <dd className="mt-1 font-display text-[17px] leading-none text-paper">{item.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -375,10 +367,10 @@ export function Estimator() {
                 <div className="mt-6 space-y-2 border-t border-paper/15 pt-5">
                   {estimate.lines.map((line) => (
                     <div key={line.label} className="flex items-baseline justify-between gap-3">
-                      <span className="font-mono text-[9.5px] uppercase tracking-[0.08em] text-paper/30">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-paper/30">
                         {line.label}
                       </span>
-                      <span className="text-right text-[11px] text-paper/65">{line.value}</span>
+                      <span className="text-right text-[12.5px] text-paper/65">{line.value}</span>
                     </div>
                   ))}
                 </div>
@@ -405,12 +397,12 @@ export function Estimator() {
                 </div>
 
                 {exported && (
-                  <p className="mt-3 flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-gold">
+                  <p className="mt-3 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-gold">
                     <Check className="size-3" /> Branded scope downloaded
                   </p>
                 )}
 
-                <p className="mt-5 flex items-start gap-2 border-t border-paper/15 pt-4 text-[9.5px] leading-relaxed text-paper/35">
+                <p className="mt-5 flex items-start gap-2 border-t border-paper/15 pt-4 text-[11px] leading-relaxed text-paper/35">
                   <Info className="mt-0.5 size-3 shrink-0" />
                   {estimatorConfig.disclaimer}
                 </p>
@@ -418,12 +410,12 @@ export function Estimator() {
             </div>
 
             <div className="mt-3 flex items-center justify-between border border-ink/15 bg-cream/50 px-4 py-3">
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-ink/45">
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink/45">
                 Prefer a conversation?
               </p>
               <a
                 href="tel:+255225500148"
-                className="group flex items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-ink/70 hover:text-ink"
+                className="group flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink/70 hover:text-ink"
               >
                 Call pre-construction
                 <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
@@ -432,7 +424,7 @@ export function Estimator() {
           </aside>
         </div>
 
-        <p className="mt-10 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink/30">
+        <p className="mt-10 flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/30">
           <ArrowDownToLine className="size-3.5" />
           Estimates refresh instantly · nothing is submitted until you choose to
         </p>
