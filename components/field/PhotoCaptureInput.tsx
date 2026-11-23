@@ -136,7 +136,7 @@ export function PhotoCaptureInput({
     <div>
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Site photos</p>
-        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/25">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/25">
           {photos.length}/6 · auto watermark
         </span>
       </div>
@@ -154,7 +154,7 @@ export function PhotoCaptureInput({
             >
               <X className="h-4 w-4" />
             </button>
-            <span className="absolute inset-x-0 bottom-0 flex items-center gap-1 bg-ink/80 px-1 py-0.5 font-mono text-[7px] uppercase tracking-[0.06em] text-gold">
+            <span className="absolute inset-x-0 bottom-0 flex items-center gap-1 bg-ink/80 px-1 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.06em] text-gold">
               <MapPin className="h-2 w-2" />
               {photo.lat ? `${photo.lat.toFixed(3)},${photo.lng.toFixed(3)}` : "GPS pending"}
             </span>
@@ -169,7 +169,7 @@ export function PhotoCaptureInput({
             className="flex aspect-square flex-col items-center justify-center gap-1.5 border border-dashed border-paper/25 bg-paper/[0.03] text-paper/55 transition-colors hover:border-gold/50 hover:text-gold disabled:opacity-50"
           >
             {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : <Camera className="h-5 w-5" />}
-            <span className="font-mono text-[9px] uppercase tracking-[0.12em]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.12em]">
               {busy ? "Processing" : "Add photo"}
             </span>
           </button>
@@ -185,9 +185,9 @@ export function PhotoCaptureInput({
         onChange={(event) => void onSelect(event.target.files?.[0])}
       />
       {error ? (
-        <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-[#F26D5B]">{error}</p>
+        <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[#F26D5B]">{error}</p>
       ) : (
-        <p className="mt-1.5 font-mono text-[9px] uppercase leading-relaxed tracking-[0.08em] text-paper/25">
+        <p className="mt-1.5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.08em] text-paper/25">
           Camera opens on device · timestamp, site and GPS burned into the image
         </p>
       )}

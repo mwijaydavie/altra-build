@@ -200,7 +200,7 @@ export function QuickIncidentForm({
           </>
         )}
       </button>
-      <p className="text-center font-mono text-[9px] uppercase leading-relaxed tracking-[0.1em] text-paper/30">
+      <p className="text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-paper/30">
         Severe incidents page the safety director immediately
       </p>
     </div>

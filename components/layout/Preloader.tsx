@@ -58,7 +58,7 @@ export function Preloader() {
       ref={rootRef}
       data-preloader
       aria-hidden="true"
-      className="fixed inset-0 z-[120] flex flex-col justify-between overflow-hidden bg-ink px-6 py-7 text-paper sm:px-10 sm:py-9"
+      className="fixed inset-0 z-[140] flex flex-col justify-between overflow-hidden bg-ink px-6 py-7 text-paper sm:px-10 sm:py-9"
     >
       <div data-preloader-content className="flex items-start justify-between">
         <Logo variant="mark" tone="inverse" height={44} />

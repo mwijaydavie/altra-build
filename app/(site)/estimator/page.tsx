@@ -15,6 +15,7 @@ export default function EstimatorPage() {
     <>
       <PageHero
         label="Estimator"
+        kicker="Tender intelligence"
         title="Price the shape of your project."
         deck="An order-of-cost model built from delivered rates on 214 Tanzanian commissions. It will not replace a tender — it tells you whether budget and programme are in the same room."
         meta={[

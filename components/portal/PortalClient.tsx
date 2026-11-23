@@ -92,13 +92,13 @@ export function PortalClient() {
 
   if (!authed) {
     return (
-      <section className="relative min-h-[100svh] overflow-hidden bg-ink pb-20 pt-28 text-paper lg:pt-32">
+      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink pb-20 pt-28 text-paper lg:pt-32">
         <div className="pointer-events-none absolute inset-0 text-paper blueprint opacity-20" aria-hidden />
         <div className="pointer-events-none absolute -right-32 -top-24 opacity-[0.06]" aria-hidden>
           <Logo variant="mark" tone="inverse" height={520} />
         </div>
 
-        <div className="shell relative grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="shell relative grid w-full gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="eyebrow flex items-center gap-2 text-gold">
               <ShieldCheck className="size-3.5" strokeWidth={1.8} />

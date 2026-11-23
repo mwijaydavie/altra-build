@@ -14,7 +14,7 @@ export function FieldSyncList({ items }: { items: QueueItem[] }) {
         <p className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
           <CloudUpload className="h-3.5 w-3.5" /> On this device · {items.length}
         </p>
-        <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/35">Auto-sync on signal</span>
+        <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/35">Auto-sync on signal</span>
       </div>
       <ul className="mt-2 space-y-1.5">
         {items.map((item) => (
@@ -29,13 +29,13 @@ export function FieldSyncList({ items }: { items: QueueItem[] }) {
                 ? `Daily log · ${item.payload.logDate}`
                 : `Safety · ${item.payload.title}`}
             </span>
-            <span className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/30">
+            <span className="font-mono text-[9.5px] uppercase tracking-[0.08em] text-paper/30">
               {relative(item.queuedAt)}
             </span>
           </li>
         ))}
       </ul>
-      <p className="mt-2 font-mono text-[8.5px] uppercase leading-relaxed tracking-[0.08em] text-paper/30">
+      <p className="mt-2 font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.08em] text-paper/30">
         Records remain on this device until the server confirms receipt. Do not clear browser storage before syncing.
       </p>
     </section>

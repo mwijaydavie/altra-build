@@ -33,7 +33,7 @@ export function OfflineSyncBadge({
       disabled={syncing || queued === 0 || !online}
       aria-label={`${label}. ${queued} records in the offline queue. Tap to sync now.`}
       className={cn(
-        "flex min-h-11 items-center gap-2 border px-2.5 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors disabled:cursor-default",
+        "flex min-h-11 items-center gap-2 border px-2.5 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors disabled:cursor-default",
         tone === "green"
           ? "border-[#6FD3A6]/35 bg-[#6FD3A6]/10 text-[#6FD3A6]"
           : "border-gold/40 bg-gold/10 text-gold",
@@ -53,7 +53,7 @@ export function OfflineSyncBadge({
         {online ? <Wifi className="h-3 w-3" /> : <WifiOff className="h-3 w-3" />}
       </span>
       {lastSynced ? (
-        <span className="hidden font-mono text-[8px] text-paper/35 lg:inline">· {lastSynced}</span>
+        <span className="hidden font-mono text-[9.5px] text-paper/35 lg:inline">· {lastSynced}</span>
       ) : null}
     </button>
   );

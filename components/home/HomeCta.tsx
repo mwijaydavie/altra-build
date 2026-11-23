@@ -30,11 +30,11 @@ export function HomeCta() {
               impossible on the tender drawings, that is usually where we do our best work.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <MagneticButton href="/contact" size="lg">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-end lg:flex-col lg:items-stretch [&>div]:w-full">
+            <MagneticButton href="/contact" size="lg" className="w-full justify-center">
               Request project tender
             </MagneticButton>
-            <MagneticButton href="/estimator" size="lg" variant="outline">
+            <MagneticButton href="/estimator" size="lg" variant="outline" className="w-full justify-center">
               Get an estimate
             </MagneticButton>
           </div>

@@ -171,6 +171,8 @@ The session cookie stores a profile id and is validated on every request.
   variance, safe man-hours without LTI. Recharts burn chart (outflow vs milestone billing, 6M/12M),
   offline-safe vector map of Tanzania with green/amber/red site status, live alerts with
   acknowledgement, project register with filters, one-click change-order approvals, audit trail.
+- **`/dashboard/projects`** — scope-filtered project register: capital deployed, workforce and
+  completion KPIs, status filters with counts, and one row per site into the workspace.
 - **`/dashboard/projects/[id]`** — Overview, Programme (Gantt phase timeline + drag-and-drop Kanban),
   Daily logs, Financials (invoices, cost structure, burn), Documents. Phase completion across
   Foundation → Superstructure → MEP → Envelope → Fit-out.

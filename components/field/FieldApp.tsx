@@ -131,7 +131,7 @@ export function FieldApp() {
   const canUseField = data?.viewer.role !== "client";
 
   return (
-    <div className="min-h-dvh bg-ink pb-[92px] text-paper">
+    <div className="mx-auto min-h-dvh w-full max-w-[480px] border-x border-paper/10 bg-ink pb-[92px] text-paper shadow-[0_0_90px_-30px_rgba(247,188,50,0.22)]">
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-paper/10 bg-ink/95 backdrop-blur">
         <div className="flex items-center justify-between gap-2 px-3 py-2.5">
@@ -143,7 +143,7 @@ export function FieldApp() {
               <span className="block font-display text-[13px] font-semibold leading-none tracking-tight">
                 ALTRA <span className="text-gold">FIELD</span>
               </span>
-              <span className="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.22em] text-paper/35">
+              <span className="mt-0.5 block font-mono text-[9.5px] uppercase tracking-[0.22em] text-paper/35">
                 Site reporting
               </span>
             </span>
@@ -172,12 +172,12 @@ export function FieldApp() {
             </select>
             <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-paper/40" />
           </label>
-          <span className="flex h-11 items-center gap-1.5 border border-paper/15 px-2 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/45">
+          <span className="flex h-11 items-center gap-1.5 border border-paper/15 px-2 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/45">
             <MapPin className="h-3 w-3" /> {project.lat.toFixed(2)}, {project.lng.toFixed(2)}
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-paper/[0.08] px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-paper/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
           <span className="text-gold">{project.projectCode}</span>
           <span>{project.status}</span>
           <span>{project.workforce} crew today</span>
@@ -206,22 +206,22 @@ export function FieldApp() {
         {tab === "log" ? (
           <div className="space-y-4">
             <div className="flex items-start justify-between gap-2">
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Shift log</p>
+              <div className="min-w-0">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Shift log</p>
                 <h1 className="mt-1 font-display text-[22px] font-semibold leading-none tracking-[-0.03em]">
                   Today on site.
                 </h1>
-                <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
                   {formatDate(new Date().toISOString().slice(0, 10))} · {project.weatherLocation}
                 </p>
               </div>
-              <div className="flex flex-col items-end gap-1">
+              <div className="flex shrink-0 flex-col items-end gap-1">
                 <Chip tone={online ? "green" : "gold"} className="px-1.5 py-0">
                   {online ? <Wifi className="h-2.5 w-2.5" /> : <CloudOff className="h-2.5 w-2.5" />}
                   {online ? "Online" : "Offline"}
                 </Chip>
                 {latest ? (
-                  <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/30">
+                  <span className="whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/30">
                     last log {relative(latest.createdAt)}
                   </span>
                 ) : null}
@@ -244,7 +244,7 @@ export function FieldApp() {
               <section className="border border-paper/12 bg-[#14161E] p-3">
                 <div className="flex items-center justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent logs</p>
-                  <Link href={`/dashboard/projects/${project.id}`} className="font-mono text-[9px] uppercase tracking-[0.12em] text-gold/80">
+                  <Link href={`/dashboard/projects/${project.id}`} className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
                     Open site →
                   </Link>
                 </div>
@@ -257,7 +257,7 @@ export function FieldApp() {
                       <span className="text-[11.5px] text-paper/60">
                         {log.manpowerTotal} crew · {log.weather.replace("-", " ")}
                       </span>
-                      <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/25">
+                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/25">
                         {users.find((user) => user.id === log.createdBy)?.fullName.split(" ")[0] ?? "Field"}
                       </span>
                     </li>
@@ -271,7 +271,7 @@ export function FieldApp() {
         {tab === "safety" ? (
           <div className="space-y-4">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">HSE</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">HSE</p>
               <h1 className="mt-1 font-display text-[22px] font-semibold leading-none tracking-[-0.03em]">
                 Raise an observation.
               </h1>
@@ -285,7 +285,7 @@ export function FieldApp() {
             <section className="border border-paper/12 bg-[#14161E] p-3">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent at this site</p>
-                <Link href="/dashboard/safety" className="font-mono text-[9px] uppercase tracking-[0.12em] text-gold/80">
+                <Link href="/dashboard/safety" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
                   Register →
                 </Link>
               </div>
@@ -300,12 +300,12 @@ export function FieldApp() {
                         )}
                       />
                       <span className="min-w-0 flex-1 truncate text-[12px] text-paper/70">{incident.title}</span>
-                      <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-paper/30">{relative(incident.occurredAt)}</span>
+                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/30">{relative(incident.occurredAt)}</span>
                     </div>
                   </li>
                 ))}
                 {projectIncidents.length === 0 ? (
-                  <li className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/30">No incidents recorded at this site</li>
+                  <li className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">No incidents recorded at this site</li>
                 ) : null}
               </ul>
             </section>
@@ -315,7 +315,7 @@ export function FieldApp() {
         {tab === "sos" ? (
           <div className="space-y-4">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#F26D5B]">Emergency</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#F26D5B]">Emergency</p>
               <h1 className="mt-1 font-display text-[22px] font-semibold leading-none tracking-[-0.03em]">
                 Stop work now.
               </h1>
@@ -333,7 +333,7 @@ export function FieldApp() {
       {/* Bottom nav */}
       <nav
         aria-label="Field sections"
-        className="fixed inset-x-0 bottom-0 z-40 border-t border-paper/12 bg-[#0B0D13]/98 pb-[env(safe-area-inset-bottom)] backdrop-blur"
+        className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-[480px] border-t border-paper/12 bg-[#0B0D13]/98 pb-[env(safe-area-inset-bottom)] backdrop-blur"
       >
         <ul className="grid grid-cols-3">
           {TABS.map((item) => {
@@ -346,7 +346,7 @@ export function FieldApp() {
                   onClick={() => setTab(item.id)}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative flex min-h-[68px] w-full flex-col items-center justify-center gap-1 border-r border-paper/[0.06] font-mono text-[9px] uppercase tracking-[0.12em] last:border-r-0",
+                    "relative flex min-h-[68px] w-full flex-col items-center justify-center gap-1 border-r border-paper/[0.06] font-mono text-[10px] uppercase tracking-[0.12em] last:border-r-0",
                     active
                       ? item.id === "sos"
                         ? "bg-[#F26D5B]/15 text-[#F26D5B]"
@@ -358,7 +358,7 @@ export function FieldApp() {
                   {item.label}
                   {active ? <span className="absolute inset-x-4 top-0 h-0.5 bg-current" /> : null}
                   {item.id === "log" && queue.length ? (
-                    <span className="absolute right-3 top-2 flex h-4 min-w-4 items-center justify-center bg-gold px-1 font-mono text-[9px] font-bold text-ink">
+                    <span className="absolute right-3 top-2 flex h-4 min-w-4 items-center justify-center bg-gold px-1 font-mono text-[10px] font-bold text-ink">
                       {queue.length}
                     </span>
                   ) : null}

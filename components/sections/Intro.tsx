@@ -31,7 +31,7 @@ export function Intro() {
           <p className="ml-5 shrink-0 font-mono text-[14px] uppercase tracking-[0.18em] text-ink/70 sm:ml-8">
             Trusted by
           </p>
-          <div className="relative flex-1 overflow-hidden">
+          <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
             <div className="marquee-track flex w-max items-center gap-10 pr-10">
               {[...clients, ...clients].map((client, index) => (
                 <span

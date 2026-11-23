@@ -47,7 +47,7 @@ export function SafetyMatrix({ incidents }: { incidents: SafetyIncident[] }) {
                 <div
                   key={status.id}
                   className={cn(
-                    "flex aspect-[2.2/1] items-center justify-center border font-mono text-[15px] tabular-nums transition-colors",
+                    "flex aspect-[2.8/1] items-center justify-center border font-mono text-[15px] tabular-nums transition-colors",
                     heat(count, severity, status.id),
                   )}
                   aria-label={`${severity} ${status.label}: ${count}`}

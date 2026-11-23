@@ -17,6 +17,7 @@ export default function AboutPage() {
     <>
       <PageHero
         label="About"
+        kicker="The practice"
         title="Engineer-led since 2009."
         deck="Altra Build is a Tanzanian general contractor and civil engineering firm. We plan, engineer and deliver the crossings, towers, plants and ports that carry a growing region."
         meta={[
