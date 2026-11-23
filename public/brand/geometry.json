@@ -1,0 +1,21 @@
+{
+  "lockup": {
+    "width": 471,
+    "height": 77,
+    "ratio": 6.1169
+  },
+  "mark": {
+    "width": 82,
+    "height": 77,
+    "circle": {
+      "cx": 38.5,
+      "cy": 37.5,
+      "r": 35.5
+    }
+  },
+  "clearspace": "0.5 \u00d7 emblem diameter",
+  "minWidth": {
+    "digital": "28px emblem / 96px lockup",
+    "print": "8mm emblem / 30mm lockup"
+  }
+}
