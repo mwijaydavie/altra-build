@@ -150,11 +150,11 @@ export function PhotoCaptureInput({
               type="button"
               onClick={() => onChange(photos.filter((entry) => entry.id !== photo.id))}
               aria-label="Remove photo"
-              className="absolute right-1 top-1 flex h-8 w-8 items-center justify-center bg-ink/80 text-paper/80"
+              className="ops-dark-inset absolute right-1 top-1 flex h-8 w-8 items-center justify-center bg-ink/80 text-paper/80"
             >
               <X className="h-4 w-4" />
             </button>
-            <span className="absolute inset-x-0 bottom-0 flex items-center gap-1 bg-ink/80 px-1 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.06em] text-gold">
+            <span className="ops-dark-inset absolute inset-x-0 bottom-0 flex items-center gap-1 bg-ink/80 px-1 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.06em] text-gold">
               <MapPin className="h-2 w-2" />
               {photo.lat ? `${photo.lat.toFixed(3)},${photo.lng.toFixed(3)}` : "GPS pending"}
             </span>

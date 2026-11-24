@@ -378,3 +378,106 @@ input[type="range"].altra-range::-moz-range-thumb {
     background: #ffffff !important;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Operations theme — dark by default, warm-white on request
+ * ------------------------------------------------------------------ */
+:root {
+  --ops-bg: #0f1117;
+  --ops-stage: #08090d;
+  --ops-sidebar: #0b0d13;
+  --ops-chrome: rgb(15 17 23 / 0.95);
+  --ops-panel: #151821;
+  --ops-panel-2: #14161e;
+  --ops-raised: #171a24;
+  --ops-popover: #12141c;
+  --ops-dialog: #0b0d13;
+  --ops-field: #0f1117;
+  --ops-chart-grid: rgba(247, 242, 231, 0.08);
+  --ops-chart-axis: rgba(247, 242, 231, 0.12);
+  --ops-chart-tick: rgba(247, 242, 231, 0.45);
+  --ops-chart-tick-dim: rgba(247, 242, 231, 0.4);
+  --ops-chart-ref: rgba(247, 242, 231, 0.42);
+  --ops-faint: rgb(247 242 231 / 0.4);
+  --ops-faint-strong: rgb(247 242 231 / 0.6);
+}
+
+[data-ops-theme="light"] .ops-root {
+  --color-paper: #1b1d24;
+  --ops-bg: #f5f0e5;
+  --ops-stage: #e9e1d2;
+  --ops-sidebar: #fffdf8;
+  --ops-chrome: rgb(255 253 248 / 0.92);
+  --ops-panel: #fffdf8;
+  --ops-panel-2: #faf5ea;
+  --ops-raised: #f1ebdd;
+  --ops-popover: #fffdf8;
+  --ops-dialog: #f8f3e8;
+  --ops-field: #fffdf8;
+  --ops-chart-grid: rgba(27, 29, 36, 0.1);
+  --ops-chart-axis: rgba(27, 29, 36, 0.16);
+  --ops-chart-tick: rgba(27, 29, 36, 0.55);
+  --ops-chart-tick-dim: rgba(27, 29, 36, 0.5);
+  --ops-chart-ref: rgba(27, 29, 36, 0.45);
+  --ops-faint: rgb(27 29 36 / 0.52);
+  --ops-faint-strong: rgb(27 29 36 / 0.68);
+}
+
+/* Soft corners for the command surface */
+.ops-root :where(button, input, select, textarea) {
+  border-radius: 7px;
+}
+.ops-root [role="dialog"] {
+  border-radius: 14px;
+}
+.ops-root [role="menu"] {
+  border-radius: 10px;
+}
+
+[data-ops-theme="light"] .ops-root .ops-panel {
+  box-shadow: 0 18px 44px -38px rgb(40 32 18 / 0.45);
+}
+
+/* Status inks need more weight on a white field */
+[data-ops-theme="light"] .ops-root .text-\[\#6FD3A6\] {
+  color: #187550;
+}
+[data-ops-theme="light"] .ops-root .text-\[\#8FB8A8\] {
+  color: #3d6a5a;
+}
+[data-ops-theme="light"] .ops-root .text-\[\#F08A4B\] {
+  color: #a94d12;
+}
+[data-ops-theme="light"] .ops-root .text-\[\#F26D5B\] {
+  color: #b02a22;
+}
+[data-ops-theme="light"] .ops-root .text-gold {
+  color: #8b5e07;
+}
+[data-ops-theme="light"] .ops-root [class*="text-gold/"] {
+  color: color-mix(in oklab, #8b5e07 80%, transparent);
+}
+
+/* Faint micro-labels stay legible on a white field */
+.ops-root .text-paper\/25,
+.ops-root .text-paper\/30,
+.ops-root .text-paper\/35,
+.ops-root .text-paper\/40,
+.ops-root .text-paper\/45 {
+  color: var(--ops-faint);
+}
+.ops-root .text-paper\/50,
+.ops-root .text-paper\/55,
+.ops-root .text-paper\/60,
+.ops-root .text-paper\/65 {
+  color: var(--ops-faint-strong);
+}
+
+/* Modules that stay dark on purpose (map, photo overlays, print proofs) */
+.ops-dark-inset {
+  --color-paper: #f7f2e7;
+  --color-ink: #0f1117;
+  --ops-faint: rgb(247 242 231 / 0.45);
+  --ops-faint-strong: rgb(247 242 231 / 0.62);
+  color: #f7f2e7;
+}

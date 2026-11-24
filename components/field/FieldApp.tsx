@@ -120,7 +120,7 @@ export function FieldApp() {
 
   if (isLoading || !project) {
     return (
-      <div className="flex min-h-dvh flex-col items-center justify-center gap-3 bg-ink px-6 text-center">
+      <div className="ops-root flex min-h-dvh flex-col items-center justify-center gap-3 bg-[var(--ops-bg)] px-6 text-center">
         <span className="h-8 w-8 animate-spin border-2 border-gold border-t-transparent" />
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Loading field kit…</p>
       </div>
@@ -131,9 +131,9 @@ export function FieldApp() {
   const canUseField = data?.viewer.role !== "client";
 
   return (
-    <div className="mx-auto min-h-dvh w-full max-w-[480px] border-x border-paper/10 bg-ink pb-[92px] text-paper shadow-[0_0_90px_-30px_rgba(247,188,50,0.22)]">
+    <div className="ops-root mx-auto min-h-dvh w-full max-w-[480px] border-x border-paper/10 bg-[var(--ops-bg)] pb-[92px] text-paper shadow-[0_0_90px_-30px_rgba(247,188,50,0.22)]">
       {/* Header */}
-      <header className="sticky top-0 z-30 border-b border-paper/10 bg-ink/95 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-paper/10 bg-[var(--ops-chrome)] backdrop-blur">
         <div className="flex items-center justify-between gap-2 px-3 py-2.5">
           <Link href="/dashboard" className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center border border-gold/40 bg-gold/10">
@@ -162,7 +162,7 @@ export function FieldApp() {
             <select
               value={project.id}
               onChange={(event) => setProjectId(event.target.value)}
-              className="h-11 w-full appearance-none border border-paper/15 bg-[#14161E] pl-3 pr-8 text-[13px] font-medium text-paper focus:border-gold/60 focus:outline-none"
+              className="h-11 w-full appearance-none border border-paper/15 bg-[var(--ops-panel-2)] pl-3 pr-8 text-[13px] font-medium text-paper focus:border-gold/60 focus:outline-none"
             >
               {(data?.projects ?? []).map((entry) => (
                 <option key={entry.id} value={entry.id}>
@@ -241,7 +241,7 @@ export function FieldApp() {
             <FieldSyncList items={queue} />
 
             {projectLogs.length ? (
-              <section className="border border-paper/12 bg-[#14161E] p-3">
+              <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
                 <div className="flex items-center justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent logs</p>
                   <Link href={`/dashboard/projects/${project.id}`} className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
@@ -282,7 +282,7 @@ export function FieldApp() {
 
             <QuickIncidentForm projectId={project.id} projectName={project.name} online={online} onQueued={setQueue} />
 
-            <section className="border border-paper/12 bg-[#14161E] p-3">
+            <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent at this site</p>
                 <Link href="/dashboard/safety" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
@@ -333,7 +333,7 @@ export function FieldApp() {
       {/* Bottom nav */}
       <nav
         aria-label="Field sections"
-        className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-[480px] border-t border-paper/12 bg-[#0B0D13]/98 pb-[env(safe-area-inset-bottom)] backdrop-blur"
+        className="fixed inset-x-0 bottom-0 z-40 mx-auto w-full max-w-[480px] border-t border-paper/12 bg-[var(--ops-dialog)] pb-[env(safe-area-inset-bottom)] backdrop-blur"
       >
         <ul className="grid grid-cols-3">
           {TABS.map((item) => {

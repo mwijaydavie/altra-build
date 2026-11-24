@@ -32,7 +32,7 @@ export function DailyLogCard({
   return (
     <article
       className={cn(
-        "border border-paper/10 bg-[#14161E] p-3.5 transition-colors hover:border-paper/20 sm:p-4",
+        "border border-paper/10 bg-[var(--ops-panel-2)] p-3.5 transition-colors hover:border-paper/20 sm:p-4",
         compact && "p-3",
       )}
     >

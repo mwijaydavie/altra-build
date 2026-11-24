@@ -81,7 +81,7 @@ export function ExecutiveSummaryCards({
         return (
           <article
             key={card.id}
-            className="group relative flex flex-col bg-[#14161E] px-4 py-4 transition-colors hover:bg-[#171A24] sm:px-5"
+            className="group relative flex flex-col bg-[var(--ops-panel-2)] px-4 py-4 transition-colors hover:bg-[var(--ops-raised)] sm:px-5"
           >
             <div className="flex items-start justify-between gap-3">
               <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-paper/35">{card.eyebrow}</p>

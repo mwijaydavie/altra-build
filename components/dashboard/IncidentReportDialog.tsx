@@ -33,7 +33,7 @@ export function IncidentReportDialog({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm print:hidden" />
-        <Dialog.Content className="fixed inset-0 z-[90] overflow-y-auto bg-[#0B0D13] p-3 sm:p-6 print:static print:overflow-visible print:bg-white print:p-0">
+        <Dialog.Content className="ops-root fixed inset-0 z-[90] overflow-y-auto bg-[var(--ops-dialog)] p-3 sm:p-6 print:static print:overflow-visible print:bg-white print:p-0">
           <div className="mx-auto max-w-3xl">
             <header className="mb-3 flex flex-wrap items-center justify-between gap-3 print:hidden">
               <div>

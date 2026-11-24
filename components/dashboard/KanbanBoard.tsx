@@ -52,7 +52,7 @@ export function KanbanBoard({
               setDragging(null);
             }}
             className={cn(
-              "flex min-h-[180px] flex-col border bg-[#101219]",
+              "flex min-h-[180px] flex-col border bg-[var(--ops-bg)]",
               over === column.status ? "border-gold/60 bg-gold/[0.04]" : "border-paper/10",
             )}
           >
@@ -77,7 +77,7 @@ export function KanbanBoard({
                     }}
                     onDragEnd={() => setDragging(null)}
                     className={cn(
-                      "group border border-paper/10 bg-[#161923] p-2.5 transition-colors",
+                      "group border border-paper/10 bg-[var(--ops-panel-2)] p-2.5 transition-colors",
                       canMove && "cursor-grab active:cursor-grabbing hover:border-gold/30",
                       dragging === task.id && "opacity-40",
                       pendingId === task.id && "animate-pulse border-gold/50",
