@@ -1,17 +1,12 @@
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Preloader } from "@/components/layout/Preloader";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 
-/** Marketing shell: Lenis smooth scroll, brand preloader, glass nav, Swiss footer. */
+/** Marketing shell: Lenis smooth scroll, glass chrome, Swiss footer. */
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <SmoothScrollProvider>
-      <noscript>
-        <style>{`[data-preloader]{display:none !important}`}</style>
-      </noscript>
-      <Preloader />
       <ScrollProgress />
       <a
         href="#main"

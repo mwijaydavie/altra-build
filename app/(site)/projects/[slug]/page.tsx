@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="relative overflow-hidden bg-ink pb-12 pt-28 text-paper lg:pb-16 lg:pt-36">
         <div className="pointer-events-none absolute inset-0 text-paper blueprint opacity-20" aria-hidden />
         <div className="shell relative">
-          <div className="flex flex-wrap items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/40">
+          <div className="flex flex-wrap items-center gap-3 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/55">
             <Link href="/projects" className="flex items-center gap-1.5 transition-colors hover:text-gold">
               <ArrowLeft className="size-3" />
               Project index
@@ -91,11 +91,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 { k: "Value", v: project.specs.find((s) => s.label === "Contract value")?.value ?? "—" },
               ].map((item) => (
                 <div key={item.k}>
-                  <dt className="meta text-paper/35">{item.k}</dt>
+                  <dt className="meta text-paper/55">{item.k}</dt>
                   <dd className="mt-1.5 text-[14.5px] leading-snug text-paper/80">{item.v}</dd>
                 </div>
               ))}
-              <div className="col-span-2 flex items-center gap-2 text-paper/35">
+              <div className="col-span-2 flex items-center gap-2 text-paper/55">
                 <MapPin className="size-3" />
                 <span className="font-mono text-[11px] tracking-[0.1em]">{project.coordinates}</span>
               </div>
@@ -136,17 +136,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="mt-12 grid gap-10 sm:grid-cols-2">
               <div>
-                <p className="meta text-ink/35">Brief</p>
+                <p className="meta text-ink/65">Brief</p>
                 <p className="mt-3 text-[16px] leading-relaxed text-ink/60">{project.brief}</p>
               </div>
               <div>
-                <p className="meta text-ink/35">Response</p>
+                <p className="meta text-ink/65">Response</p>
                 <p className="mt-3 text-[16px] leading-relaxed text-ink/60">{project.response}</p>
               </div>
             </div>
 
             <div className="mt-12 border-t border-ink/15 pt-6">
-              <p className="meta text-ink/35">Audited outcomes</p>
+              <p className="meta text-ink/65">Audited outcomes</p>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {project.outcomes.map((outcome) => (
                   <li key={outcome} className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-ink/70">
@@ -162,19 +162,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {/* Phases */}
             <div className="mt-12 border-t border-ink/15 pt-6">
               <div className="flex items-baseline justify-between">
-                <p className="meta text-ink/35">Programme</p>
-                <p className="meta text-ink/25">{project.progress}% complete</p>
+                <p className="meta text-ink/65">Programme</p>
+                <p className="meta text-ink/65">{project.progress}% complete</p>
               </div>
               <div className="mt-6 space-y-0">
                 {project.phases.map((phase, index) => (
                   <div key={phase.id} className="flex items-start gap-4 border-t border-ink/10 py-4">
-                    <span className="mt-0.5 font-mono text-[11.5px] text-ink/30">
+                    <span className="mt-0.5 font-mono text-[11.5px] text-ink/65">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <p className="text-[15.5px] text-ink/80">{phase.name}</p>
-                        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink/35">
+                        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink/65">
                           {phase.window}
                         </p>
                       </div>
@@ -188,7 +188,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span
                       className={
                         "mt-0.5 shrink-0 font-mono text-[8.5px] uppercase tracking-[0.08em] " +
-                        (phase.state === "active" ? "text-gold-deep" : "text-ink/30")
+                        (phase.state === "active" ? "text-gold-deep" : "text-ink/65")
                       }
                     >
                       {phase.progress}%
@@ -203,15 +203,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             <div className="border border-ink/15 bg-cream/60 p-5">
               <div className="flex items-center justify-between border-b border-ink/15 pb-3">
-                <p className="eyebrow text-ink/45">Technical sheet</p>
+                <p className="eyebrow text-ink/65">Technical sheet</p>
                 <Logo variant="mark" height={22} />
               </div>
               <dl className="mt-2 divide-y divide-ink/10">
                 {project.specs.map((spec) => (
                   <div key={spec.label} className="flex items-baseline justify-between gap-4 py-2.5">
-                    <dt className="text-[12px] uppercase tracking-[0.06em] text-ink/40">{spec.label}</dt>
+                    <dt className="text-[12px] uppercase tracking-[0.06em] text-ink/65">{spec.label}</dt>
                     <dd className="text-right font-display text-[15.5px] text-ink">
-                      {spec.value} {spec.unit && <span className="text-[11.5px] text-ink/40">{spec.unit}</span>}
+                      {spec.value} {spec.unit && <span className="text-[11.5px] text-ink/65">{spec.unit}</span>}
                     </dd>
                   </div>
                 ))}
@@ -255,7 +255,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       className="object-cover"
                     />
                   </div>
-                  <figcaption className="mt-2.5 flex items-baseline justify-between gap-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/35">
+                  <figcaption className="mt-2.5 flex items-baseline justify-between gap-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
                     <span>{image.caption}</span>
                     <span>Fig. {String(index + 2).padStart(2, "0")}</span>
                   </figcaption>
@@ -275,13 +275,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3 border-t border-ink/15 pt-4">
               <div>
                 <p className="text-[15.5px] font-medium text-ink">{project.quote.author}</p>
-                <p className="mt-1 text-[12.5px] text-ink/45">{project.quote.role}</p>
+                <p className="mt-1 text-[12.5px] text-ink/65">{project.quote.role}</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {project.awards.map((award) => (
                   <span
                     key={award}
-                    className="border border-ink/15 px-2.5 py-1 font-mono text-[8.5px] uppercase tracking-[0.08em] text-ink/40"
+                    className="border border-ink/15 px-2.5 py-1 font-mono text-[8.5px] uppercase tracking-[0.08em] text-ink/65"
                   >
                     {award}
                   </span>
@@ -296,14 +296,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="bg-ink py-12 text-paper">
         <div className="shell grid gap-8 sm:grid-cols-2">
           <Link href={`/projects/${prev.slug}`} className="group border-t border-paper/15 pt-5">
-            <p className="meta text-paper/35">Previous record</p>
+            <p className="meta text-paper/55">Previous record</p>
             <p className="display-md mt-2 flex items-center gap-3 text-paper/80 uppercase transition-colors group-hover:text-gold">
               {prev.name}
               <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
             </p>
           </Link>
           <Link href={`/projects/${next.slug}`} className="group border-t border-paper/15 pt-5 sm:text-right">
-            <p className="meta text-paper/35">Next record</p>
+            <p className="meta text-paper/55">Next record</p>
             <p className="display-md mt-2 flex items-center gap-3 text-paper/80 uppercase transition-colors group-hover:text-gold sm:justify-end">
               {next.name}
               <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

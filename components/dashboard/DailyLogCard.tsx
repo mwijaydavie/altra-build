@@ -49,7 +49,7 @@ export function DailyLogCard({
           {projectName ? (
             <p className="mt-1 truncate text-[13px] font-medium text-paper/90">{projectName}</p>
           ) : null}
-          <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/35">
+          <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
             {author ?? "Field team"} · {log.manpowerTotal} on site
           </p>
         </div>
@@ -57,7 +57,7 @@ export function DailyLogCard({
           <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">
             <Icon className="h-3.5 w-3.5 text-paper/50" /> {weather.label}
           </span>
-          <span className="font-mono text-[10px] tabular-nums text-paper/35">{log.temperatureC}°C</span>
+          <span className="font-mono text-[10px] tabular-nums text-paper/55">{log.temperatureC}°C</span>
         </div>
       </div>
 
@@ -73,18 +73,18 @@ export function DailyLogCard({
         {log.manpower.slice(0, compact ? 3 : 4).map((entry) => (
           <span
             key={entry.trade}
-            className="border border-paper/10 px-1.5 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/40"
+            className="border border-paper/10 px-1.5 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/55"
           >
             {entry.trade} {num(entry.count)}
           </span>
         ))}
         {log.manpower.length > (compact ? 3 : 4) ? (
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/25">
+          <span className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/55">
             +{log.manpower.length - (compact ? 3 : 4)} trades
           </span>
         ) : null}
         {log.photos.length ? (
-          <span className="ml-auto flex items-center gap-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/35">
+          <span className="ml-auto flex items-center gap-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/55">
             <Camera className="h-3 w-3" /> {log.photos.length}
           </span>
         ) : null}

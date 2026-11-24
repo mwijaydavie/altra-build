@@ -64,7 +64,10 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
+    // Touch devices already have momentum scrolling; running Lenis there only
+    // fights the compositor and adds main-thread work to the first paint.
+    const coarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (reduced || coarsePointer) {
       document.documentElement.classList.remove("lenis", "lenis-smooth");
       return;
     }

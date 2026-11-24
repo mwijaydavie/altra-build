@@ -55,7 +55,7 @@ function OptionGrid({
               <span
                 className={cn(
                   "mt-1 block font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em]",
-                  selected ? "text-paper/45" : "text-ink/35",
+                  selected ? "text-paper/55" : "text-ink/65",
                 )}
               >
                 {option.detail}
@@ -188,10 +188,10 @@ export function Estimator() {
             {/* Step 1 */}
             <div>
               <div className="flex items-baseline justify-between">
-                <p className="eyebrow text-ink/45">
+                <p className="eyebrow text-ink/65">
                   <span className="mr-2 text-gold-deep">01</span>Discipline
                 </p>
-                <span className="meta text-ink/30">Required</span>
+                <span className="meta text-ink/65">Required</span>
               </div>
               <div className="mt-3">
                 <OptionGrid
@@ -205,10 +205,10 @@ export function Estimator() {
             {/* Step 2 */}
             <div>
               <div className="flex items-baseline justify-between">
-                <p className="eyebrow text-ink/45">
+                <p className="eyebrow text-ink/65">
                   <span className="mr-2 text-gold-deep">02</span>Scale
                 </p>
-                <span className="meta text-ink/30">Gross floor area</span>
+                <span className="meta text-ink/65">Gross floor area</span>
               </div>
               <div className="mt-4 border border-ink/15 bg-cream/40 p-5">
                 <div className="flex flex-wrap items-end justify-between gap-4">
@@ -230,7 +230,7 @@ export function Estimator() {
                       aria-label="Gross floor area in square metres"
                       className="w-[7ch] border-b border-ink/30 bg-transparent pb-1 font-display text-[clamp(2.2rem,5vw,3rem)] leading-none tracking-tight text-ink outline-none focus:border-gold-deep [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none"
                     />
-                    <span className="font-mono text-[13.5px] uppercase tracking-[0.14em] text-ink/40">m²</span>
+                    <span className="font-mono text-[13.5px] uppercase tracking-[0.14em] text-ink/65">m²</span>
                   </div>
                   <div className="flex gap-2">
                     {[2500, 8500, 25000, 50000].map((preset) => (
@@ -242,7 +242,7 @@ export function Estimator() {
                           "border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors",
                           area === preset
                             ? "border-ink bg-ink text-paper"
-                            : "border-ink/15 text-ink/50 hover:border-ink/40 hover:text-ink",
+                            : "border-ink/15 text-ink/65 hover:border-ink/40 hover:text-ink",
                         )}
                       >
                         {preset >= 1000 ? `${preset / 1000}k` : preset}
@@ -261,7 +261,7 @@ export function Estimator() {
                   className="altra-range mt-6"
                   style={{ "--fill": `${fillPercent}%` } as React.CSSProperties}
                 />
-                <div className="mt-2 flex justify-between font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
+                <div className="mt-2 flex justify-between font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
                   <span>{estimatorConfig.minArea} m²</span>
                   <span>{estimatorConfig.maxArea.toLocaleString("en-US")} m²</span>
                 </div>
@@ -271,18 +271,18 @@ export function Estimator() {
             {/* Step 3 */}
             <div>
               <div className="flex items-baseline justify-between">
-                <p className="eyebrow text-ink/45">
+                <p className="eyebrow text-ink/65">
                   <span className="mr-2 text-gold-deep">03</span>Site conditions
                 </p>
-                <span className="meta text-ink/30">Location &amp; ground</span>
+                <span className="meta text-ink/65">Location &amp; ground</span>
               </div>
               <div className="mt-3 space-y-4">
                 <div>
-                  <p className="meta mb-2 text-ink/35">Location</p>
+                  <p className="meta mb-2 text-ink/65">Location</p>
                   <OptionGrid options={estimatorLocations} value={locationId} onChange={setLocationId} columns={3} />
                 </div>
                 <div>
-                  <p className="meta mb-2 text-ink/35">Ground</p>
+                  <p className="meta mb-2 text-ink/65">Ground</p>
                   <div className="flex flex-wrap gap-2">
                     {estimatorGround.map((option) => {
                       const selected = option.id === groundId;
@@ -297,7 +297,7 @@ export function Estimator() {
                             "border px-3 py-1.5 font-mono text-[11.5px] uppercase tracking-[0.06em] transition-colors",
                             selected
                               ? "border-gold-deep bg-gold/20 text-ink"
-                              : "border-ink/15 text-ink/55 hover:border-ink/40 hover:text-ink",
+                              : "border-ink/15 text-ink/65 hover:border-ink/40 hover:text-ink",
                           )}
                         >
                           {option.label}
@@ -307,7 +307,7 @@ export function Estimator() {
                   </div>
                 </div>
                 <div>
-                  <p className="meta mb-2 text-ink/35">Finish</p>
+                  <p className="meta mb-2 text-ink/65">Finish</p>
                   <OptionGrid options={estimatorFinish} value={finishId} onChange={setFinishId} columns={2} />
                 </div>
               </div>
@@ -324,12 +324,12 @@ export function Estimator() {
                     <Image src="/brand/altra-mark-inverse.svg" alt="" width={30} height={28} unoptimized />
                     <div>
                     <p className="eyebrow text-gold">Indicative order of cost</p>
-                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/35">
+                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/55">
                       REF: AB/EST/2026 · v4.2
                     </p>
                     </div>
                   </div>
-                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/40">
+                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/55">
                     <span className="live-dot size-1.5 rounded-full bg-gold" />
                     Live
                   </span>
@@ -339,9 +339,9 @@ export function Estimator() {
                   <p className="font-display text-[clamp(1.55rem,2.6vw,2rem)] leading-tight tracking-tight text-paper">
                     {formatTZS(estimate.low)}
                     <br />
-                    <span className="text-paper/40">—</span> {formatTZS(estimate.high)}
+                    <span className="text-paper/55">—</span> {formatTZS(estimate.high)}
                   </p>
-                  <p className="mt-2 font-mono text-[11.5px] tracking-[0.1em] text-paper/40">
+                  <p className="mt-2 font-mono text-[11.5px] tracking-[0.1em] text-paper/55">
                     {usdFromTzs(estimate.low)} – {usdFromTzs(estimate.high)}
                   </p>
                 </div>
@@ -356,7 +356,7 @@ export function Estimator() {
                     { label: "Contingency", value: `${Math.round(estimatorConfig.contingency * 100)}% incl.` },
                   ].map((item) => (
                     <div key={item.label}>
-                      <dt className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/35">
+                      <dt className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/55">
                         {item.label}
                       </dt>
                       <dd className="mt-1 font-display text-[17px] leading-none text-paper">{item.value}</dd>
@@ -367,7 +367,7 @@ export function Estimator() {
                 <div className="mt-6 space-y-2 border-t border-paper/15 pt-5">
                   {estimate.lines.map((line) => (
                     <div key={line.label} className="flex items-baseline justify-between gap-3">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-paper/30">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-paper/55">
                         {line.label}
                       </span>
                       <span className="text-right text-[12.5px] text-paper/65">{line.value}</span>
@@ -402,7 +402,7 @@ export function Estimator() {
                   </p>
                 )}
 
-                <p className="mt-5 flex items-start gap-2 border-t border-paper/15 pt-4 text-[11px] leading-relaxed text-paper/35">
+                <p className="mt-5 flex items-start gap-2 border-t border-paper/15 pt-4 text-[11px] leading-relaxed text-paper/55">
                   <Info className="mt-0.5 size-3 shrink-0" />
                   {estimatorConfig.disclaimer}
                 </p>
@@ -410,7 +410,7 @@ export function Estimator() {
             </div>
 
             <div className="mt-3 flex items-center justify-between border border-ink/15 bg-cream/50 px-4 py-3">
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink/45">
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink/65">
                 Prefer a conversation?
               </p>
               <a
@@ -424,7 +424,7 @@ export function Estimator() {
           </aside>
         </div>
 
-        <p className="mt-10 flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/30">
+        <p className="mt-10 flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/65">
           <ArrowDownToLine className="size-3.5" />
           Estimates refresh instantly · nothing is submitted until you choose to
         </p>

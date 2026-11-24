@@ -41,7 +41,7 @@ export function FinancialBurnChart({
           <h2 className="mt-1 text-[15px] font-semibold tracking-tight text-paper">
             Financial burn vs milestone billing
           </h2>
-          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/40">
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
             Outflow {tzs(totalOutflow)} · Billed {tzs(totalBilling)} · Coverage {Math.round(coverage * 100)}%
           </p>
         </div>
@@ -93,7 +93,7 @@ export function FinancialBurnChart({
                 if (!active || !payload?.length) return null;
                 return (
                   <div className="border border-paper/20 bg-[var(--ops-dialog)] px-3 py-2 shadow-2xl">
-                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/40">{label} 2026</p>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/55">{label} 2026</p>
                     {payload.map((entry) => (
                       <p key={String(entry.dataKey)} className="mt-1 flex items-center gap-2 text-[11px] text-paper/80">
                         <span
@@ -143,7 +143,7 @@ export function FinancialBurnChart({
           { label: "Outflow", color: "#F26D5B" },
           { label: "Forecast", color: "rgba(247,242,231,0.42)", dashed: true },
         ].map((item) => (
-          <span key={item.label} className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/45">
+          <span key={item.label} className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">
             <span
               className="h-0.5 w-4"
               style={{

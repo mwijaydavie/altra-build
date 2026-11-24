@@ -40,16 +40,16 @@ export default function AboutPage() {
           <div>
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold-deep">05·A</span>
-              <h2 className="eyebrow text-ink/45">Credentials</h2>
+              <h2 className="eyebrow text-ink/65">Credentials</h2>
             </div>
             <ul className="mt-6 divide-y divide-ink/10 border-t border-ink/15">
               {certifications.map((cert) => (
                 <li key={cert.code} className="flex items-baseline justify-between gap-6 py-4">
                   <div>
                     <p className="font-display text-[19px] tracking-tight text-ink">{cert.code}</p>
-                    <p className="mt-1 text-[15.5px] text-ink/55">{cert.name}</p>
+                    <p className="mt-1 text-[15.5px] text-ink/65">{cert.name}</p>
                   </div>
-                  <p className="shrink-0 text-right font-mono text-[12px] uppercase tracking-[0.1em] text-ink/40">
+                  <p className="shrink-0 text-right font-mono text-[12px] uppercase tracking-[0.1em] text-ink/65">
                     {cert.issuer}
                     <br />
                     Since {cert.since}
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <div>
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold-deep">05·B</span>
-              <h2 className="eyebrow text-ink/45">Offices &amp; yards</h2>
+              <h2 className="eyebrow text-ink/65">Offices &amp; yards</h2>
             </div>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
               {offices.map((office) => (
@@ -71,7 +71,7 @@ export default function AboutPage() {
                   <p className="mt-2 font-display text-[19px] leading-tight tracking-tight text-ink">
                     {office.city}
                   </p>
-                  <p className="mt-2 text-[15px] leading-relaxed text-ink/55">{office.address}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink/65">{office.address}</p>
                   <a
                     href={`tel:${office.phone.replace(/\s/g, "")}`}
                     className="mt-3 inline-block font-mono text-[12.5px] tracking-[0.06em] text-ink/70 transition-colors hover:text-ink"

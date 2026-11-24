@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+// Our CSP forbids eval; disable Zod's JIT probe so it never trips a
+// `securitypolicyviolation` (the probe is caught, but Chrome still reports it).
+z.config({ jitless: true });
+
 const weather = z.enum(["clear", "cloudy", "light-rain", "heavy-rain", "windy", "extreme-heat"]);
 const category = z.enum(["structural", "electrical", "plumbing", "finishing"]);
 const severity = z.enum(["low", "medium", "high", "critical"]);

@@ -70,11 +70,11 @@ export function LiveProjectMap({ projects }: { projects: ProjectSummary[] }) {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">Site telemetry</p>
           <h2 className="mt-1 text-[15px] font-semibold tracking-tight text-paper">Live project map</h2>
-          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/40">
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
             {active} active {active === 1 ? "site" : "sites"} · {projects.length} on register · Tanzania
           </p>
         </div>
-        <span className="inline-flex items-center gap-1.5 border border-paper/15 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/45">
+        <span className="inline-flex items-center gap-1.5 border border-paper/15 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">
           <span className="h-1.5 w-1.5 rounded-full bg-[#6FD3A6] live-dot" /> Telemetry live
         </span>
       </div>
@@ -221,7 +221,7 @@ export function LiveProjectMap({ projects }: { projects: ProjectSummary[] }) {
           <div className="pointer-events-none absolute bottom-4 left-4 right-4 border border-gold/30 bg-[#0B0D13]/95 p-3 shadow-2xl sm:right-auto sm:w-[280px]">
             <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">{hovered.projectCode}</p>
             <p className="mt-1 text-[13px] font-semibold text-paper">{hovered.name}</p>
-            <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/45">
+            <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
               {hovered.manager} · {hovered.workforce} on site
             </p>
             <div className="mt-2 flex items-center justify-between gap-3 border-t border-paper/10 pt-2 font-mono text-[10px] text-paper/60">
@@ -238,12 +238,12 @@ export function LiveProjectMap({ projects }: { projects: ProjectSummary[] }) {
           { label: "Watch", color: STATUS_COLOR.amber },
           { label: "Intervene", color: STATUS_COLOR.red },
         ].map((item) => (
-          <span key={item.label} className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/45">
+          <span key={item.label} className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">
             <span className="h-1.5 w-1.5 rounded-full" style={{ background: item.color }} />
             {item.label}
           </span>
         ))}
-        <span className="ml-auto hidden font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30 sm:block">
+        <span className="ml-auto hidden font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55 sm:block">
           Tap a marker to open the site
         </span>
       </div>

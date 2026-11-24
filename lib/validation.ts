@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+// Our CSP forbids eval; disable Zod's JIT probe so it never trips a
+// `securitypolicyviolation` (the probe is caught, but Chrome still reports it).
+z.config({ jitless: true });
+
 export const rfqSchema = z.object({
   name: z
     .string()

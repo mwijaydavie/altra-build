@@ -53,7 +53,7 @@ export function OfflineSyncBadge({
         {online ? <Wifi className="h-3 w-3" /> : <WifiOff className="h-3 w-3" />}
       </span>
       {lastSynced ? (
-        <span className="hidden font-mono text-[9.5px] text-paper/35 lg:inline">· {lastSynced}</span>
+        <span className="hidden font-mono text-[9.5px] text-paper/55 lg:inline">· {lastSynced}</span>
       ) : null}
     </button>
   );

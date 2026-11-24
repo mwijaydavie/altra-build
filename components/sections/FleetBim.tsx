@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const statusStyles: Record<string, string> = {
   Active: "text-gold",
   Standby: "text-paper/55",
-  Yard: "text-paper/35",
+  Yard: "text-paper/55",
 };
 
 export function FleetBim() {
@@ -36,6 +36,7 @@ export function FleetBim() {
                 alt="Altra Build excavator and concrete pump fleet staged at dawn"
                 fill
                 sizes="(min-width: 1024px) 55vw, 100vw"
+                quality={62}
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
@@ -55,8 +56,8 @@ export function FleetBim() {
 
           <div className="border border-paper/10">
             <div className="grid grid-cols-[1fr_auto] items-center gap-4 border-b border-paper/10 px-4 py-3">
-              <p className="meta text-paper/35">Asset register</p>
-              <p className="meta text-paper/35">Units</p>
+              <p className="meta text-paper/55">Asset register</p>
+              <p className="meta text-paper/55">Units</p>
             </div>
             <ul>
               {fleet.map((machine) => (
@@ -72,11 +73,11 @@ export function FleetBim() {
                         {machine.status}
                       </span>
                     </div>
-                    <p className="mt-1 truncate text-[12px] text-paper/35">{machine.capability}</p>
+                    <p className="mt-1 truncate text-[12px] text-paper/55">{machine.capability}</p>
                   </div>
                   <div className="text-right">
                     <p className="font-display text-[17px] leading-none text-paper">{machine.units}</p>
-                    <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/30">
+                    <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/55">
                       {machine.telemetry[0]?.value}
                     </p>
                   </div>
@@ -97,7 +98,7 @@ export function FleetBim() {
                 The model is the contract. Everything else is evidence.
               </h3>
             </div>
-            <p className="max-w-xs text-[13px] leading-relaxed text-paper/45">
+            <p className="max-w-xs text-[13px] leading-relaxed text-paper/55">
               Every project runs a federated common data environment. Clients get read access to the
               same model, programme and quality records our teams work from.
             </p>
@@ -112,11 +113,11 @@ export function FleetBim() {
               >
                 <div className="flex items-start justify-between gap-3">
                   <h4 className="font-display text-[17px] tracking-tight text-paper/90">{item.name}</h4>
-                  <span className="shrink-0 border border-paper/15 px-2 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/40">
+                  <span className="shrink-0 border border-paper/15 px-2 py-0.5 font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/55">
                     {item.tag}
                   </span>
                 </div>
-                <p className="mt-2.5 text-[13px] leading-relaxed text-paper/45">{item.detail}</p>
+                <p className="mt-2.5 text-[13px] leading-relaxed text-paper/55">{item.detail}</p>
                 <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
               </Reveal>
             ))}

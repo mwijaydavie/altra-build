@@ -178,7 +178,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                 onKeyDown={onInputKeyDown}
                 placeholder="Search projects, services, pages…"
                 aria-label="Search"
-                className="min-w-0 flex-1 bg-transparent text-[17px] text-paper outline-none placeholder:text-paper/35"
+                className="min-w-0 flex-1 bg-transparent text-[17px] text-paper outline-none placeholder:text-paper/55"
               />
               <button
                 type="button"
@@ -192,7 +192,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
 
             {/* filters */}
             <div className="flex flex-wrap items-center gap-2 border-b border-paper/10 px-5 py-3.5">
-              <span className="mr-1 font-mono text-[12px] uppercase tracking-[0.16em] text-paper/35">
+              <span className="mr-1 font-mono text-[12px] uppercase tracking-[0.16em] text-paper/55">
                 Filter
               </span>
               {filters.map((item) => {
@@ -214,7 +214,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                   </button>
                 );
               })}
-              <span className="ml-auto font-mono text-[12px] uppercase tracking-[0.14em] text-paper/35">
+              <span className="ml-auto font-mono text-[12px] uppercase tracking-[0.14em] text-paper/55">
                 {results.length} result{results.length === 1 ? "" : "s"}
               </span>
             </div>
@@ -224,7 +224,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
               {results.length === 0 ? (
                 <div className="px-4 py-10 text-center">
                   <p className="text-[16px] text-paper/70">No match for “{query}”.</p>
-                  <p className="mt-2 text-[14px] text-paper/40">
+                  <p className="mt-2 text-[14px] text-paper/55">
                     Try “bridge”, “Dodoma”, “BIM” or ask the tender desk directly.
                   </p>
                 </div>
@@ -249,7 +249,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                               "flex size-9 shrink-0 items-center justify-center rounded border",
                               isActive
                                 ? "border-gold/40 bg-gold/10 text-gold"
-                                : "border-paper/10 text-paper/45",
+                                : "border-paper/10 text-paper/55",
                             )}
                           >
                             <Icon className="size-4" strokeWidth={1.6} />
@@ -258,14 +258,14 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                             <span className="block truncate text-[16px] leading-snug text-paper">
                               {entry.title}
                             </span>
-                            <span className="block truncate text-[13.5px] text-paper/45">
+                            <span className="block truncate text-[13.5px] text-paper/55">
                               {entry.meta}
                             </span>
                           </span>
                           <ArrowRight
                             className={cn(
                               "size-4 shrink-0 transition-opacity",
-                              isActive ? "text-gold opacity-100" : "text-paper/30 opacity-0",
+                              isActive ? "text-gold opacity-100" : "text-paper/55 opacity-0",
                             )}
                           />
                         </button>
@@ -278,7 +278,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
 
             {/* quick actions */}
             <div className="border-t border-paper/10 px-3 py-3">
-              <p className="px-2 font-mono text-[12px] uppercase tracking-[0.16em] text-paper/35">
+              <p className="px-2 font-mono text-[12px] uppercase tracking-[0.16em] text-paper/55">
                 Quick actions
               </p>
               <div className="mt-2 grid gap-1 sm:grid-cols-2">
@@ -295,7 +295,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                     <span className="text-[15px] text-paper/80 group-hover:text-paper">
                       {action.label}
                     </span>
-                    <span className="ml-auto font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/30">
+                    <span className="ml-auto font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/55">
                       {action.hint}
                     </span>
                   </button>
@@ -305,7 +305,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
 
             {/* key hints */}
             <div className="flex items-center justify-between gap-4 border-t border-paper/10 bg-black/20 px-5 py-2.5">
-              <div className="flex items-center gap-4 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/35">
+              <div className="flex items-center gap-4 font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/55">
                 <span className="flex items-center gap-1.5">
                   <kbd className="rounded border border-paper/15 px-1.5 py-0.5">↑</kbd>
                   <kbd className="rounded border border-paper/15 px-1.5 py-0.5">↓</kbd>
@@ -318,7 +318,7 @@ export function SiteSearch({ open, onOpenChange }: SiteSearchProps) {
                   <kbd className="rounded border border-paper/15 px-1.5 py-0.5">esc</kbd> close
                 </span>
               </div>
-              <span className="font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/25">
+              <span className="font-mono text-[11.5px] uppercase tracking-[0.12em] text-paper/55">
                 ALTRA / SEARCH
               </span>
             </div>

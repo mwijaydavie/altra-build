@@ -35,7 +35,7 @@ export function SectionHeading({
         <div className="max-w-3xl">
           <div className="flex items-baseline gap-3">
             <span className={cn("meta", dark ? "text-gold" : "text-gold-deep")}>{index}</span>
-            <span className={cn("eyebrow", dark ? "text-paper/45" : "text-ink/45")}>{label}</span>
+            <span className={cn("eyebrow", dark ? "text-paper/55" : "text-ink/65")}>{label}</span>
           </div>
           <SplitHeading
             as="h2"

@@ -183,7 +183,7 @@ export function DataRow({
 }) {
   return (
     <div className={cn("flex items-baseline justify-between gap-4 py-2", className)}>
-      <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/45">{label}</dt>
+      <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55">{label}</dt>
       <dd className="text-right text-[13px] text-paper/85">{value}</dd>
     </div>
   );
@@ -193,7 +193,7 @@ export function EmptyState({ title, detail }: { title: string; detail?: string }
   return (
     <div className="flex flex-col items-center justify-center gap-1 px-6 py-12 text-center">
       <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper/50">{title}</p>
-      {detail ? <p className="max-w-sm text-sm text-paper/40">{detail}</p> : null}
+      {detail ? <p className="max-w-sm text-sm text-paper/55">{detail}</p> : null}
     </div>
   );
 }

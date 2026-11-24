@@ -13,7 +13,7 @@ export function HomeDivisions() {
           <div>
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold-deep">01</span>
-              <span className="eyebrow text-ink/45">What we build</span>
+              <span className="eyebrow text-ink/65">What we build</span>
             </div>
             <TextMotion
               as="h2"
@@ -40,6 +40,7 @@ export function HomeDivisions() {
                   alt={division.alt}
                   fill
                   sizes="(min-width: 1024px) 23vw, 46vw"
+                  quality={60}
                   className="object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
@@ -54,10 +55,10 @@ export function HomeDivisions() {
                 </span>
               </div>
               <div className="mt-3 flex items-baseline justify-between gap-3">
-                <p className="font-mono text-[12.5px] uppercase tracking-[0.1em] text-ink/55">
+                <p className="font-mono text-[12.5px] uppercase tracking-[0.1em] text-ink/65">
                   {division.kicker}
                 </p>
-                <span className="font-mono text-[12px] text-ink/30">{division.index}</span>
+                <span className="font-mono text-[12px] text-ink/65">{division.index}</span>
               </div>
             </Link>
           ))}
@@ -77,6 +78,7 @@ export function HomeDivisions() {
                     alt={division.alt}
                     fill
                     sizes="80px"
+                    quality={60}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
@@ -87,11 +89,11 @@ export function HomeDivisions() {
                   <h3 className="mt-1 font-display text-[21px] uppercase leading-tight tracking-tight text-ink">
                     {division.shortName}
                   </h3>
-                  <p className="mt-1 font-mono text-[11.5px] uppercase leading-snug tracking-[0.08em] text-ink/45">
+                  <p className="mt-1 font-mono text-[11.5px] uppercase leading-snug tracking-[0.08em] text-ink/65">
                     {division.kicker}
                   </p>
                 </div>
-                <ArrowUpRight className="size-4 shrink-0 text-ink/30 transition-colors group-hover:text-ink" />
+                <ArrowUpRight className="size-4 shrink-0 text-ink/65 transition-colors group-hover:text-ink" />
               </Link>
             </li>
           ))}

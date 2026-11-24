@@ -17,11 +17,11 @@ import { SplitHeading } from "@/components/ui/SplitHeading";
 import { cn } from "@/lib/utils";
 
 const inputBase =
-  "w-full border-b border-ink/20 bg-transparent pb-2.5 pt-1 text-[16px] text-ink outline-none transition-colors placeholder:text-ink/25 focus:border-gold-deep";
+  "w-full border-b border-ink/20 bg-transparent pb-2.5 pt-1 text-[16px] text-ink outline-none transition-colors placeholder:text-ink/65 focus:border-gold-deep";
 
 function Label({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
   return (
-    <label htmlFor={htmlFor} className="meta mb-2 block text-ink/40">
+    <label htmlFor={htmlFor} className="meta mb-2 block text-ink/65">
       {children}
     </label>
   );
@@ -29,7 +29,7 @@ function Label({ htmlFor, children }: { htmlFor: string; children: React.ReactNo
 
 function ErrorLine({ message }: { message?: string }) {
   if (!message) return null;
-  return <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-hazard">{message}</p>;
+  return <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-hazard-deep">{message}</p>;
 }
 
 export function ContactRFQ() {
@@ -117,7 +117,7 @@ export function ContactRFQ() {
           <div className="min-w-0">
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold-deep">07</span>
-              <span className="eyebrow text-ink/45">Request for tender</span>
+              <span className="eyebrow text-ink/65">Request for tender</span>
             </div>
             <SplitHeading as="h2" className="display-lg mt-5 uppercase">
               Tell us what has to stand.
@@ -137,7 +137,7 @@ export function ContactRFQ() {
                   <span className="mt-0.5 font-mono text-[11.5px] tracking-[0.1em] text-gold-deep">{step.k}</span>
                   <div>
                     <p className="text-[15.5px] font-medium text-ink">{step.t}</p>
-                    <p className="mt-0.5 text-[13px] leading-relaxed text-ink/45">{step.d}</p>
+                    <p className="mt-0.5 text-[13px] leading-relaxed text-ink/65">{step.d}</p>
                   </div>
                 </div>
               ))}
@@ -145,33 +145,33 @@ export function ContactRFQ() {
 
             <div className="mt-9 grid gap-4 border-t border-ink/15 pt-6 sm:grid-cols-2">
               <a href={`mailto:${company.email}`} className="group flex items-start gap-2.5">
-                <Mail className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
+                <Mail className="mt-0.5 size-4 text-ink/65" strokeWidth={1.7} />
                 <span>
-                  <span className="meta block text-ink/35">Tender desk</span>
+                  <span className="meta block text-ink/65">Tender desk</span>
                   <span className="mt-1 block text-[14px] text-ink/75 group-hover:text-ink">{company.email}</span>
                 </span>
               </a>
               <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="group flex items-start gap-2.5">
-                <Phone className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
+                <Phone className="mt-0.5 size-4 text-ink/65" strokeWidth={1.7} />
                 <span>
-                  <span className="meta block text-ink/35">Head office</span>
+                  <span className="meta block text-ink/65">Head office</span>
                   <span className="mt-1 block text-[14px] text-ink/75 group-hover:text-ink">{company.phone}</span>
                 </span>
               </a>
               <div className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
+                <MapPin className="mt-0.5 size-4 text-ink/65" strokeWidth={1.7} />
                 <span>
-                  <span className="meta block text-ink/35">Head office</span>
+                  <span className="meta block text-ink/65">Head office</span>
                   <span className="mt-1 block text-[14px] leading-relaxed text-ink/60">
                     Msasani Peninsula, Dar es Salaam
                   </span>
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <ShieldCheck className="mt-0.5 size-4 text-ink/40" strokeWidth={1.7} />
+                <ShieldCheck className="mt-0.5 size-4 text-ink/65" strokeWidth={1.7} />
                 <span>
-                  <span className="meta block text-ink/35">Emergency site line</span>
-                  <span className="mt-1 block text-[14px] text-hazard">{company.emergency}</span>
+                  <span className="meta block text-ink/65">Emergency site line</span>
+                  <span className="mt-1 block text-[14px] text-hazard-deep">{company.emergency}</span>
                 </span>
               </div>
             </div>
@@ -199,7 +199,7 @@ export function ContactRFQ() {
                   ].map((item) => (
                     <div key={item.t}>
                       <p className="font-display text-[15.5px] text-ink">{item.t}</p>
-                      <p className="mt-1 text-[12px] leading-relaxed text-ink/45">{item.d}</p>
+                      <p className="mt-1 text-[12px] leading-relaxed text-ink/65">{item.d}</p>
                     </div>
                   ))}
                 </div>
@@ -231,8 +231,8 @@ export function ContactRFQ() {
                 className="border border-ink/15 bg-paper p-6 sm:p-8"
               >
                 <div className="flex items-center justify-between border-b border-ink/10 pb-4">
-                  <p className="eyebrow text-ink/45">Tender enquiry · AB/RFQ</p>
-                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
+                  <p className="eyebrow text-ink/65">Tender enquiry · AB/RFQ</p>
+                  <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
                     <span className="size-1.5 rounded-full bg-gold" />
                     Secure
                   </span>
@@ -286,7 +286,7 @@ export function ContactRFQ() {
                 </div>
 
                 <fieldset className="mt-7">
-                  <legend className="meta mb-2 text-ink/40">Discipline</legend>
+                  <legend className="meta mb-2 text-ink/65">Discipline</legend>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                     {divisions.map((division) => (
                       <label
@@ -295,7 +295,7 @@ export function ContactRFQ() {
                           "cursor-pointer border px-3 py-2.5 text-center transition-colors",
                           discipline === division.id
                             ? "border-ink bg-ink text-paper"
-                            : "border-ink/15 text-ink/55 hover:border-ink/40",
+                            : "border-ink/15 text-ink/65 hover:border-ink/40",
                         )}
                       >
                         <input
@@ -345,7 +345,7 @@ export function ContactRFQ() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown className="pointer-events-none absolute right-0 top-[34px] size-3.5 text-ink/40" />
+                    <ChevronDown className="pointer-events-none absolute right-0 top-[34px] size-3.5 text-ink/65" />
                     <ErrorLine message={errors.budget?.message} />
                   </div>
                   <div className="relative sm:col-span-2">
@@ -361,7 +361,7 @@ export function ContactRFQ() {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown className="pointer-events-none absolute right-0 top-[34px] size-3.5 text-ink/40" />
+                    <ChevronDown className="pointer-events-none absolute right-0 top-[34px] size-3.5 text-ink/65" />
                     <ErrorLine message={errors.timeframe?.message} />
                   </div>
                 </div>
@@ -387,7 +387,7 @@ export function ContactRFQ() {
                     />
                     <Check className="pointer-events-none absolute size-3 text-gold opacity-0 peer-checked:opacity-100" strokeWidth={3} />
                   </span>
-                  <span className="text-[12.5px] leading-relaxed text-ink/50">
+                  <span className="text-[12.5px] leading-relaxed text-ink/65">
                     I agree to Altra Build processing this enquiry for tender purposes, in line with the
                     Tanzanian Personal Data Protection Act.
                   </span>
@@ -395,7 +395,7 @@ export function ContactRFQ() {
                 <ErrorLine message={errors.consent?.message} />
 
                 {serverError && (
-                  <p className="mt-4 border border-hazard/30 bg-hazard/5 px-3 py-2 text-[12.5px] text-hazard">
+                  <p className="mt-4 border border-hazard/30 bg-hazard/5 px-3 py-2 text-[12.5px] text-hazard-deep">
                     {serverError}
                   </p>
                 )}
@@ -414,7 +414,7 @@ export function ContactRFQ() {
                       </>
                     )}
                   </MagneticButton>
-                  <p className="font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-ink/30">
+                  <p className="font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-ink/65">
                     Encrypted · NDA available
                     <br />
                     Reply within 2 working hours

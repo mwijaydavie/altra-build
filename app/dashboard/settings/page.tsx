@@ -72,7 +72,7 @@ export default function SettingsPage() {
           <Chip tone="neutral">
             <Settings2 className="h-3 w-3" /> {theme === "system" ? "System preference" : theme === "light" ? "White theme" : "Dark theme"}
           </Chip>
-          <span className="inline-flex items-center gap-1.5 border border-paper/15 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/45">
+          <span className="inline-flex items-center gap-1.5 border border-paper/15 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">
             <span
               className={cn("h-1.5 w-1.5 rounded-full", resolved === "light" ? "bg-gold" : "bg-[#6FD3A6]")}
               aria-hidden
@@ -87,7 +87,7 @@ export default function SettingsPage() {
           <PanelHeader
             eyebrow="01 / Appearance"
             title="Colour theme"
-            action={<span className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/35">Saved on this device</span>}
+            action={<span className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">Saved on this device</span>}
           />
           <div className="grid gap-3 p-4 sm:grid-cols-3 sm:p-5" role="group" aria-label="Colour theme">
             {THEMES.map((option) => {
@@ -124,20 +124,20 @@ export default function SettingsPage() {
                     </span>
                   </span>
                   <span className="flex w-full items-start gap-2.5 border-t border-paper/10 p-3">
-                    <Icon className={cn("mt-0.5 h-4 w-4 shrink-0", active ? "text-gold" : "text-paper/45")} />
+                    <Icon className={cn("mt-0.5 h-4 w-4 shrink-0", active ? "text-gold" : "text-paper/55")} />
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center gap-1.5 text-[13px] font-medium text-paper">
                         {option.label}
                         {active ? <Check className="h-3.5 w-3.5 text-gold" /> : null}
                       </span>
-                      <span className="mt-1 block text-[11.5px] leading-relaxed text-paper/45">{option.note}</span>
+                      <span className="mt-1 block text-[11.5px] leading-relaxed text-paper/55">{option.note}</span>
                     </span>
                   </span>
                 </button>
               );
             })}
           </div>
-          <p className="border-t border-paper/10 px-4 py-3 font-mono text-[9.5px] uppercase tracking-[0.14em] text-paper/35 sm:px-5">
+          <p className="border-t border-paper/10 px-4 py-3 font-mono text-[9.5px] uppercase tracking-[0.14em] text-paper/55 sm:px-5">
             Softened corners and lighter hairlines are applied to both themes · system preference follows your device
           </p>
         </Panel>
@@ -152,12 +152,12 @@ export default function SettingsPage() {
               { label: "Motion", value: "Respects reduced motion" },
             ].map((row) => (
               <div key={row.label} className="flex items-center justify-between gap-3 px-4 py-2.5 sm:px-5">
-                <dt className="text-paper/45">{row.label}</dt>
+                <dt className="text-paper/55">{row.label}</dt>
                 <dd className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/75">{row.value}</dd>
               </div>
             ))}
           </dl>
-          <p className="border-t border-paper/10 px-4 py-3 text-[11.5px] leading-relaxed text-paper/40 sm:px-5">
+          <p className="border-t border-paper/10 px-4 py-3 text-[11.5px] leading-relaxed text-paper/55 sm:px-5">
             Interface treatment is locked to the brand system for this demo build.
           </p>
         </Panel>
@@ -166,19 +166,19 @@ export default function SettingsPage() {
           <PanelHeader eyebrow="03 / Account" title="Signed-in profile" />
           <div className="grid gap-4 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-4">
             <div>
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/35">Name</p>
+              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/55">Name</p>
               <p className="mt-1 text-[13px] text-paper">{viewer.fullName}</p>
             </div>
             <div>
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/35">Role</p>
+              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/55">Role</p>
               <p className="mt-1 text-[13px] capitalize text-paper">{viewer.role}</p>
             </div>
             <div>
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/35">Email</p>
+              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/55">Email</p>
               <p className="mt-1 truncate text-[13px] text-paper">{viewer.email}</p>
             </div>
             <div>
-              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/35">Portfolio</p>
+              <p className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-paper/55">Portfolio</p>
               <p className="mt-1 text-[13px] text-paper">{assigned} active sites</p>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function SettingsPage() {
             >
               <Smartphone className="h-3.5 w-3.5" /> Field app
             </Link>
-            <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">
+            <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
               Demo session · {viewer.role} access
             </span>
           </div>

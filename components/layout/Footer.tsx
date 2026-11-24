@@ -67,7 +67,7 @@ export function Footer() {
                 <Phone className="size-3.5" strokeWidth={1.6} />
                 {company.phone}
               </a>
-              <p className="flex items-center gap-2 font-mono text-[12.5px] tracking-[0.08em] text-paper/40">
+              <p className="flex items-center gap-2 font-mono text-[12.5px] tracking-[0.08em] text-paper/55">
                 <MapPin className="size-3.5" strokeWidth={1.6} />
                 {company.coordinates}
               </p>
@@ -76,7 +76,7 @@ export function Footer() {
 
           <nav aria-label="Sitemap" className="space-y-8">
             <div>
-              <p className="eyebrow text-paper/35">Navigate</p>
+              <p className="eyebrow text-paper/55">Navigate</p>
               <ul className="mt-4 space-y-2.5">
                 {primaryNavigation.map((item) => (
                   <li key={item.href}>
@@ -91,7 +91,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <p className="eyebrow text-paper/35">More</p>
+              <p className="eyebrow text-paper/55">More</p>
               <ul className="mt-4 space-y-2.5">
                 {utilityNavigation.map((item) => (
                   <li key={item.href}>
@@ -108,15 +108,15 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="eyebrow text-paper/35">Offices &amp; yards</p>
+            <p className="eyebrow text-paper/55">Offices &amp; yards</p>
             <ul className="mt-4 divide-y divide-paper/10">
               {offices.map((office) => (
                 <li key={office.id} className="py-3.5 first:pt-0">
                   <div className="flex items-baseline justify-between gap-3">
                     <p className="text-[15.5px] text-paper/85">{office.city}</p>
-                    <span className="meta text-paper/35">{office.kind}</span>
+                    <span className="meta text-paper/55">{office.kind}</span>
                   </div>
-                  <p className="mt-1 text-[13.5px] leading-relaxed text-paper/45">{office.address}</p>
+                  <p className="mt-1 text-[13.5px] leading-relaxed text-paper/55">{office.address}</p>
                 </li>
               ))}
             </ul>
@@ -124,12 +124,12 @@ export function Footer() {
 
           <div className="space-y-8">
             <div>
-              <p className="eyebrow text-paper/35">Certified</p>
+              <p className="eyebrow text-paper/55">Certified</p>
               <ul className="mt-4 space-y-2">
                 {certifications.map((cert) => (
                   <li key={cert.code} className="flex items-baseline gap-2">
                     <span className="font-mono text-[11.5px] text-gold">{cert.code}</span>
-                    <span className="text-[12.5px] text-paper/40">{cert.since}</span>
+                    <span className="text-[12.5px] text-paper/55">{cert.since}</span>
                   </li>
                 ))}
               </ul>
@@ -143,11 +143,11 @@ export function Footer() {
               >
                 {company.emergency}
               </a>
-              <p className="mt-1 text-[12.5px] text-paper/40">Incidents, utilities strikes, site security</p>
+              <p className="mt-1 text-[12.5px] text-paper/55">Incidents, utilities strikes, site security</p>
             </div>
 
             <div>
-              <p className="eyebrow text-paper/35">Local time · Dar es Salaam</p>
+              <p className="eyebrow text-paper/55">Local time · Dar es Salaam</p>
               <div className="mt-2 flex items-center gap-2">
                 <span className="live-dot inline-block size-1.5 rounded-full bg-gold" />
                 <LocalClock />
@@ -158,19 +158,19 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col gap-4 border-t border-paper/10 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="meta text-paper/35">
+          <p className="meta text-paper/55">
             © {new Date().getFullYear()} {company.legalName} · {company.registration} · {company.crb}
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/legal/privacy" className="meta text-paper/35 transition-colors hover:text-gold">
+            <Link href="/legal/privacy" className="meta text-paper/55 transition-colors hover:text-gold">
               Privacy
             </Link>
-            <Link href="/legal/terms" className="meta text-paper/35 transition-colors hover:text-gold">
+            <Link href="/legal/terms" className="meta text-paper/55 transition-colors hover:text-gold">
               Terms
             </Link>
             <Link
               href="/projects"
-              className="group meta flex items-center gap-1 text-paper/35 transition-colors hover:text-gold"
+              className="group meta flex items-center gap-1 text-paper/55 transition-colors hover:text-gold"
             >
               Project index
               <ArrowUpRight className="size-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -124,7 +124,7 @@ export default function SafetyPage() {
           <div className="flex items-start justify-between">
             <div>
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Compliance score</p>
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">Rolling 30 days</p>
+              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">Rolling 30 days</p>
             </div>
             <ShieldCheck className="h-5 w-5 text-[#6FD3A6]" />
           </div>
@@ -146,14 +146,14 @@ export default function SafetyPage() {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className="font-display text-2xl font-semibold tabular-nums text-paper">{pct(compliance, 0)}</span>
-                <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-paper/35">clauses met</span>
+                <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-paper/55">clauses met</span>
               </div>
             </div>
             <div className="min-w-0 flex-1 space-y-3.5">
               {standards.map((row) => (
                 <div key={row.standard}>
                   <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.1em]">
-                    <span className="text-paper/45">{row.standard}</span>
+                    <span className="text-paper/55">{row.standard}</span>
                     <span className="tabular-nums text-paper/60">
                       {row.ok}/{row.total}
                     </span>
@@ -170,18 +170,18 @@ export default function SafetyPage() {
           </div>
 
           <div className="mt-5 border-t border-paper/10 pt-3">
-            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30">Latest HSE activity</p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">Latest HSE activity</p>
             <ul className="mt-2.5 space-y-2.5">
               {hseActivity.map((entry) => (
                 <li key={entry.id} className="flex items-start gap-3">
                   <span className="mt-1.5 h-1 w-1 shrink-0 bg-gold" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[11.5px] leading-snug text-paper/75">{entry.action}</p>
-                    <p className="mt-0.5 line-clamp-2 font-mono text-[9.5px] uppercase leading-snug tracking-[0.08em] text-paper/30">
+                    <p className="mt-0.5 line-clamp-2 font-mono text-[9.5px] uppercase leading-snug tracking-[0.08em] text-paper/55">
                       {people[entry.actorId] ?? "HSE desk"} · {entry.detail}
                     </p>
                   </div>
-                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.08em] text-paper/25">
+                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.08em] text-paper/55">
                     {relative(entry.createdAt)}
                   </span>
                 </li>
@@ -192,7 +192,7 @@ export default function SafetyPage() {
           <div className="mt-auto">
             <div className="border-t border-paper/10 pt-3">
               <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/80">Stop-work authority</p>
-              <p className="mt-1.5 text-[11.5px] leading-relaxed text-paper/45">
+              <p className="mt-1.5 text-[11.5px] leading-relaxed text-paper/55">
                 Any worker can halt a task for an unsafe condition. No penalty, no escalation.
               </p>
             </div>
@@ -203,7 +203,7 @@ export default function SafetyPage() {
                 { label: "Overdue", value: `${overdue}` },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">{stat.label}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">{stat.label}</p>
                   <p className={cn("mt-0.5 font-mono text-[13px] tabular-nums", stat.label === "Overdue" && overdue ? "text-[#F26D5B]" : "text-paper/80")}>
                     {stat.value}
                   </p>
@@ -247,7 +247,7 @@ export default function SafetyPage() {
                   "min-h-8 border px-2 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors",
                   checkFilter === filter.id
                     ? "border-gold/50 bg-gold/10 text-gold"
-                    : "border-paper/15 text-paper/45 hover:text-paper/75",
+                    : "border-paper/15 text-paper/55 hover:text-paper/75",
                 )}
               >
                 {filter.label}
@@ -273,7 +273,7 @@ export default function SafetyPage() {
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/35">{item.clause}</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">{item.clause}</span>
                   <Chip
                     tone={item.status === "compliant" ? "green" : item.status === "overdue" ? "red" : "gold"}
                     className="px-1.5 py-0"
@@ -282,7 +282,7 @@ export default function SafetyPage() {
                   </Chip>
                 </div>
                 <p className="mt-1 text-[12.5px] leading-snug text-paper/75">{item.requirement}</p>
-                <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+                <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                   {item.standard} · owner {people[item.owner] ?? "HSE"} · audited {formatDate(item.lastAudited)}
                 </p>
               </div>
@@ -290,7 +290,7 @@ export default function SafetyPage() {
             </li>
           ))}
           {checklistRows.length === 0 ? (
-            <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-paper/30">
+            <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
               No clauses in this state
             </li>
           ) : null}
@@ -317,7 +317,7 @@ export default function SafetyPage() {
                   "min-h-8 border px-2 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors",
                   incidentFilter === filter.id
                     ? "border-gold/50 bg-gold/10 text-gold"
-                    : "border-paper/15 text-paper/45 hover:text-paper/75",
+                    : "border-paper/15 text-paper/55 hover:text-paper/75",
                 )}
               >
                 {filter.label}
@@ -341,7 +341,7 @@ export default function SafetyPage() {
                     <span className={cn("border px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.14em]", severityTone[incident.severity])}>
                       {incident.severity}
                     </span>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/35">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
                       {incident.type.replace("-", " ")}
                     </span>
                     <Chip
@@ -352,14 +352,14 @@ export default function SafetyPage() {
                     </Chip>
                   </div>
                   <p className="mt-1.5 text-[12.5px] font-medium leading-snug text-paper/85">{incident.title}</p>
-                  <p className="mt-1 text-[11.5px] leading-relaxed text-paper/45">{incident.description}</p>
+                  <p className="mt-1 text-[11.5px] leading-relaxed text-paper/55">{incident.description}</p>
                   {incident.correctiveAction ? (
                     <p className="mt-1.5 border-l border-gold/40 pl-2 text-[11px] leading-snug text-paper/50">
                       <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-gold/80">Action · </span>
                       {incident.correctiveAction}
                     </p>
                   ) : null}
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/25">
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                     {projectNames[incident.projectId] ?? "Portfolio"} · {relative(incident.occurredAt)} ·{" "}
                     {people[incident.inspectorId] ?? "HSE"} ·{" "}
                     {incident.signedOffAt ? `signed ${relative(incident.signedOffAt)} by ${people[incident.signedOffBy ?? ""] ?? "director"}` : "unsigned"}
@@ -389,8 +389,8 @@ export default function SafetyPage() {
             <li key={entry.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-4 py-2.5 sm:px-5">
               <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-gold/70">{relative(entry.createdAt)}</span>
               <span className="text-[12px] text-paper/75">{entry.action}</span>
-              <span className="min-w-0 flex-1 truncate text-[11px] text-paper/35">{entry.detail}</span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+              <span className="min-w-0 flex-1 truncate text-[11px] text-paper/55">{entry.detail}</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                 {people[entry.actorId] ?? "System"}
               </span>
             </li>
@@ -398,7 +398,7 @@ export default function SafetyPage() {
         </ol>
       </Panel>
 
-      <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-paper/25">
+      <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
         Records retained 7 years · statutory reporting within 24h under OSHA TZ §105 · sign-off restricted to PM and
         director roles
       </p>

@@ -149,7 +149,7 @@ export function QuickIncidentForm({
                   ? option.id === "critical" || option.id === "high"
                     ? "border-[#F26D5B]/60 bg-[#F26D5B]/15 text-[#F26D5B]"
                     : "border-gold bg-gold/15 text-gold"
-                  : "border-paper/15 text-paper/45 active:bg-paper/10",
+                  : "border-paper/15 text-paper/55 active:bg-paper/10",
               )}
             >
               {option.label}
@@ -167,20 +167,20 @@ export function QuickIncidentForm({
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           placeholder="e.g. Scaffold tag missing at Block C"
-          className="mt-2 h-12 w-full border border-paper/15 bg-[var(--ops-field)] px-3 text-[13px] text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 h-12 w-full border border-paper/15 bg-[var(--ops-field)] px-3 text-[13px] text-paper placeholder:text-paper/55 focus:border-gold/60 focus:outline-none"
         />
         <textarea
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           rows={3}
           placeholder="Describe the hazard, who is exposed and the immediate control applied…"
-          className="mt-2 w-full resize-y border border-paper/15 bg-[var(--ops-field)] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 w-full resize-y border border-paper/15 bg-[var(--ops-field)] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/55 focus:border-gold/60 focus:outline-none"
         />
         <input
           value={action}
           onChange={(event) => setAction(event.target.value)}
           placeholder="Corrective action (optional)"
-          className="mt-2 h-12 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 h-12 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/55 focus:border-gold/60 focus:outline-none"
         />
       </section>
 
@@ -200,7 +200,7 @@ export function QuickIncidentForm({
           </>
         )}
       </button>
-      <p className="text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-paper/30">
+      <p className="text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-paper/55">
         Severe incidents page the safety director immediately
       </p>
     </div>

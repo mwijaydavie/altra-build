@@ -135,8 +135,8 @@ export function PhotoCaptureInput({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Site photos</p>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/25">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">Site photos</p>
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">
           {photos.length}/6 · auto watermark
         </span>
       </div>
@@ -181,13 +181,14 @@ export function PhotoCaptureInput({
         type="file"
         accept="image/*"
         capture="environment"
+        aria-label="Capture a site photo"
         className="sr-only"
         onChange={(event) => void onSelect(event.target.files?.[0])}
       />
       {error ? (
         <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[#F26D5B]">{error}</p>
       ) : (
-        <p className="mt-1.5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.08em] text-paper/25">
+        <p className="mt-1.5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.08em] text-paper/55">
           Camera opens on device · timestamp, site and GPS burned into the image
         </p>
       )}

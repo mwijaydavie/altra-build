@@ -54,7 +54,7 @@ export function ApprovalsPanel({
       </div>
 
       {queue.length === 0 ? (
-        <p className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-paper/35 sm:px-5">
+        <p className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-paper/55 sm:px-5">
           Queue clear · no decisions outstanding
         </p>
       ) : (
@@ -65,11 +65,11 @@ export function ApprovalsPanel({
                 <GitPullRequestArrow className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" />
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/40">{rfi.rfiNumber}</span>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">{rfi.rfiNumber}</span>
                     {rfi.isChangeOrder ? <Chip tone="orange" className="px-1.5 py-0">Change order</Chip> : null}
                   </div>
                   <p className="mt-1 text-[12.5px] font-medium leading-snug text-paper/90">{rfi.title}</p>
-                  <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+                  <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                     {projectNames[rfi.projectId] ?? "Portfolio"} ·{" "}
                     {rfi.costImpact > 0 ? tzs(rfi.costImpact) : "No cost"} ·{" "}
                     {rfi.scheduleImpactDays > 0 ? `+${rfi.scheduleImpactDays}d` : rfi.scheduleImpactDays < 0 ? `${rfi.scheduleImpactDays}d` : "0d"}
@@ -96,13 +96,13 @@ export function ApprovalsPanel({
                         </button>
                       </>
                     ) : (
-                      <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">
+                      <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
                         Awaiting PM decision
                       </span>
                     )}
                     <Link
                       href={`/dashboard/projects/${rfi.projectId}`}
-                      className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/40 hover:text-paper"
+                      className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55 hover:text-paper"
                     >
                       Open site →
                     </Link>
@@ -114,7 +114,7 @@ export function ApprovalsPanel({
         </ul>
       )}
 
-      <div className={cn("border-t border-paper/10 px-4 py-2.5 sm:px-5", error ? "text-[#F26D5B]" : "text-paper/35")}>
+      <div className={cn("border-t border-paper/10 px-4 py-2.5 sm:px-5", error ? "text-[#F26D5B]" : "text-paper/55")}>
         <p className="font-mono text-[9px] uppercase tracking-[0.14em]">
           {error ?? (decision.isPending ? "Writing decision to audit log…" : "Every decision is signed and logged")}
         </p>

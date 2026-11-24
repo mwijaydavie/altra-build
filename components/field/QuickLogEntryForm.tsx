@@ -181,7 +181,7 @@ export function QuickLogEntryForm({
       <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">1 · Weather</h2>
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">Tap one</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">Tap one</span>
         </div>
         <div className="mt-2 grid grid-cols-3 gap-2">
           {WEATHER_OPTIONS.map((option) => {
@@ -207,7 +207,7 @@ export function QuickLogEntryForm({
           })}
         </div>
         <div className="mt-2 flex items-center gap-1.5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/35">Temp</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">Temp</span>
           {TEMPS.map((value) => (
             <button
               key={value}
@@ -218,7 +218,7 @@ export function QuickLogEntryForm({
                 "min-h-9 flex-1 border font-mono text-[10px] tabular-nums transition-colors",
                 temperatureC === value
                   ? "border-gold/50 bg-gold/10 text-gold"
-                  : "border-paper/12 text-paper/45",
+                  : "border-paper/12 text-paper/55",
               )}
             >
               {value}°C
@@ -231,7 +231,7 @@ export function QuickLogEntryForm({
       <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">2 · Manpower</h2>
-          <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/45">
+          <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55">
             <Users className="h-3.5 w-3.5" />
             {total} on site
           </span>
@@ -262,7 +262,7 @@ export function QuickLogEntryForm({
                 type="button"
                 onClick={() => toggleTrade(row.trade)}
                 aria-label={`Remove ${row.trade}`}
-                className="flex h-11 w-8 items-center justify-center text-paper/25 active:text-paper/60"
+                className="flex h-11 w-8 items-center justify-center text-paper/55 active:text-paper/60"
               >
                 ×
               </button>
@@ -276,7 +276,7 @@ export function QuickLogEntryForm({
               key={trade}
               type="button"
               onClick={() => toggleTrade(trade)}
-              className="min-h-9 border border-dashed border-paper/20 px-2 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/40 active:border-gold/40 active:text-gold"
+              className="min-h-9 border border-dashed border-paper/20 px-2 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55 active:border-gold/40 active:text-gold"
             >
               + {trade}
             </button>
@@ -288,7 +288,7 @@ export function QuickLogEntryForm({
       <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">3 · Works & delays</h2>
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">Optional</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">Optional</span>
         </div>
 
         <div className="mt-2 flex flex-wrap gap-1.5">
@@ -308,7 +308,7 @@ export function QuickLogEntryForm({
                   "min-h-10 border px-2.5 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors",
                   active
                     ? "border-[#F08A4B]/60 bg-[#F08A4B]/15 text-[#F08A4B]"
-                    : "border-paper/15 text-paper/45",
+                    : "border-paper/15 text-paper/55",
                 )}
               >
                 {chip}
@@ -322,13 +322,13 @@ export function QuickLogEntryForm({
           onChange={(event) => setWorkCompleted(event.target.value)}
           rows={3}
           placeholder="Works completed this shift — e.g. L33 stone install, chiller second-fix…"
-          className="mt-2 w-full resize-y border border-paper/15 bg-[var(--ops-field)] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 w-full resize-y border border-paper/15 bg-[var(--ops-field)] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/55 focus:border-gold/60 focus:outline-none"
         />
         <input
           value={delayNote}
           onChange={(event) => setDelayNote(event.target.value)}
           placeholder="Delay note (optional)"
-          className="mt-2 h-11 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 h-11 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/55 focus:border-gold/60 focus:outline-none"
         />
 
         <div className="mt-3">
@@ -359,7 +359,7 @@ export function QuickLogEntryForm({
           </>
         )}
       </button>
-      <p className="text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-paper/30">
+      <p className="text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.1em] text-paper/55">
         Weather → crew → submit. Photos and GPS are attached automatically.
       </p>
     </div>

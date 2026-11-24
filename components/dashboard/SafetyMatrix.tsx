@@ -31,14 +31,14 @@ export function SafetyMatrix({ incidents }: { incidents: SafetyIncident[] }) {
         {STATUSES.map((status) => (
           <span
             key={status.id}
-            className="pb-1 text-center font-mono text-[8.5px] uppercase tracking-[0.14em] text-paper/35"
+            className="pb-1 text-center font-mono text-[8.5px] uppercase tracking-[0.14em] text-paper/55"
           >
             {status.label}
           </span>
         ))}
         {SEVERITIES.map((severity) => (
           <div key={severity} className="contents">
-            <span className="flex items-center font-mono text-[9px] uppercase tracking-[0.12em] text-paper/40">
+            <span className="flex items-center font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
               {severity}
             </span>
             {STATUSES.map((status) => {
@@ -60,10 +60,10 @@ export function SafetyMatrix({ incidents }: { incidents: SafetyIncident[] }) {
         ))}
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2 border-t border-paper/10 px-3 py-2.5 sm:px-4">
-        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/30">
+        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
           Severity × status · live register
         </p>
-        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/30">
+        <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
           {incidents.filter((incident) => incident.status !== "resolved").length} unresolved
         </p>
       </div>

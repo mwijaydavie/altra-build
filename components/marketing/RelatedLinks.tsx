@@ -26,7 +26,7 @@ export function RelatedLinks({
       )}
     >
       <div className="shell">
-        <p className={cn("eyebrow", dark ? "text-paper/40" : "text-ink/45")}>{title}</p>
+        <p className={cn("eyebrow", dark ? "text-paper/55" : "text-ink/65")}>{title}</p>
         <div className="mt-5 grid gap-px sm:grid-cols-2 lg:grid-cols-4">
           {links.map((link) => (
             <Link
@@ -48,7 +48,7 @@ export function RelatedLinks({
               <span
                 className={cn(
                   "mt-1 block font-mono text-[12px] uppercase tracking-[0.12em]",
-                  dark ? "text-paper/40" : "text-ink/45",
+                  dark ? "text-paper/55" : "text-ink/65",
                 )}
               >
                 {link.meta}

@@ -38,7 +38,7 @@ export function MethodSafety() {
                     <span
                       className={cn(
                         "mt-1 font-mono text-[12.5px] tracking-[0.14em] transition-colors",
-                        isOpen ? "text-gold-deep" : "text-ink/35",
+                        isOpen ? "text-gold-deep" : "text-ink/65",
                       )}
                     >
                       {step.index}
@@ -73,7 +73,7 @@ export function MethodSafety() {
                             {step.outputs.map((output) => (
                               <li
                                 key={output}
-                                className="border border-ink/15 bg-cream px-2.5 py-1 font-mono text-[11.5px] uppercase tracking-[0.08em] text-ink/55"
+                                className="border border-ink/15 bg-cream px-2.5 py-1 font-mono text-[11.5px] uppercase tracking-[0.08em] text-ink/65"
                               >
                                 {output}
                               </li>
@@ -101,7 +101,7 @@ export function MethodSafety() {
                   <ShieldCheck className="size-3.5 text-gold" strokeWidth={1.8} />
                   <p className="eyebrow text-gold">Kifaru Standard</p>
                 </div>
-                <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper/45">
+                <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper/55">
                   <span className="live-dot size-1.5 rounded-full bg-gold" />
                   Live record
                 </span>
@@ -109,7 +109,7 @@ export function MethodSafety() {
 
               <div className="flex items-end justify-between gap-6 py-7">
                 <div>
-                  <p className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-paper/40">
+                  <p className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-paper/55">
                     Lost-time injuries
                   </p>
                   <p className="mt-1 font-display text-[clamp(4.5rem,9vw,7rem)] leading-[0.8] tracking-tighter text-gold">
@@ -118,11 +118,11 @@ export function MethodSafety() {
                 </div>
                 <div className="text-right">
                   <p className="font-display text-2xl leading-none text-paper">26</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/40">
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/55">
                     months
                   </p>
                   <p className="mt-4 font-display text-2xl leading-none text-paper">4.26M</p>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/40">
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-paper/55">
                     man-hours
                   </p>
                 </div>
@@ -135,7 +135,7 @@ export function MethodSafety() {
                     <p className="mt-1.5 text-[12px] uppercase leading-snug tracking-[0.08em] text-paper/55">
                       {stat.label}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-paper/30">{stat.note}</p>
+                    <p className="mt-0.5 text-[11px] text-paper/55">{stat.note}</p>
                   </div>
                 ))}
               </div>
@@ -153,7 +153,7 @@ export function MethodSafety() {
                 {certifications.slice(0, 3).map((cert) => (
                   <span
                     key={cert.code}
-                    className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/40"
+                    className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/55"
                   >
                     {cert.code}
                   </span>
@@ -168,19 +168,21 @@ export function MethodSafety() {
           <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-sm">
               <p className="eyebrow text-gold-deep">ESG benchmarks</p>
-              <p className="mt-3 text-[15.5px] leading-relaxed text-ink/55">
+              <p className="mt-3 text-[15.5px] leading-relaxed text-ink/65">
                 We report environmental performance on the same dashboard as programme and cost.
                 Certifications currently in delivery include EDGE Advanced and LEED Gold.
               </p>
             </div>
             <dl className="grid flex-1 grid-cols-2 gap-x-8 gap-y-6 sm:max-w-2xl sm:grid-cols-4">
               {safety.esg.map((item) => (
-                <div key={item.label} className="border-t border-ink/15 pt-3">
-                  <dd className="font-display text-2xl leading-none tracking-tight text-ink">{item.value}</dd>
-                  <dt className="mt-2 text-[12px] uppercase leading-snug tracking-[0.06em] text-ink/45">
+                <div key={item.label} className="flex flex-col border-t border-ink/15 pt-3">
+                  <dt className="order-2 mt-2 text-[12px] uppercase leading-snug tracking-[0.06em] text-ink/65">
                     {item.label}
                   </dt>
-                  <p className="mt-0.5 text-[11px] text-ink/30">{item.note}</p>
+                  <dd className="order-1 font-display text-2xl leading-none tracking-tight text-ink">
+                    {item.value}
+                  </dd>
+                  <dd className="order-3 mt-0.5 text-[11px] text-ink/65">{item.note}</dd>
                 </div>
               ))}
             </dl>

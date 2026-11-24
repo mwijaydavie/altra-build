@@ -122,7 +122,7 @@ export function FieldApp() {
     return (
       <div className="ops-root flex min-h-dvh flex-col items-center justify-center gap-3 bg-[var(--ops-bg)] px-6 text-center">
         <span className="h-8 w-8 animate-spin border-2 border-gold border-t-transparent" />
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Loading field kit…</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">Loading field kit…</p>
       </div>
     );
   }
@@ -143,7 +143,7 @@ export function FieldApp() {
               <span className="block font-display text-[13px] font-semibold leading-none tracking-tight">
                 ALTRA <span className="text-gold">FIELD</span>
               </span>
-              <span className="mt-0.5 block font-mono text-[9.5px] uppercase tracking-[0.22em] text-paper/35">
+              <span className="mt-0.5 block font-mono text-[9.5px] uppercase tracking-[0.22em] text-paper/55">
                 Site reporting
               </span>
             </span>
@@ -170,14 +170,14 @@ export function FieldApp() {
                 </option>
               ))}
             </select>
-            <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-paper/40" />
+            <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-paper/55" />
           </label>
-          <span className="flex h-11 items-center gap-1.5 border border-paper/15 px-2 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/45">
+          <span className="flex h-11 items-center gap-1.5 border border-paper/15 px-2 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55">
             <MapPin className="h-3 w-3" /> {project.lat.toFixed(2)}, {project.lng.toFixed(2)}
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-paper/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-paper/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55">
           <span className="text-gold">{project.projectCode}</span>
           <span>{project.status}</span>
           <span>{project.workforce} crew today</span>
@@ -211,7 +211,7 @@ export function FieldApp() {
                 <h1 className="mt-1 font-display text-[22px] font-semibold leading-none tracking-[-0.03em]">
                   Today on site.
                 </h1>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55">
                   {formatDate(new Date().toISOString().slice(0, 10))} · {project.weatherLocation}
                 </p>
               </div>
@@ -221,7 +221,7 @@ export function FieldApp() {
                   {online ? "Online" : "Offline"}
                 </Chip>
                 {latest ? (
-                  <span className="whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/30">
+                  <span className="whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/55">
                     last log {relative(latest.createdAt)}
                   </span>
                 ) : null}
@@ -243,7 +243,7 @@ export function FieldApp() {
             {projectLogs.length ? (
               <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
                 <div className="flex items-center justify-between">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent logs</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">Recent logs</p>
                   <Link href={`/dashboard/projects/${project.id}`} className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
                     Open site →
                   </Link>
@@ -257,7 +257,7 @@ export function FieldApp() {
                       <span className="text-[11.5px] text-paper/60">
                         {log.manpowerTotal} crew · {log.weather.replace("-", " ")}
                       </span>
-                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/25">
+                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/55">
                         {users.find((user) => user.id === log.createdBy)?.fullName.split(" ")[0] ?? "Field"}
                       </span>
                     </li>
@@ -275,7 +275,7 @@ export function FieldApp() {
               <h1 className="mt-1 font-display text-[22px] font-semibold leading-none tracking-[-0.03em]">
                 Raise an observation.
               </h1>
-              <p className="mt-1 text-[11.5px] leading-relaxed text-paper/40">
+              <p className="mt-1 text-[11.5px] leading-relaxed text-paper/55">
                 Record near misses and inspections at the work face. Severe items page the safety director instantly.
               </p>
             </div>
@@ -284,7 +284,7 @@ export function FieldApp() {
 
             <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
               <div className="flex items-center justify-between">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Recent at this site</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">Recent at this site</p>
                 <Link href="/dashboard/safety" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/80">
                   Register →
                 </Link>
@@ -300,12 +300,12 @@ export function FieldApp() {
                         )}
                       />
                       <span className="min-w-0 flex-1 truncate text-[12px] text-paper/70">{incident.title}</span>
-                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/30">{relative(incident.occurredAt)}</span>
+                      <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/55">{relative(incident.occurredAt)}</span>
                     </div>
                   </li>
                 ))}
                 {projectIncidents.length === 0 ? (
-                  <li className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">No incidents recorded at this site</li>
+                  <li className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">No incidents recorded at this site</li>
                 ) : null}
               </ul>
             </section>
@@ -351,7 +351,7 @@ export function FieldApp() {
                       ? item.id === "sos"
                         ? "bg-[#F26D5B]/15 text-[#F26D5B]"
                         : "bg-gold/10 text-gold"
-                      : "text-paper/45",
+                      : "text-paper/55",
                   )}
                 >
                   <Icon className="h-5 w-5" strokeWidth={1.6} />

@@ -1,79 +1,37 @@
-"use client";
-
 import Image from "next/image";
-import { useRef } from "react";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
-import { gsap, useGSAP } from "@/lib/gsap";
 import { company, heroRibbon } from "@/data/siteData";
-import { Counter } from "@/components/ui/Counter";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Logo } from "@/components/ui/Logo";
 
+/** Grouped thousands + fixed decimals, matching the design's tabular figures. */
+function metricValue(metric: (typeof heroRibbon)[number]) {
+  const decimals = metric.decimals ?? 0;
+  return `${metric.prefix ?? ""}${new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(metric.value)}${metric.suffix ?? ""}`;
+}
+
+/**
+ * Server-rendered on purpose. The hero is the LCP surface: no entrance
+ * animation, no GSAP, no client hooks — the copy is painted with the HTML.
+ */
 export function Hero() {
-  const root = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced) return;
-
-      const lines = gsap.utils.toArray<HTMLElement>("[data-hero-line]");
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-
-      tl.from(lines, {
-        yPercent: 118,
-        duration: 1.35,
-        stagger: 0.11,
-        delay: 0.15,
-      })
-        .from(
-          "[data-hero-fade]",
-          { autoAlpha: 0, y: 20, duration: 1, stagger: 0.08 },
-          0.55,
-        )
-        .from("[data-hero-meta]", { autoAlpha: 0, duration: 1.1, stagger: 0.06 }, 0.3);
-
-      gsap.to("[data-hero-image]", {
-        yPercent: 12,
-        scale: 1.06,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to("[data-hero-content]", {
-        yPercent: -8,
-        autoAlpha: 0.35,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    },
-    { scope: root },
-  );
-
   return (
     <section
-      ref={root}
       className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-paper"
       aria-labelledby="hero-title"
     >
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div data-hero-image className="absolute inset-0 scale-105">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 scale-105">
           <Image
             src="/images/hero-construction.jpg"
             alt="Altra Build high-rise construction site at dusk with tower cranes over Dar es Salaam harbour"
             fill
             priority
+            quality={50}
             sizes="100vw"
             className="object-cover object-[58%_45%]"
           />
@@ -83,21 +41,21 @@ export function Hero() {
         <div className="grain absolute inset-0" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 -z-10 text-paper blueprint opacity-[0.18]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 z-0 text-paper blueprint opacity-[0.18]" aria-hidden />
 
-      <div className="shell relative flex flex-1 flex-col justify-between pb-8 pt-[96px] sm:pt-[104px] lg:pb-7 lg:pt-[104px]">
+      <div className="shell relative z-10 flex flex-1 flex-col justify-between pb-8 pt-[96px] sm:pt-[104px] lg:pb-7 lg:pt-[104px]">
         {/* top meta row */}
         <div className="flex items-start justify-between gap-6">
-          <div data-hero-meta className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <Logo variant="mark" tone="inverse" height={22} className="opacity-90" />
             <span className="live-dot inline-block size-1.5 rounded-full bg-gold" />
             <p className="eyebrow text-paper/60">
               {company.hq}
-              <span className="mx-1 hidden text-paper/25 sm:inline">/</span>
+              <span className="mx-1 hidden text-paper/55 sm:inline">/</span>
               <span className="mt-1 block sm:mt-0 sm:inline">{company.coordinates}</span>
             </p>
           </div>
-          <p data-hero-meta className="hidden text-right meta text-paper/35 sm:block">
+          <p className="hidden text-right meta text-paper/55 sm:block">
             REF: AB/CIV/2026-047
             <br />
             STATUS: COMMISSIONED
@@ -105,8 +63,8 @@ export function Hero() {
         </div>
 
         {/* headline */}
-        <div data-hero-content className="mt-8 max-w-4xl sm:mt-9">
-          <p data-hero-fade className="eyebrow mb-5 flex items-center gap-3 text-gold">
+        <div className="mt-8 max-w-4xl sm:mt-9">
+          <p className="eyebrow mb-5 flex items-center gap-3 text-gold">
             <span className="inline-block h-px w-9 bg-gold" />
             Civil · Structures · Industrial
           </p>
@@ -114,31 +72,26 @@ export function Hero() {
             {["Engineering", "Tomorrow's", "Horizons."].map((line, index) => (
               <span
                 key={line}
-                className="reveal-line"
-                style={{ paddingBottom: "0.04em", marginBottom: "-0.02em" }}
+                className={
+                  index === 0
+                    ? "hero-line block text-paper"
+                    : index === 1
+                      ? "hero-line block text-outline"
+                      : "hero-line block text-gold"
+                }
+                style={{ animationDelay: `${0.1 + index * 0.06}s` }}
               >
-                <span
-                  data-hero-line
-                  className={
-                    index === 0
-                      ? "block text-paper"
-                      : index === 1
-                        ? "block text-outline"
-                        : "block text-gold"
-                  }
-                >
-                  {line}
-                </span>
+                {line}
               </span>
             ))}
           </h1>
 
           <div className="mt-5 flex max-w-2xl flex-col gap-5">
-            <p data-hero-fade className="max-w-xl text-[17px] leading-relaxed text-paper/65 sm:text-[17px]">
+            <p className="max-w-xl text-[17px] leading-relaxed text-paper/65 sm:text-[17px]">
               {company.proposition} Delivered by Tanzanian engineers, to international standards,
               since {company.founded}.
             </p>
-            <div data-hero-fade className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <MagneticButton href="/contact" size="lg">
                 Request project tender
               </MagneticButton>
@@ -153,19 +106,17 @@ export function Hero() {
         <div className="mt-7 flex items-end justify-between gap-8 sm:mt-8">
           <dl className="grid w-full grid-cols-2 gap-x-5 gap-y-7 border-t border-paper/15 pt-6 sm:gap-x-8 lg:grid-cols-4">
             {heroRibbon.map((metric, index) => (
-              <div key={metric.id} data-hero-meta>
-                <dd className="font-display text-[clamp(1.4rem,2.6vw,2rem)] leading-none tracking-tight text-paper">
-                  <Counter
-                    value={metric.value}
-                    decimals={metric.decimals ?? 0}
-                    prefix={metric.prefix}
-                    suffix={metric.suffix}
-                  />
-                </dd>
-                <dt className="mt-2.5 text-[12px] uppercase leading-snug tracking-[0.12em] text-paper/45">
+              <div
+                key={metric.id}
+                className="flex flex-col"
+              >
+                <dt className="order-2 mt-2.5 text-[12px] uppercase leading-snug tracking-[0.12em] text-paper/55">
                   {metric.label}
+                  {index === 0 && <span className="sr-only"> — signature metric</span>}
                 </dt>
-                {index === 0 && <span className="sr-only">Signature metric</span>}
+                <dd className="order-1 font-display text-[clamp(1.4rem,2.6vw,2rem)] leading-none tracking-tight text-paper">
+                  {metricValue(metric)}
+                </dd>
               </div>
             ))}
           </dl>
@@ -175,7 +126,7 @@ export function Hero() {
             className="group hidden shrink-0 flex-col items-center gap-3 self-end lg:flex"
             aria-label="Go to capabilities"
           >
-            <span className="meta rotate-180 text-paper/35 [writing-mode:vertical-rl]">Scroll to survey</span>
+            <span className="meta rotate-180 text-paper/55 [writing-mode:vertical-rl]">Scroll to survey</span>
             <span className="flex size-11 items-center justify-center rounded-full border border-paper/25 text-paper/60 transition-colors group-hover:border-gold group-hover:text-gold">
               <ArrowDown className="size-4 motion-safe:animate-bounce" strokeWidth={1.5} />
             </span>

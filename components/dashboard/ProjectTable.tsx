@@ -10,7 +10,7 @@ const TODAY = "2026-11-23";
 export function ProjectTable({ projects }: { projects: ProjectSummary[] }) {
   return (
     <div>
-      <div className="hidden grid-cols-[minmax(0,2.2fr)_90px_120px_120px_90px_110px] gap-4 border-b border-paper/10 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30 md:grid">
+      <div className="hidden grid-cols-[minmax(0,2.2fr)_90px_120px_120px_90px_110px] gap-4 border-b border-paper/10 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55 md:grid">
         <span>Site</span>
         <span>Status</span>
         <span className="text-right">Complete</span>
@@ -34,7 +34,7 @@ export function ProjectTable({ projects }: { projects: ProjectSummary[] }) {
                     <p className="truncate text-[13px] font-medium text-paper/90 group-hover:text-paper">
                       {project.name}
                     </p>
-                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/35">
+                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
                       {project.projectCode} · {project.division}
                     </p>
                   </div>
@@ -47,7 +47,7 @@ export function ProjectTable({ projects }: { projects: ProjectSummary[] }) {
                   </div>
                   <div className="text-right">
                     <p className="font-mono text-[11px] tabular-nums text-paper/75">{tzs(project.budgetSpent)}</p>
-                    <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+                    <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                       of {tzs(project.budgetTotal)}
                     </p>
                   </div>
@@ -74,7 +74,7 @@ export function ProjectTable({ projects }: { projects: ProjectSummary[] }) {
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
                       <p className="truncate text-[13px] font-medium text-paper/90">{project.name}</p>
-                      <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/35">
+                      <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
                         {project.projectCode} · {statusLabel[project.status] ?? project.status}
                       </p>
                     </div>
@@ -84,9 +84,9 @@ export function ProjectTable({ projects }: { projects: ProjectSummary[] }) {
                     <Meter value={project.completion} height="h-1" className="flex-1" />
                     <span className="font-mono text-[10px] tabular-nums text-paper/55">{project.completion}%</span>
                   </div>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/40">
+                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                     <span>{tzs(project.budgetSpent)} spent</span>
-                    <span className={project.scheduleVarianceDays > 0 ? "text-[#F08A4B]" : "text-paper/40"}>
+                    <span className={project.scheduleVarianceDays > 0 ? "text-[#F08A4B]" : "text-paper/55"}>
                       {project.scheduleVarianceDays > 0 ? "+" : ""}
                       {project.scheduleVarianceDays}d variance
                     </span>

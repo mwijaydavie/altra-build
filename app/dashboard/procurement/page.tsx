@@ -110,9 +110,9 @@ export default function ProcurementPage() {
           { label: "In transit", value: `${inTransit.length}`, note: "Approved with tracking", tone: "text-[#6FD3A6]" },
         ].map((stat) => (
           <div key={stat.label} className="bg-[var(--ops-panel-2)] p-4">
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/35">{stat.label}</p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/55">{stat.label}</p>
             <p className={cn("mt-2 font-display text-[22px] font-semibold leading-none tabular-nums", stat.tone)}>{stat.value}</p>
-            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">{stat.note}</p>
+            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">{stat.note}</p>
           </div>
         ))}
       </div>
@@ -128,7 +128,7 @@ export default function ProcurementPage() {
               {lowStock.map((item) => `${item.itemName} (${num(item.stockLevel)} ${item.unit})`).join(" · ")}
             </p>
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/40">
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
             Auto-drafted in PO generator
           </span>
         </div>
@@ -143,13 +143,13 @@ export default function ProcurementPage() {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative">
-              <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-paper/35" />
+              <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-paper/55" />
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search stock…"
                 aria-label="Search stock"
-                className="h-9 w-44 border border-paper/15 bg-paper/[0.03] pl-8 pr-2 text-[12px] text-paper placeholder:text-paper/30 focus:border-gold/50 focus:outline-none"
+                className="h-9 w-44 border border-paper/15 bg-paper/[0.03] pl-8 pr-2 text-[12px] text-paper placeholder:text-paper/55 focus:border-gold/50 focus:outline-none"
               />
             </div>
             <div className="flex flex-wrap gap-1">
@@ -163,7 +163,7 @@ export default function ProcurementPage() {
                     "min-h-8 border px-2 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors",
                     category === option.id
                       ? "border-gold/50 bg-gold/10 text-gold"
-                      : "border-paper/15 text-paper/45 hover:text-paper/75",
+                      : "border-paper/15 text-paper/55 hover:text-paper/75",
                   )}
                 >
                   {option.label}
@@ -176,7 +176,7 @@ export default function ProcurementPage() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[760px] border-collapse text-left">
             <thead>
-              <tr className="border-b border-paper/10 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/30">
+              <tr className="border-b border-paper/10 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/55">
                 <th className="px-4 py-2 font-normal">Material</th>
                 <th className="px-4 py-2 font-normal">Store</th>
                 <th className="px-4 py-2 text-right font-normal">On hand</th>
@@ -194,23 +194,23 @@ export default function ProcurementPage() {
                   <tr key={item.id} className="border-b border-paper/[0.06] last:border-0 hover:bg-paper/[0.03]">
                     <td className="px-4 py-2.5">
                       <p className="text-[12.5px] text-paper/85">{item.itemName}</p>
-                      <p className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-paper/30">
+                      <p className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-paper/55">
                         {item.sku} · {item.category}
                       </p>
                     </td>
-                    <td className="px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.08em] text-paper/45">
+                    <td className="px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.08em] text-paper/55">
                       {item.warehouse}
                     </td>
                     <td className={cn("px-4 py-2.5 text-right font-mono text-[11px] tabular-nums", low ? "text-[#F08A4B]" : "text-paper/75")}>
-                      {num(item.stockLevel)} <span className="text-[8.5px] uppercase text-paper/30">{item.unit}</span>
+                      {num(item.stockLevel)} <span className="text-[8.5px] uppercase text-paper/55">{item.unit}</span>
                     </td>
-                    <td className="px-4 py-2.5 text-right font-mono text-[10px] tabular-nums text-paper/40">
+                    <td className="px-4 py-2.5 text-right font-mono text-[10px] tabular-nums text-paper/55">
                       {num(item.reorderPoint)}
                     </td>
                     <td className="px-4 py-2.5">
                       <div className="flex items-center gap-2">
                         <Meter value={Math.min(ratio * 100, 100)} tone={low ? "orange" : "green"} height="h-1.5" className="w-24" />
-                        <span className="font-mono text-[9px] tabular-nums text-paper/35">{Math.round(ratio * 100)}%</span>
+                        <span className="font-mono text-[9px] tabular-nums text-paper/55">{Math.round(ratio * 100)}%</span>
                       </div>
                     </td>
                     <td className="px-4 py-2.5 text-right font-mono text-[10px] tabular-nums text-paper/55">
@@ -224,7 +224,7 @@ export default function ProcurementPage() {
               })}
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-10 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-paper/30">
+                  <td colSpan={7} className="px-4 py-10 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55">
                     No stock matches that filter
                   </td>
                 </tr>
@@ -274,7 +274,7 @@ export default function ProcurementPage() {
                       {statusLabel[requisition.approvalStatus] ?? requisition.approvalStatus}
                     </Chip>
                   </div>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/35">
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                     {projectNames[requisition.projectId] ?? "Portfolio"} · {num(requisition.quantityRequested)}{" "}
                     {requisition.unit} · {requisition.supplier} · required {formatDate(requisition.requiredBy)}
                   </p>
@@ -324,7 +324,7 @@ export default function ProcurementPage() {
         </ul>
       </Panel>
 
-      <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-paper/25">
+      <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
         Stock counts verified 22 Nov 2026 · Ubungo yard, Msasani store, Mwanza batch plant · VAT exclusive pricing
       </p>
     </div>
