@@ -58,7 +58,7 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
           <div className="pointer-events-none absolute inset-0 text-paper blueprint opacity-[0.18]" aria-hidden />
           <div className="grain pointer-events-none absolute inset-0" aria-hidden />
 
-          <div className="relative flex min-h-full flex-col pt-[68px] lg:pt-[82px]">
+          <div className="relative flex min-h-full flex-col pt-[68px] lg:pt-[84px]">
             <div className="grid flex-1 lg:grid-cols-[1.12fr_0.88fr]">
               {/* hinge — left leaf */}
               <motion.div
