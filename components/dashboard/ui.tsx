@@ -19,7 +19,7 @@ export function Panel({
   return (
     <Tag
       className={cn(
-        "relative border border-paper/12 bg-[#151821] shadow-[0_30px_80px_-60px_rgba(0,0,0,0.9)]",
+        "ops-panel relative rounded-lg border border-paper/12 bg-[var(--ops-panel)] shadow-[0_30px_80px_-60px_rgba(0,0,0,0.9)]",
         className,
       )}
     >
@@ -89,7 +89,7 @@ export function Chip({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em]",
+        "inline-flex items-center gap-1.5 rounded-[3px] border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em]",
         tones[tone],
         className,
       )}

@@ -69,7 +69,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-TZ" className="antialiased">
+    <html lang="en-TZ" className="antialiased" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('altra-theme')||'dark';var l=t==='light'||(t==='system'&&window.matchMedia('(prefers-color-scheme: light)').matches);var v=l?'light':'dark';document.documentElement.dataset.opsTheme=v;document.documentElement.style.colorScheme=v;}catch(e){}})();",
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

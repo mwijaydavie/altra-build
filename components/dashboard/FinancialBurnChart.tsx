@@ -72,17 +72,17 @@ export function FinancialBurnChart({
                 <stop offset="100%" stopColor="#F7BC32" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid stroke="rgba(247,242,231,0.08)" vertical={false} />
+            <CartesianGrid stroke="var(--ops-chart-grid)" vertical={false} />
             <XAxis
               dataKey="month"
-              tick={{ fill: "rgba(247,242,231,0.45)", fontSize: 10, fontFamily: "var(--font-mono)" }}
-              axisLine={{ stroke: "rgba(247,242,231,0.12)" }}
+              tick={{ fill: "var(--ops-chart-tick)", fontSize: 10, fontFamily: "var(--font-mono)" }}
+              axisLine={{ stroke: "var(--ops-chart-axis)" }}
               tickLine={false}
               dy={6}
             />
             <YAxis
               tickFormatter={(value: number) => tzsAxis(value)}
-              tick={{ fill: "rgba(247,242,231,0.4)", fontSize: 10, fontFamily: "var(--font-mono)" }}
+              tick={{ fill: "var(--ops-chart-tick-dim)", fontSize: 10, fontFamily: "var(--font-mono)" }}
               axisLine={false}
               tickLine={false}
               width={44}
@@ -92,7 +92,7 @@ export function FinancialBurnChart({
               content={({ active, payload, label }) => {
                 if (!active || !payload?.length) return null;
                 return (
-                  <div className="border border-paper/20 bg-[#0B0D13] px-3 py-2 shadow-2xl">
+                  <div className="border border-paper/20 bg-[var(--ops-dialog)] px-3 py-2 shadow-2xl">
                     <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/40">{label} 2026</p>
                     {payload.map((entry) => (
                       <p key={String(entry.dataKey)} className="mt-1 flex items-center gap-2 text-[11px] text-paper/80">
@@ -127,7 +127,7 @@ export function FinancialBurnChart({
             <Line
               type="monotone"
               dataKey="forecast"
-              stroke="rgba(247,242,231,0.42)"
+              stroke="var(--ops-chart-ref)"
               strokeDasharray="4 4"
               strokeWidth={1.4}
               dot={false}

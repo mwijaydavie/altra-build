@@ -326,7 +326,7 @@ function DashboardSkeleton() {
       <LoadingBlock className="h-16 w-2/3" />
       <div className="grid grid-cols-1 gap-px bg-paper/10 sm:grid-cols-2 xl:grid-cols-4">
         {[0, 1, 2, 3].map((key) => (
-          <div key={key} className="space-y-3 bg-[#14161E] p-4">
+          <div key={key} className="space-y-3 bg-[var(--ops-panel-2)] p-4">
             <LoadingBlock className="h-2.5 w-20" />
             <LoadingBlock className="h-8 w-32" />
             <LoadingBlock className="h-2 w-full" />

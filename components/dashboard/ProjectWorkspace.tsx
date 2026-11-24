@@ -136,7 +136,7 @@ export function ProjectWorkspace({ projectId, role }: { projectId: string; role:
 
       {/* Hero */}
       <Panel className="mt-3 overflow-hidden">
-        <div className="relative">
+        <div className="ops-dark-inset relative">
           <div className="relative h-44 w-full sm:h-56">
             <Image
               src={project.cover}
@@ -420,7 +420,7 @@ export function ProjectWorkspace({ projectId, role }: { projectId: string; role:
               { label: "Certified", value: tzs(certified), note: `${invoices.filter((invoice) => invoice.status === "paid").length} certificate{invoices.filter((invoice) => invoice.status === "paid").length === 1 ? "" : "s"} paid` },
               { label: "Outstanding", value: tzs(outstanding), note: `${invoices.filter((invoice) => invoice.status !== "paid").length} invoice{invoices.filter((invoice) => invoice.status !== "paid").length === 1 ? "" : "s"} open` },
             ].map((metric) => (
-              <div key={metric.label} className="bg-[#14161E] p-4">
+              <div key={metric.label} className="bg-[var(--ops-panel-2)] p-4">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/35">{metric.label}</p>
                 <p className="mt-2 font-display text-xl font-semibold tabular-nums text-paper">{metric.value}</p>
                 <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">{metric.note}</p>
@@ -464,7 +464,7 @@ export function ProjectWorkspace({ projectId, role }: { projectId: string; role:
                         <Tooltip
                           content={({ active, payload }) =>
                             active && payload?.length ? (
-                              <div className="border border-paper/20 bg-[#0B0D13] px-2.5 py-1.5 font-mono text-[10px] text-paper/80">
+                              <div className="border border-paper/20 bg-[var(--ops-dialog)] px-2.5 py-1.5 font-mono text-[10px] text-paper/80">
                                 {payload[0]?.name}: {payload[0]?.value}%
                               </div>
                             ) : null
@@ -555,7 +555,7 @@ export function ProjectWorkspace({ projectId, role }: { projectId: string; role:
       </Tabs.Root>
 
       {team.length ? (
-        <div className="mt-3 flex flex-wrap items-center gap-3 border border-paper/10 bg-[#14161E] px-4 py-3">
+        <div className="mt-3 flex flex-wrap items-center gap-3 border border-paper/10 bg-[var(--ops-panel-2)] px-4 py-3">
           <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30">Site leadership</p>
           <div className="flex flex-wrap items-center gap-3">
             {team.slice(0, 4).map((member) => (

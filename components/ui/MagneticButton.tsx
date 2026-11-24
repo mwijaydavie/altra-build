@@ -92,7 +92,7 @@ export function MagneticButton(props: LinkProps | ButtonProps) {
   );
 
   const classes = cn(
-    "group relative inline-flex items-center justify-center overflow-hidden uppercase",
+    "group relative inline-flex items-center justify-center overflow-hidden rounded-[3px] uppercase",
     "transition-colors duration-300 will-change-transform",
     variants[variant],
     sizes[size],

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
 import { OpsProviders } from "@/components/dashboard/Providers";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { getSession } from "@/lib/ops/auth";
 import { alerts } from "@/data/opsData";
 import { metricsForProjects, projectSummaries } from "@/lib/ops/store";
@@ -30,20 +31,22 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <OpsProviders>
-      <link rel="manifest" href="/field/manifest.webmanifest" />
-      <DashboardShell
-        viewer={viewer}
-        projects={visible.map((project) => ({
-          id: project.id,
-          name: project.name,
-          status: project.status,
-          light: project.trafficLight,
-        }))}
-        pendingApprovals={metrics.pendingApprovals}
-        alertCount={scopedAlerts.length}
-      >
-        {children}
-      </DashboardShell>
+      <ThemeProvider>
+        <link rel="manifest" href="/field/manifest.webmanifest" />
+        <DashboardShell
+          viewer={viewer}
+          projects={visible.map((project) => ({
+            id: project.id,
+            name: project.name,
+            status: project.status,
+            light: project.trafficLight,
+          }))}
+          pendingApprovals={metrics.pendingApprovals}
+          alertCount={scopedAlerts.length}
+        >
+          {children}
+        </DashboardShell>
+      </ThemeProvider>
     </OpsProviders>
   );
 }

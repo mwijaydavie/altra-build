@@ -16,6 +16,7 @@ import {
   LogOut,
   Menu,
   Search,
+  Settings2,
   ShieldCheck,
   Smartphone,
   Wifi,
@@ -47,6 +48,7 @@ const NAV = [
   { href: "/dashboard/procurement", label: "Procurement", icon: Boxes, staff: true },
   { href: "/dashboard/safety", label: "Safety & compliance", icon: ShieldCheck, staff: true },
   { href: "/field", label: "Field app", icon: Smartphone, staff: true },
+  { href: "/dashboard/settings", label: "Settings", icon: Settings2, staff: false },
 ] as const;
 
 const DEMO_ROLES: { role: Role; name: string; note: string }[] = [
@@ -116,11 +118,11 @@ export function DashboardShell({
   };
 
   return (
-    <div className="min-h-dvh bg-ink text-paper selection:bg-gold selection:text-ink">
+    <div className="ops-root min-h-dvh bg-[var(--ops-bg)] text-paper selection:bg-gold selection:text-ink">
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-[272px] flex-col border-r border-paper/10 bg-[#0B0D13] transition-transform duration-300 lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 flex w-[272px] flex-col border-r border-paper/10 bg-[var(--ops-sidebar)] transition-transform duration-300 lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
         )}
         aria-label="Primary"
@@ -165,7 +167,7 @@ export function DashboardShell({
                   <Link
                     href={item.href}
                     className={cn(
-                      "group flex min-h-11 items-center gap-3 border border-transparent px-2.5 text-[13px] transition-colors",
+                      "group flex min-h-11 items-center gap-3 rounded-[7px] border border-transparent px-2.5 text-[13px] transition-colors",
                       active
                         ? "border-gold/25 bg-gold/10 text-paper"
                         : "text-paper/60 hover:border-paper/10 hover:bg-paper/[0.04] hover:text-paper",
@@ -198,7 +200,7 @@ export function DashboardShell({
                   <Link
                     href={`/dashboard/projects/${project.id}`}
                     className={cn(
-                      "flex min-h-10 items-center gap-2.5 px-2.5 py-1.5 text-[12px] transition-colors",
+                      "flex min-h-10 items-center gap-2.5 rounded-[6px] px-2.5 py-1.5 text-[12px] transition-colors",
                       active ? "bg-paper/[0.06] text-paper" : "text-paper/55 hover:bg-paper/[0.04] hover:text-paper",
                     )}
                   >
@@ -220,7 +222,7 @@ export function DashboardShell({
           </ul>
 
           {viewer.role !== "client" ? (
-          <div className="mt-6 space-y-2 border border-paper/10 bg-paper/[0.03] p-3">
+          <div className="mt-6 space-y-2 rounded-[8px] border border-paper/10 bg-paper/[0.03] p-3">
             <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/35">Field link</p>
             <p className="text-[12px] leading-snug text-paper/60">
               Offline-first daily logs for supervisors on site.
@@ -240,7 +242,7 @@ export function DashboardShell({
             <DropdownMenu.Trigger asChild>
               <button
                 type="button"
-                className="flex w-full items-center gap-3 p-1.5 text-left transition-colors hover:bg-paper/[0.05]"
+                className="flex w-full items-center gap-3 rounded-[7px] p-1.5 text-left transition-colors hover:bg-paper/[0.05]"
                 aria-label="Account and role"
               >
                 <Avatar name={viewer.fullName} />
@@ -255,10 +257,11 @@ export function DashboardShell({
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content
+                data-ops-portal
                 side="top"
                 align="start"
                 sideOffset={8}
-                className="z-[70] w-[248px] border border-paper/15 bg-[#12141C] p-1.5 shadow-2xl"
+                className="ops-root z-[70] w-[248px] rounded-[10px] border border-paper/15 bg-[var(--ops-popover)] p-1.5 shadow-2xl"
               >
                 <div className="px-2 py-2">
                   <p className="truncate font-mono text-[9px] uppercase tracking-[0.16em] text-paper/40">{viewer.email}</p>
@@ -292,6 +295,14 @@ export function DashboardShell({
                 <DropdownMenu.Separator className="my-1 h-px bg-paper/10" />
                 <DropdownMenu.Item asChild>
                   <Link
+                    href="/dashboard/settings"
+                    className="flex cursor-pointer items-center gap-2 px-2 py-2 text-[12px] text-paper/70 outline-none data-[highlighted]:bg-paper/[0.07] data-[highlighted]:text-paper"
+                  >
+                    <Settings2 className="h-3.5 w-3.5" /> Workspace settings
+                  </Link>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item asChild>
+                  <Link
                     href="/portal"
                     className="flex cursor-pointer items-center gap-2 px-2 py-2 text-[12px] text-paper/70 outline-none data-[highlighted]:bg-paper/[0.07] data-[highlighted]:text-paper"
                   >
@@ -323,7 +334,7 @@ export function DashboardShell({
 
       {/* Main column */}
       <div className="lg:pl-[272px]">
-        <header className="sticky top-0 z-30 border-b border-paper/10 bg-ink/95 backdrop-blur">
+        <header className="sticky top-0 z-30 border-b border-paper/10 bg-[var(--ops-chrome)] backdrop-blur">
           <div className="flex min-h-14 items-center gap-3 px-3 sm:px-5">
             <button
               type="button"
@@ -367,7 +378,7 @@ export function DashboardShell({
                   className="h-9 w-44 border border-paper/15 bg-paper/[0.03] pl-8 pr-2 text-[12px] text-paper placeholder:text-paper/30 focus:border-gold/50 focus:outline-none lg:w-56"
                 />
                 {searchOpen && search.trim() ? (
-                  <div className="absolute left-0 top-10 z-40 w-64 border border-paper/15 bg-[#12141C] p-1 shadow-2xl">
+                  <div className="absolute left-0 top-10 z-40 w-64 border border-paper/15 bg-[var(--ops-popover)] p-1 shadow-2xl">
                     {matches.length ? (
                       matches.slice(0, 6).map((project) => (
                         <Link

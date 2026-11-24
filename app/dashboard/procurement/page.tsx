@@ -109,7 +109,7 @@ export default function ProcurementPage() {
           { label: "Value in queue", value: tzs(pendingValue), note: "Estimated cost", tone: "text-paper" },
           { label: "In transit", value: `${inTransit.length}`, note: "Approved with tracking", tone: "text-[#6FD3A6]" },
         ].map((stat) => (
-          <div key={stat.label} className="bg-[#14161E] p-4">
+          <div key={stat.label} className="bg-[var(--ops-panel-2)] p-4">
             <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-paper/35">{stat.label}</p>
             <p className={cn("mt-2 font-display text-[22px] font-semibold leading-none tabular-nums", stat.tone)}>{stat.value}</p>
             <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">{stat.note}</p>

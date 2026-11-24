@@ -178,7 +178,7 @@ export function QuickLogEntryForm({
       ) : null}
 
       {/* 1 · Weather */}
-      <section className="border border-paper/12 bg-[#14161E] p-3">
+      <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">1 · Weather</h2>
           <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">Tap one</span>
@@ -228,7 +228,7 @@ export function QuickLogEntryForm({
       </section>
 
       {/* 2 · Crew */}
-      <section className="border border-paper/12 bg-[#14161E] p-3">
+      <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">2 · Manpower</h2>
           <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/45">
@@ -285,7 +285,7 @@ export function QuickLogEntryForm({
       </section>
 
       {/* 3 · Progress */}
-      <section className="border border-paper/12 bg-[#14161E] p-3">
+      <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
         <div className="flex items-center justify-between">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">3 · Works & delays</h2>
           <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">Optional</span>
@@ -322,13 +322,13 @@ export function QuickLogEntryForm({
           onChange={(event) => setWorkCompleted(event.target.value)}
           rows={3}
           placeholder="Works completed this shift — e.g. L33 stone install, chiller second-fix…"
-          className="mt-2 w-full resize-y border border-paper/15 bg-[#0F1117] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 w-full resize-y border border-paper/15 bg-[var(--ops-field)] px-3 py-2.5 text-[13px] leading-relaxed text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
         />
         <input
           value={delayNote}
           onChange={(event) => setDelayNote(event.target.value)}
           placeholder="Delay note (optional)"
-          className="mt-2 h-11 w-full border border-paper/12 bg-[#0F1117] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
+          className="mt-2 h-11 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-gold/60 focus:outline-none"
         />
 
         <div className="mt-3">

@@ -91,7 +91,7 @@ export function PurchaseOrderDialog({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm print:hidden" />
-        <Dialog.Content className="fixed inset-0 z-[90] overflow-y-auto bg-[#0B0D13] p-3 sm:p-6 print:static print:overflow-visible print:bg-white print:p-0">
+        <Dialog.Content className="ops-root fixed inset-0 z-[90] overflow-y-auto bg-[var(--ops-dialog)] p-3 sm:p-6 print:static print:overflow-visible print:bg-white print:p-0">
           <div className="mx-auto max-w-6xl">
             <header className="mb-3 flex flex-wrap items-center justify-between gap-3 print:hidden">
               <div>
@@ -131,7 +131,7 @@ export function PurchaseOrderDialog({
             <div className="grid gap-3 lg:grid-cols-[380px_minmax(0,1fr)] print:block">
               {/* Controls */}
               <div className="space-y-3 print:hidden">
-                <div className="border border-paper/12 bg-[#14161E] p-3">
+                <div className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
                   <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40" htmlFor="po-project">
                     Deliver to site
                   </label>
@@ -139,7 +139,7 @@ export function PurchaseOrderDialog({
                     id="po-project"
                     value={projectId}
                     onChange={(event) => setProjectId(event.target.value)}
-                    className="mt-1.5 h-10 w-full border border-paper/15 bg-[#0F1117] px-2.5 text-[12.5px] text-paper focus:border-gold/60 focus:outline-none"
+                    className="mt-1.5 h-10 w-full border border-paper/15 bg-[var(--ops-field)] px-2.5 text-[12.5px] text-paper focus:border-gold/60 focus:outline-none"
                   >
                     {projects.map((entry) => (
                       <option key={entry.id} value={entry.id}>
@@ -157,7 +157,7 @@ export function PurchaseOrderDialog({
                         id="po-supplier"
                         value={supplier}
                         onChange={(event) => setSupplier(event.target.value)}
-                        className="mt-1.5 h-10 w-full border border-paper/15 bg-[#0F1117] px-2.5 text-[12px] text-paper focus:border-gold/60 focus:outline-none"
+                        className="mt-1.5 h-10 w-full border border-paper/15 bg-[var(--ops-field)] px-2.5 text-[12px] text-paper focus:border-gold/60 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -169,13 +169,13 @@ export function PurchaseOrderDialog({
                         type="date"
                         value={requiredBy}
                         onChange={(event) => setRequiredBy(event.target.value)}
-                        className="mt-1.5 h-10 w-full border border-paper/15 bg-[#0F1117] px-2.5 text-[12px] text-paper focus:border-gold/60 focus:outline-none"
+                        className="mt-1.5 h-10 w-full border border-paper/15 bg-[var(--ops-field)] px-2.5 text-[12px] text-paper focus:border-gold/60 focus:outline-none"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="border border-paper/12 bg-[#14161E]">
+                <div className="border border-paper/12 bg-[var(--ops-panel-2)]">
                   <div className="flex items-center justify-between border-b border-paper/10 px-3 py-2">
                     <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40">Line items</p>
                     <Chip tone="gold" className="px-1.5 py-0">{lines.length} selected</Chip>
@@ -381,7 +381,7 @@ export function PurchaseOrderDialog({
                 </div>
 
                 {lines.length > 0 ? (
-                  <div className="mt-2 flex items-center justify-between gap-3 border border-paper/12 bg-[#14161E] px-3 py-2 print:hidden">
+                  <div className="mt-2 flex items-center justify-between gap-3 border border-paper/12 bg-[var(--ops-panel-2)] px-3 py-2 print:hidden">
                     <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/40">
                       Adjust quantities inline
                     </p>

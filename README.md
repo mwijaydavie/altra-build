@@ -10,6 +10,11 @@ obsidian/gold palette and the “altra build” lockup are used as real interfac
 preloader, favicons, app icons, social card, site seal, estimator exports, portal chrome and the
 brand standards page — not just pasted in a corner.
 
+The operations console ships with two themes — the default obsidian HUD and a warm **Site white**
+palette for daylight reviews and printing — selected from `/dashboard/settings` and stored per
+device. Both themes use softened corners (7 px controls, 8 px panels) and lighter hairlines in place
+of the hard rectangular chrome.
+
 ---
 
 ## Quick start
@@ -182,6 +187,9 @@ The session cookie stores a profile id and is validated on every request.
   `Print / save PDF`; print CSS hides the app chrome and prints only the order.
 - **`/dashboard/safety`** — ISO 45001 / OSHA Tanzania checklist, compliance score, severity × status
   matrix, incident register with signed sign-off, audit trail and a printable incident report.
+- **`/dashboard/settings`** — workspace settings: colour theme (Command dark, Site white, or match
+  device), saved per device in `localStorage` and applied to the dashboard and field app with no
+  reload; the signed-in profile and the interface treatment are documented alongside it.
 - **`/field`** — mobile-first PWA (installable, field-scoped service worker): 48 px+ targets, 3-tap
   daily log (weather → crew +/− → submit), delay chips, camera capture with geolocation and
   timestamp watermark burned into the image, offline IndexedDB queue with automatic replay, safety

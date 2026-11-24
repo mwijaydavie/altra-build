@@ -79,7 +79,7 @@ export function LiveProjectMap({ projects }: { projects: ProjectSummary[] }) {
         </span>
       </div>
 
-      <div className="relative mt-2 px-2 pb-2 sm:px-3">
+      <div className="ops-dark-inset relative mt-2 px-2 pb-2 sm:px-3">
         <svg
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
           className="h-auto w-full"
