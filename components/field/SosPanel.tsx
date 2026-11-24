@@ -117,7 +117,7 @@ export function SosPanel({
       </div>
 
       <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">What is happening?</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">What is happening?</p>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {REASONS.map((option) => (
             <button
@@ -140,9 +140,9 @@ export function SosPanel({
           value={note}
           onChange={(event) => setNote(event.target.value)}
           placeholder="Add detail (optional)"
-          className="mt-2 h-11 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/25 focus:border-[#F26D5B]/60 focus:outline-none"
+          className="mt-2 h-11 w-full border border-paper/12 bg-[var(--ops-field)] px-3 text-[12.5px] text-paper placeholder:text-paper/55 focus:border-[#F26D5B]/60 focus:outline-none"
         />
-        <p className="mt-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/35">
+        <p className="mt-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-paper/55">
           <MapPin className="h-3 w-3" />
           {geo ? `${geo.lat.toFixed(5)}, ${geo.lng.toFixed(5)}` : "Acquiring GPS fix…"}
         </p>
@@ -186,7 +186,7 @@ export function SosPanel({
           <span className="font-display text-[17px] font-semibold uppercase tracking-[0.08em]">
             {holding ? "Keep holding…" : "Hold to broadcast SOS"}
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/40">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55">
             {HOLD_MS / 1000}s hold · all sites notified
           </span>
         </button>
@@ -209,7 +209,7 @@ export function SosPanel({
       ) : null}
 
       <section className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/40">Call directly</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">Call directly</p>
         <div className="mt-2 space-y-1.5">
           {[
             { label: "Site control", number: "+255222550148" },

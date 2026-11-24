@@ -138,13 +138,13 @@ export default function DashboardPage() {
             <div className="mt-6">
               <dl className="grid grid-cols-2 gap-4 border-t border-paper/10 pt-4">
                 <div>
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/35">Contract sum</dt>
+                  <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">Contract sum</dt>
                   <dd className="mt-1 font-mono text-lg tabular-nums text-paper/85">
                     TZS {(metrics.capitalBudget / 1_000_000_000).toFixed(1)}B
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/35">Certified to date</dt>
+                  <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">Certified to date</dt>
                   <dd className="mt-1 font-mono text-lg tabular-nums text-gold">
                     TZS {(metrics.capitalDeployed / 1_000_000_000).toFixed(1)}B
                   </dd>
@@ -153,7 +153,7 @@ export default function DashboardPage() {
               <ul className="mt-4 divide-y divide-paper/[0.08] border-t border-paper/10">
                 {data.invoices.slice(0, 3).map((invoice) => (
                   <li key={invoice.id} className="flex items-center justify-between gap-3 py-2">
-                    <span className="min-w-0 truncate font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/45">
+                    <span className="min-w-0 truncate font-mono text-[9.5px] uppercase tracking-[0.1em] text-paper/55">
                       {invoice.invoiceNumber} · {invoice.milestone}
                     </span>
                     <span className="shrink-0 font-mono text-[10px] tabular-nums text-paper/70">{tzs(invoice.amount)}</span>
@@ -189,7 +189,7 @@ export default function DashboardPage() {
               viewer.role !== "client" ? (
                 <Link
                   href="/dashboard/safety"
-                  className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/40 hover:text-gold"
+                  className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55 hover:text-gold"
                 >
                   Register →
                 </Link>
@@ -207,13 +207,13 @@ export default function DashboardPage() {
               />
             ))}
             {logs.length === 0 ? (
-              <p className="px-2 py-8 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-paper/35">
+              <p className="px-2 py-8 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55">
                 No field reports yet
               </p>
             ) : null}
           </div>
           <div className="border-t border-paper/10 px-4 py-2.5">
-            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/35">
+            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
               {logs.filter((log) => log.logDate === "2026-11-22").length} logs submitted yesterday ·{" "}
               {incidents.filter((incident) => incident.status !== "resolved").length} open safety items
             </p>
@@ -247,10 +247,10 @@ export default function DashboardPage() {
                     "min-h-8 border px-2.5 font-mono text-[9px] uppercase tracking-[0.14em] transition-colors",
                     filter === option.id
                       ? "border-gold/50 bg-gold/10 text-gold"
-                      : "border-paper/15 text-paper/45 hover:border-paper/30 hover:text-paper/70",
+                      : "border-paper/15 text-paper/55 hover:border-paper/30 hover:text-paper/70",
                   )}
                 >
-                  {option.label} <span className="tabular-nums text-paper/30">{count}</span>
+                  {option.label} <span className="tabular-nums text-paper/55">{count}</span>
                 </button>
               );
             })}
@@ -258,10 +258,10 @@ export default function DashboardPage() {
         </div>
         <ProjectTable projects={filtered} />
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-paper/10 px-4 py-3">
-          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">
+          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
             Portfolio completion {pct(projects.reduce((sum, project) => sum + project.completion, 0) / Math.max(projects.length, 1), 1)}
           </p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">
+          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
             Best-in-class threshold · variance ≤ 5 days
           </p>
         </div>
@@ -282,20 +282,20 @@ export default function DashboardPage() {
             {audit.slice(0, 5).map((entry) => (
               <li key={entry.id} className="px-4 py-2.5 sm:px-5">
                 <p className="text-[12px] leading-snug text-paper/75">{entry.action}</p>
-                <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+                <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                   {users[entry.actorId] ?? "System"} · {relative(entry.createdAt)}
                 </p>
-                <p className="mt-1 line-clamp-1 text-[11px] text-paper/40">{entry.detail}</p>
+                <p className="mt-1 line-clamp-1 text-[11px] text-paper/55">{entry.detail}</p>
               </li>
             ))}
             {audit.length === 0 ? (
-              <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-paper/30">
+              <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
                 Audit trail restricted for this role
               </li>
             ) : null}
           </ol>
           <div className="border-t border-paper/10 px-4 py-2.5">
-            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/30">
+            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
               Compliance {pct(compliance, 0)} · {statusLabel["action-required"]} items{" "}
               {checklist.filter((item) => item.status !== "compliant").length}
             </p>
@@ -304,7 +304,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
-        <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/25">
+        <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/55">
           ALTRA COMMAND · demo dataset mirroring supabase/schema.sql
         </p>
         {viewer.role !== "client" ? (

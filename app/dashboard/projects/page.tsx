@@ -87,9 +87,9 @@ export default function ProjectsRegisterPage() {
           { label: "Avg completion", value: `${completion}%`, note: `${atRisk} of ${projects.length} off-track` },
         ].map((item) => (
           <Panel key={item.label} className="p-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/35">{item.label}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-paper/55">{item.label}</p>
             <p className="mt-2 font-display text-[26px] leading-none tracking-tight text-paper">{item.value}</p>
-            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/30">{item.note}</p>
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">{item.note}</p>
           </Panel>
         ))}
       </div>
@@ -112,13 +112,13 @@ export default function ProjectsRegisterPage() {
               )}
             >
               {item.label}
-              <span className={cn("tabular-nums", filter === item.id ? "text-ink/60" : "text-paper/30")}>
+              <span className={cn("tabular-nums", filter === item.id ? "text-ink/60" : "text-paper/55")}>
                 {count}
               </span>
             </button>
           );
         })}
-        <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.14em] text-paper/30">
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
           Showing {visible.length} of {projects.length}
         </span>
       </div>
@@ -128,7 +128,7 @@ export default function ProjectsRegisterPage() {
           eyebrow="Live portfolio"
           title={filter === "all" ? "All visible sites" : `${FILTERS.find((f) => f.id === filter)?.label} sites`}
           action={
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
               Select a row for the workspace
             </span>
           }
@@ -136,13 +136,13 @@ export default function ProjectsRegisterPage() {
         {visible.length > 0 ? (
           <ProjectTable projects={visible} />
         ) : (
-          <p className="px-4 py-10 text-center text-[13px] text-paper/45">
+          <p className="px-4 py-10 text-center text-[13px] text-paper/55">
             No sites in this state right now.
           </p>
         )}
       </Panel>
 
-      <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/25">
+      <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-paper/55">
         Scope-filtered by role · demo dataset generated 23 Nov 2026
       </p>
     </div>

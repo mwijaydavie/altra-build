@@ -84,7 +84,7 @@ export function ExecutiveSummaryCards({
             className="group relative flex flex-col bg-[var(--ops-panel-2)] px-4 py-4 transition-colors hover:bg-[var(--ops-raised)] sm:px-5"
           >
             <div className="flex items-start justify-between gap-3">
-              <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-paper/35">{card.eyebrow}</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.26em] text-paper/55">{card.eyebrow}</p>
               <Icon className={cn("h-4 w-4", card.iconTone)} strokeWidth={1.5} />
             </div>
 
@@ -93,18 +93,18 @@ export function ExecutiveSummaryCards({
                 {card.value}
               </span>
               {card.suffix ? (
-                <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-paper/40">{card.suffix}</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-paper/55">{card.suffix}</span>
               ) : null}
             </div>
             <p className="mt-2 text-[12.5px] font-medium text-paper/75">{card.label}</p>
-            <p className="mt-0.5 font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.1em] text-paper/35">
+            <p className="mt-0.5 font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.1em] text-paper/55">
               {card.detail}
             </p>
 
             <div className="mt-3">
               <Meter value={card.progress} tone={card.id === "schedule" ? "orange" : card.id === "safety" ? "green" : "gold"} />
               <div className="mt-1.5 flex items-center justify-between gap-2">
-                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30">
+                <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55">
                   {card.progressLabel}
                 </span>
                 <MetricSpark values={card.spark} tone={card.id === "safety" ? "green" : "gold"} />

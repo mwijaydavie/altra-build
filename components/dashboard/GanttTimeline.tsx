@@ -39,12 +39,12 @@ export function GanttTimeline({ phases }: { phases: Phase[] }) {
       <div className="min-w-[680px] px-4 pb-4 pt-3 sm:px-5">
         {/* Axis */}
         <div className="grid grid-cols-[180px_1fr] gap-3">
-          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30">Phase</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">Phase</span>
           <div className="relative h-5 border-b border-paper/10">
             {ticks.map((tick) => (
               <span
                 key={`${tick.label}-${tick.left}`}
-                className="absolute -translate-x-1/2 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/30"
+                className="absolute -translate-x-1/2 font-mono text-[9px] uppercase tracking-[0.1em] text-paper/55"
                 style={{ left: `${tick.left}%` }}
               >
                 {tick.label}
@@ -84,7 +84,7 @@ export function GanttTimeline({ phases }: { phases: Phase[] }) {
               <div key={phase.id} className="grid grid-cols-[180px_1fr] items-center gap-3 border-b border-paper/[0.06] py-2.5 last:border-0">
                 <div className="min-w-0">
                   <p className="truncate text-[12px] font-medium text-paper/85">{phase.name}</p>
-                  <p className="whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.06em] text-paper/35">
+                  <p className="whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.06em] text-paper/55">
                     {formatDateShort(phase.startDate)} — {formatDateShort(phase.endDate)} · {duration}d
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export function GanttTimeline({ phases }: { phases: Phase[] }) {
           <Chip tone="gold">In progress</Chip>
           <Chip tone="neutral">Not started</Chip>
           <Chip tone="red">Blocked</Chip>
-          <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.12em] text-paper/30">
+          <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
             Baseline programme · phase weights applied to % complete
           </span>
         </div>

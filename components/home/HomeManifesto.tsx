@@ -52,7 +52,7 @@ export function HomeManifesto() {
               { k: "Active sites", v: "17" },
             ].map((item) => (
               <div key={item.k}>
-                <dt className="meta text-ink/45">{item.k}</dt>
+                <dt className="meta text-ink/65">{item.k}</dt>
                 <dd className="mt-2 font-display text-[24px] tracking-tight text-ink sm:text-[28px]">{item.v}</dd>
               </div>
             ))}
@@ -68,7 +68,7 @@ export function HomeManifesto() {
             </Link>
             <Link
               href="/capabilities"
-              className="font-mono text-[13px] uppercase tracking-[0.14em] text-ink/50 transition-colors hover:text-ink"
+              className="font-mono text-[13px] uppercase tracking-[0.14em] text-ink/65 transition-colors hover:text-ink"
             >
               Four divisions
             </Link>
@@ -81,11 +81,11 @@ export function HomeManifesto() {
             <p className="mt-6 font-display text-[22px] leading-[1.25] tracking-tight text-ink">
               “{company.trademark}”
             </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink/55">
+            <p className="mt-3 text-[15px] leading-relaxed text-ink/65">
               Armour without aggression. Weight with precision.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-ink/12 pt-4">
-              <span className="meta text-ink/40">Est. {company.founded}</span>
+              <span className="meta text-ink/65">Est. {company.founded}</span>
               <Link
                 href="/brand"
                 className="group inline-flex shrink-0 items-center gap-1 font-mono text-[12px] uppercase tracking-[0.12em] text-ink/60 transition-colors hover:text-ink"

@@ -61,7 +61,7 @@ export function Intro() {
             <p className="mt-7 max-w-[60ch] text-[19px] leading-[1.7] text-ink/70">
               {company.shortBio}
             </p>
-            <p className="mt-4 max-w-[60ch] text-[18px] leading-[1.7] text-ink/55">
+            <p className="mt-4 max-w-[60ch] text-[18px] leading-[1.7] text-ink/65">
               Engineer-led, not broker-led. The people who price your project are the people who
               will run it.
             </p>
@@ -74,7 +74,7 @@ export function Intro() {
                 { k: "Active sites", v: "17" },
               ].map((item) => (
                 <div key={item.k}>
-                  <dt className="meta text-ink/45">{item.k}</dt>
+                  <dt className="meta text-ink/65">{item.k}</dt>
                   <dd className="mt-2 font-display text-[26px] tracking-tight text-ink">{item.v}</dd>
                 </div>
               ))}
@@ -88,7 +88,7 @@ export function Intro() {
                 “{company.trademark}”
               </p>
               <div className="mt-6 flex items-center justify-between border-t border-ink/12 pt-4">
-                <span className="meta text-ink/40">Brand mark · original artwork</span>
+                <span className="meta text-ink/65">Brand mark · original artwork</span>
                 <a
                   href="/brand"
                   className="group inline-flex items-center gap-1 font-mono text-[14px] uppercase tracking-[0.12em] text-ink/60 transition-colors hover:text-ink"

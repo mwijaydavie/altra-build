@@ -51,9 +51,9 @@ export function HomeCta() {
                 <span className="font-display text-[18px] uppercase tracking-tight text-ink">
                   {item.label}
                 </span>
-                <ArrowUpRight className="size-4 shrink-0 text-ink/30 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
+                <ArrowUpRight className="size-4 shrink-0 text-ink/65 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
               </span>
-              <span className="mt-1 block font-mono text-[12px] uppercase tracking-[0.12em] text-ink/40">
+              <span className="mt-1 block font-mono text-[12px] uppercase tracking-[0.12em] text-ink/65">
                 {item.meta}
               </span>
             </Link>

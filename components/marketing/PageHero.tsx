@@ -46,12 +46,12 @@ export function PageHero({
             href="/"
             className={cn(
               "transition-colors",
-              dark ? "text-paper/45 hover:text-gold" : "text-ink/45 hover:text-ink",
+              dark ? "text-paper/55 hover:text-gold" : "text-ink/65 hover:text-ink",
             )}
           >
             Home
           </Link>
-          <ChevronRight className={cn("size-3.5", dark ? "text-paper/25" : "text-ink/25")} />
+          <ChevronRight className={cn("size-3.5", dark ? "text-paper/55" : "text-ink/65")} />
           <span className={dark ? "text-paper/70" : "text-ink/70"}>{label}</span>
         </nav>
 
@@ -88,7 +88,7 @@ export function PageHero({
               <dl className="flex flex-wrap gap-x-10 gap-y-4">
                 {meta.map((item) => (
                   <div key={item.k}>
-                    <dt className={cn("meta", dark ? "text-paper/35" : "text-ink/40")}>{item.k}</dt>
+                    <dt className={cn("meta", dark ? "text-paper/55" : "text-ink/65")}>{item.k}</dt>
                     <dd
                       className={cn(
                         "mt-1.5 font-display text-[19px] tracking-tight",
@@ -108,7 +108,7 @@ export function PageHero({
         <p
           className={cn(
             "mt-10 font-mono text-[12px] uppercase tracking-[0.16em]",
-            dark ? "text-paper/25" : "text-ink/30",
+            dark ? "text-paper/55" : "text-ink/65",
           )}
         >
           {company.legalName} · {company.crb}

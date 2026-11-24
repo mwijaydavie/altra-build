@@ -94,17 +94,17 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
                             className="group flex items-baseline justify-between gap-4 py-4 lg:py-5"
                           >
                             <span className="flex items-baseline gap-4">
-                              <span className="font-mono text-[12.5px] tracking-[0.12em] text-paper/30">
+                              <span className="font-mono text-[12.5px] tracking-[0.12em] text-paper/55">
                                 {item.index}
                               </span>
                               <span className="font-display text-[clamp(1.75rem,4.2vw,2.9rem)] uppercase leading-[1.02] tracking-[-0.03em] text-paper/90 transition-colors group-hover:text-gold">
                                 {item.label}
                               </span>
                             </span>
-                            <span className="hidden shrink-0 font-mono text-[12px] uppercase tracking-[0.12em] text-paper/30 sm:block">
+                            <span className="hidden shrink-0 font-mono text-[12px] uppercase tracking-[0.12em] text-paper/55 sm:block">
                               {item.meta}
                             </span>
-                            <ArrowUpRight className="size-4 shrink-0 text-paper/25 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold sm:hidden" />
+                            <ArrowUpRight className="size-4 shrink-0 text-paper/55 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold sm:hidden" />
                           </Link>
                         </motion.li>
                       ))}
@@ -125,7 +125,7 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
                         className="group flex items-center justify-between gap-3 border-b border-paper/10 py-2.5 text-[15.5px] text-paper/70 transition-colors hover:text-gold"
                       >
                         {item.label}
-                        <span className="hidden shrink-0 font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/25 sm:block">
+                        <span className="hidden shrink-0 font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/55 sm:block">
                           {item.meta}
                         </span>
                       </Link>
@@ -150,7 +150,7 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
                   >
                     <Search className="size-4 text-gold" />
                     Search the site
-                    <kbd className="ml-auto rounded border border-paper/15 px-1.5 py-0.5 font-mono text-[11px] text-paper/40">
+                    <kbd className="ml-auto rounded border border-paper/15 px-1.5 py-0.5 font-mono text-[11px] text-paper/55">
                       ⌘K
                     </kbd>
                   </button>
@@ -190,13 +190,13 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
                   >
                     <Search className="size-4 text-gold" strokeWidth={1.8} />
                     <span className="text-[16px] text-paper/70">Search projects, services, pages…</span>
-                    <kbd className="ml-auto rounded border border-paper/15 px-2 py-1 font-mono text-[11.5px] text-paper/40">
+                    <kbd className="ml-auto rounded border border-paper/15 px-2 py-1 font-mono text-[11.5px] text-paper/55">
                       ⌘K
                     </kbd>
                   </button>
 
                   <div>
-                    <p className="eyebrow text-paper/35">Tender desk</p>
+                    <p className="eyebrow text-paper/55">Tender desk</p>
                     <a
                       href={`mailto:${company.email}`}
                       className="mt-3 flex items-center gap-2.5 text-[17px] text-paper/85 transition-colors hover:text-gold"
@@ -212,18 +212,18 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
                       {company.phone}
                     </a>
                     <p className="mt-2.5 flex items-start gap-2.5 text-[15px] leading-relaxed text-paper/50">
-                      <MapPin className="mt-1 size-4 shrink-0 text-paper/35" strokeWidth={1.6} />
+                      <MapPin className="mt-1 size-4 shrink-0 text-paper/55" strokeWidth={1.6} />
                       {offices[0]?.address}
                     </p>
                   </div>
 
                   <div>
-                    <p className="eyebrow text-paper/35">Yards &amp; offices</p>
+                    <p className="eyebrow text-paper/55">Yards &amp; offices</p>
                     <ul className="mt-3 divide-y divide-paper/10">
                       {offices.slice(1).map((office) => (
                         <li key={office.id} className="flex items-baseline justify-between gap-3 py-2.5">
                           <span className="text-[15px] text-paper/75">{office.city}</span>
-                          <span className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/30">
+                          <span className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/55">
                             {office.kind}
                           </span>
                         </li>
@@ -240,7 +240,7 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
 
                 <div className="mt-10 flex items-end justify-between gap-6 border-t border-paper/10 pt-5">
                   <div>
-                    <p className="eyebrow text-paper/30">Dar es Salaam</p>
+                    <p className="eyebrow text-paper/55">Dar es Salaam</p>
                     <div className="mt-1.5">
                       <LocalClock />
                     </div>
@@ -253,7 +253,7 @@ export function HingeMenu({ open, onClose, onSearch }: HingeMenuProps) {
             <div
               className={cn(
                 "relative flex flex-wrap items-center justify-between gap-3 border-t border-paper/10 px-5 py-3.5 sm:px-8 lg:px-12",
-                "font-mono text-[11.5px] uppercase tracking-[0.14em] text-paper/30",
+                "font-mono text-[11.5px] uppercase tracking-[0.14em] text-paper/55",
               )}
             >
               <span>{company.registration}</span>

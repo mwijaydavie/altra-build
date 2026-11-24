@@ -34,7 +34,7 @@ export default function BrandPage() {
         <div className="shell relative">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <Logo variant="lockup" tone="inverse" height={44} />
-            <p className="meta text-paper/35">Brand standards · v1.0 · 2026</p>
+            <p className="meta text-paper/55">Brand standards · v1.0 · 2026</p>
           </div>
           <SplitHeading as="h1" className="display-xl mt-12 max-w-4xl uppercase">
             One mark. <span className="text-gold">Every surface.</span>
@@ -52,10 +52,10 @@ export default function BrandPage() {
         <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
           <Reveal className="relative flex items-center justify-center border border-ink/15 bg-cream p-10">
             <Logo variant="mark" height={260} />
-            <div className="absolute bottom-4 left-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
+            <div className="absolute bottom-4 left-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
               Emblem · 82 × 77 units
             </div>
-            <div className="absolute right-4 top-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
+            <div className="absolute right-4 top-4 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
               REF: AB/MARK
             </div>
           </Reveal>
@@ -76,7 +76,7 @@ export default function BrandPage() {
                 { k: "Alabaster", v: "Daylight, clarity, paper" },
               ].map((item) => (
                 <div key={item.k}>
-                  <dt className="meta text-ink/35">{item.k}</dt>
+                  <dt className="meta text-ink/65">{item.k}</dt>
                   <dd className="mt-1.5 text-[13px] leading-relaxed text-ink/60">{item.v}</dd>
                 </div>
               ))}
@@ -93,7 +93,7 @@ export default function BrandPage() {
               <p className="meta text-gold-deep">01</p>
               <h2 className="display-lg mt-3 uppercase">Approved lockups</h2>
             </div>
-            <p className="max-w-xs text-[13px] leading-relaxed text-ink/45">
+            <p className="max-w-xs text-[13px] leading-relaxed text-ink/65">
               Six variants cover every surface. Do not recolour or reconstruct the wordmark.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function BrandPage() {
                     <p
                       className={
                         "mt-0.5 font-mono text-[8px] uppercase tracking-[0.08em] " +
-                        (variant.surface === "dark" ? "text-paper/30" : "text-ink/30")
+                        (variant.surface === "dark" ? "text-paper/55" : "text-ink/65")
                       }
                     >
                       {variant.surface === "dark" ? "Obsidian surface" : "Light surface"}
@@ -148,7 +148,7 @@ export default function BrandPage() {
                       "flex size-7 items-center justify-center border transition-colors " +
                       (variant.surface === "dark"
                         ? "border-paper/20 text-paper/50 hover:border-gold hover:text-gold"
-                        : "border-ink/20 text-ink/40 hover:border-ink hover:text-ink")
+                        : "border-ink/20 text-ink/65 hover:border-ink hover:text-ink")
                     }
                     aria-label={`Download ${variant.name}`}
                   >
@@ -172,7 +172,7 @@ export default function BrandPage() {
                 <Logo variant="lockup" height={34} />
               </div>
             </div>
-            <p className="mt-3 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-ink/35">
+            <p className="mt-3 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-ink/65">
               Clear space = 0.5 × emblem diameter · min lockup 96 px / 30 mm · min emblem 28 px / 8 mm
             </p>
 
@@ -180,13 +180,13 @@ export default function BrandPage() {
               {[32, 22, 16].map((size) => (
                 <div key={size} className="flex flex-col items-center gap-2">
                   <Logo variant="mark" height={size} />
-                  <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-ink/30">
+                  <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-ink/65">
                     {size} px
                   </span>
                 </div>
               ))}
               <div className="flex-1 text-right">
-                <p className="font-mono text-[8px] uppercase leading-relaxed tracking-[0.08em] text-ink/30">
+                <p className="font-mono text-[8px] uppercase leading-relaxed tracking-[0.08em] text-ink/65">
                   Emblem holds to 16 px
                   <br />
                   (favicon, app tile)
@@ -204,7 +204,7 @@ export default function BrandPage() {
                   <div className="h-16 w-full" style={{ background: colourItem.hex }} />
                   <div className="p-2">
                     <p className="text-[11.5px] font-medium text-ink">{colourItem.name}</p>
-                    <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.06em] text-ink/35">
+                    <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.06em] text-ink/65">
                       {colourItem.hex}
                     </p>
                   </div>
@@ -219,7 +219,7 @@ export default function BrandPage() {
                 <div key={font.name} className="border-t border-ink/15 pt-3">
                   <div className="flex items-baseline justify-between">
                     <p className="text-[14px] font-medium text-ink">{font.name}</p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-ink/30">{font.role}</p>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-ink/65">{font.role}</p>
                   </div>
                   <p className="mt-1.5 truncate text-[19px] tracking-tight text-ink/75">{font.sample}</p>
                 </div>
@@ -278,20 +278,20 @@ export default function BrandPage() {
                     className="group flex items-center justify-between gap-4 py-3.5 transition-colors hover:text-gold"
                   >
                     <span className="flex items-baseline gap-3">
-                      <Download className="size-3.5 text-paper/25 transition-colors group-hover:text-gold" />
+                      <Download className="size-3.5 text-paper/55 transition-colors group-hover:text-gold" />
                       <span className="text-[14.5px] text-paper/80">{asset.name}</span>
                     </span>
                     <span className="flex items-center gap-3">
-                      <span className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/30">
+                      <span className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-paper/55">
                         {asset.meta}
                       </span>
-                      <ArrowUpRight className="size-3 text-paper/25 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRight className="size-3 text-paper/55 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="mt-5 max-w-lg text-[12.5px] leading-relaxed text-paper/35">
+            <p className="mt-5 max-w-lg text-[12.5px] leading-relaxed text-paper/55">
               All assets are regenerated from the master file with{" "}
               <span className="font-mono text-paper/55">npm run brand</span>. Vector artwork should always
               be used in preference to raster unless the medium requires otherwise.
@@ -317,7 +317,7 @@ export default function BrandPage() {
                 className="rounded-[12px]"
               />
               <div>
-                <p className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/40">App tile</p>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-paper/55">App tile</p>
                 <p className="mt-1 text-[12.5px] text-paper/55">512 × 512 · maskable</p>
               </div>
             </div>

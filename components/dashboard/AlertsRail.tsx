@@ -44,7 +44,7 @@ export function AlertsRail({
 
       <ul className="flex-1 divide-y divide-paper/10 overflow-y-auto">
         {open.length === 0 ? (
-          <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-paper/35 sm:px-5">
+          <li className="px-4 py-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-paper/55 sm:px-5">
             No open alerts · all sites acknowledged
           </li>
         ) : (
@@ -63,7 +63,7 @@ export function AlertsRail({
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="text-[12.5px] font-medium leading-snug text-paper/90">{alert.title}</p>
-                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/35">
+                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
                       {projectNames[alert.projectId] ?? "Portfolio"} · {relative(alert.createdAt)}
                     </p>
                     <p className="mt-1 line-clamp-2 text-[11.5px] leading-relaxed text-paper/50">{alert.detail}</p>
@@ -99,12 +99,12 @@ export function AlertsRail({
         {showSafetyLink ? (
           <Link
             href="/dashboard/safety"
-            className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40 transition-colors hover:text-gold"
+            className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55 transition-colors hover:text-gold"
           >
             Safety & compliance register →
           </Link>
         ) : (
-          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/30">
+          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">
             Alerts acknowledged by your project manager
           </span>
         )}

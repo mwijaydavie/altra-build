@@ -17,9 +17,10 @@
   --color-line: #d9ceb9;
 
   --color-gold: #f7bc32;
-  --color-gold-deep: #c88f12;
+  --color-gold-deep: #7d5605;
   --color-gold-soft: #fbe0a4;
   --color-hazard: #e05a1b;
+  --color-hazard-deep: #b8460f;
 
   --color-steel: #47566b;
   --color-mist: #98a1ac;
@@ -96,6 +97,33 @@
   }
   .lenis.lenis-stopped {
     overflow: hidden;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * First paint — hero headline
+ * A pure opacity fade, starting on the first frame. No transform, no
+ * JavaScript gate: the copy is painted with the HTML and never waits on
+ * hydration.
+ * ------------------------------------------------------------------ */
+@keyframes hero-line-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  .hero-line {
+    animation: hero-line-in 0.5s var(--ease-out-expo) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-line {
+      animation: none;
+    }
   }
 }
 
@@ -188,16 +216,6 @@
   opacity: 0.05;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
-}
-
-/* Masked line reveal primitives (GSAP targets) */
-.reveal-line {
-  display: block;
-  overflow: hidden;
-}
-.reveal-line > span {
-  display: block;
-  will-change: transform;
 }
 
 .split-line {

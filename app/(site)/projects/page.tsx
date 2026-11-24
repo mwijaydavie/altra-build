@@ -22,7 +22,7 @@ export default function ProjectsIndexPage() {
         <div className="shell relative">
           <div className="flex items-baseline gap-3">
             <span className="meta text-gold">Index</span>
-            <span className="eyebrow text-paper/45">214 commissions · 2009—2026</span>
+            <span className="eyebrow text-paper/55">214 commissions · 2009—2026</span>
           </div>
           <SplitHeading as="h1" className="display-xl mt-6 max-w-4xl uppercase">
             Built, audited, still standing.
@@ -74,13 +74,13 @@ export default function ProjectsIndexPage() {
                         {project.sector} · {project.location}
                       </p>
                       <h2 className="display-md mt-2 uppercase">{project.name}</h2>
-                      <p className="mt-2 max-w-md text-[15.5px] leading-relaxed text-ink/55">
+                      <p className="mt-2 max-w-md text-[15.5px] leading-relaxed text-ink/65">
                         {project.summary}
                       </p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="font-display text-2xl leading-none text-ink">{project.year}</p>
-                      <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/35">
+                      <p className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
                         {project.status}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function ProjectsIndexPage() {
           </div>
 
           <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-ink/15 pt-8 sm:flex-row sm:items-center">
-            <p className="max-w-md text-[15.5px] leading-relaxed text-ink/50">
+            <p className="max-w-md text-[15.5px] leading-relaxed text-ink/65">
               Want the full record for a project similar to yours? The tender desk can share redacted
               method statements and references.
             </p>

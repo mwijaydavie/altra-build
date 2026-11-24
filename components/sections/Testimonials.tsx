@@ -27,8 +27,8 @@ export function Testimonials() {
               </blockquote>
               <div className="mt-8 border-t border-ink/10 pt-4">
                 <p className="text-[15.5px] font-medium text-ink">{testimonial.author}</p>
-                <p className="mt-1 text-[12.5px] leading-snug text-ink/45">{testimonial.role}</p>
-                <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/30">
+                <p className="mt-1 text-[12.5px] leading-snug text-ink/65">{testimonial.role}</p>
+                <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink/65">
                   {testimonial.project}
                 </p>
               </div>

@@ -7,8 +7,8 @@ Framer Motion, TanStack Query, Recharts and a Supabase/Postgres schema with row-
 
 The identity is derived directly from the supplied logo: the rhino emblem (*kifaru*), the
 obsidian/gold palette and the “altra build” lockup are used as real interface material — navigation,
-preloader, favicons, app icons, social card, site seal, estimator exports, portal chrome and the
-brand standards page — not just pasted in a corner.
+favicons, app icons, social card, site seal, estimator exports, portal chrome and the brand
+standards page — not just pasted in a corner.
 
 The operations console ships with two themes — the default obsidian HUD and a warm **Site white**
 palette for daylight reviews and printing — selected from `/dashboard/settings` and stored per
@@ -59,7 +59,6 @@ Generated assets:
 
 Brand surfaces inside the product:
 
-- **Preloader** — emblem + lockup, masked progress line (once per session).
 - **Navigation** — lockup flips between the primary and inverse SVG depending on surface.
 - **Hero** — rotating Kifaru seal built from the emblem.
 - **Case studies / footer / portal** — emblem watermarks and stamps.
@@ -245,7 +244,7 @@ app/dashboard/       ALTRA COMMAND layout, executive HUD, project, procurement, 
 app/field/           field PWA shell + /field/manifest.webmanifest
 app/api/ops/         scoped operational API
 components/
-  layout/            Navbar, Footer, Preloader
+  layout/            Navbar, Footer, ScrollProgress, HingeMenu
   home/              HomeManifesto, HomeDivisions, HomeProjects, HomeCta
   marketing/         PageHero, RelatedLinks
   sections/          Hero, Intro, Capabilities, MethodSafety, FleetBim, Estimator,

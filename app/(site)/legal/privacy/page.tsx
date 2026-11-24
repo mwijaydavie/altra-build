@@ -46,14 +46,14 @@ export default function PrivacyPage() {
       <div className="shell max-w-3xl">
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/40 transition-colors hover:text-ink"
+          className="flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.12em] text-ink/65 transition-colors hover:text-ink"
         >
           <ArrowLeft className="size-3" />
           Back to site
         </Link>
         <p className="eyebrow mt-10 text-gold-deep">Legal</p>
         <h1 className="display-lg mt-4 uppercase">Privacy notice</h1>
-        <p className="mt-4 font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink/35">
+        <p className="mt-4 font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink/65">
           Last updated 12 November 2026
         </p>
         <div className="mt-10 space-y-8 border-t border-ink/15 pt-8">
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
             </div>
           ))}
         </div>
-        <p className="mt-10 border-t border-ink/15 pt-6 text-[12.5px] leading-relaxed text-ink/40">
+        <p className="mt-10 border-t border-ink/15 pt-6 text-[12.5px] leading-relaxed text-ink/65">
           Questions: tender@altrabuild.co.tz · +255 22 550 0148 · Plot 1482 Msasani Peninsula, Dar es
           Salaam.
         </p>

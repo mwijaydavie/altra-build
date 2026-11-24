@@ -23,8 +23,8 @@ export function Capabilities() {
     <section id="capabilities" className="scroll-mt-24 bg-paper py-14 text-ink lg:py-20">
       <div className="shell">
         <div className="flex items-center justify-between border-t border-ink/15 pt-5">
-          <p className="eyebrow text-ink/45">Select a division</p>
-          <p className="meta text-ink/35">04 / divisions</p>
+          <p className="eyebrow text-ink/65">Select a division</p>
+          <p className="meta text-ink/65">04 / divisions</p>
         </div>
 
         {/* Interactive — desktop */}
@@ -54,7 +54,7 @@ export function Capabilities() {
                   <span
                     className={cn(
                       "ml-4 mt-1 font-mono text-[12.5px] tracking-[0.14em] transition-colors",
-                      isActive ? "text-gold-deep" : "text-ink/35",
+                      isActive ? "text-gold-deep" : "text-ink/65",
                     )}
                   >
                     {item.index}
@@ -67,19 +67,19 @@ export function Capabilities() {
                       <span
                         className={cn(
                           "meta shrink-0 transition-colors",
-                          isActive ? "text-ink/55" : "text-ink/30",
+                          isActive ? "text-ink/65" : "text-ink/65",
                         )}
                       >
                         {item.ref}
                       </span>
                     </span>
-                    <span className="mt-2 block text-[15.5px] leading-relaxed text-ink/50">
+                    <span className="mt-2 block text-[15.5px] leading-relaxed text-ink/65">
                       {item.summary}
                     </span>
                     <span
                       className={cn(
                         "mt-4 flex items-center gap-2 font-mono text-[11.5px] uppercase tracking-[0.16em] transition-all duration-500",
-                        isActive ? "text-gold-deep opacity-100" : "text-ink/40 opacity-70",
+                        isActive ? "text-gold-deep opacity-100" : "text-ink/65 opacity-70",
                       )}
                     >
                       {item.kicker}
@@ -105,6 +105,7 @@ export function Capabilities() {
                   alt={division.alt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={62}
                   className="object-cover"
                 />
               </motion.div>
@@ -155,6 +156,7 @@ export function Capabilities() {
                   alt={item.alt}
                   fill
                   sizes="(min-width: 640px) 90vw, 100vw"
+                  quality={62}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
@@ -172,7 +174,7 @@ export function Capabilities() {
                   {item.specs.map((spec) => (
                     <div key={spec.label}>
                       <p className="font-display text-lg leading-none text-ink">{spec.value}</p>
-                      <p className="mt-1.5 text-[11px] uppercase leading-snug tracking-[0.08em] text-ink/40">
+                      <p className="mt-1.5 text-[11px] uppercase leading-snug tracking-[0.08em] text-ink/65">
                         {spec.label}
                       </p>
                     </div>

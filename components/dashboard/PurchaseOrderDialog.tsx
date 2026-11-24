@@ -99,7 +99,7 @@ export function PurchaseOrderDialog({
                 <Dialog.Title className="mt-1 font-display text-xl font-semibold tracking-tight text-paper">
                   Raise a purchase order
                 </Dialog.Title>
-                <Dialog.Description className="mt-1 text-[12px] text-paper/45">
+                <Dialog.Description className="mt-1 text-[12px] text-paper/55">
                   Select site, supplier and quantities. Preview updates live, then print or save as PDF.
                 </Dialog.Description>
               </div>
@@ -132,7 +132,7 @@ export function PurchaseOrderDialog({
               {/* Controls */}
               <div className="space-y-3 print:hidden">
                 <div className="border border-paper/12 bg-[var(--ops-panel-2)] p-3">
-                  <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40" htmlFor="po-project">
+                  <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55" htmlFor="po-project">
                     Deliver to site
                   </label>
                   <select
@@ -150,7 +150,7 @@ export function PurchaseOrderDialog({
 
                   <div className="mt-3 grid grid-cols-2 gap-2">
                     <div>
-                      <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40" htmlFor="po-supplier">
+                      <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55" htmlFor="po-supplier">
                         Supplier
                       </label>
                       <input
@@ -161,7 +161,7 @@ export function PurchaseOrderDialog({
                       />
                     </div>
                     <div>
-                      <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40" htmlFor="po-required">
+                      <label className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55" htmlFor="po-required">
                         Required by
                       </label>
                       <input
@@ -177,7 +177,7 @@ export function PurchaseOrderDialog({
 
                 <div className="border border-paper/12 bg-[var(--ops-panel-2)]">
                   <div className="flex items-center justify-between border-b border-paper/10 px-3 py-2">
-                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/40">Line items</p>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-paper/55">Line items</p>
                     <Chip tone="gold" className="px-1.5 py-0">{lines.length} selected</Chip>
                   </div>
                   <ul className="max-h-[260px] overflow-y-auto">
@@ -205,7 +205,7 @@ export function PurchaseOrderDialog({
                             </span>
                             <span className="min-w-0 flex-1">
                               <span className="block truncate text-[12px] text-paper/80">{item.itemName}</span>
-                              <span className="block font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/30">
+                              <span className="block font-mono text-[8.5px] uppercase tracking-[0.1em] text-paper/55">
                                 {item.sku} · {num(item.stockLevel)} {item.unit} on hand
                               </span>
                             </span>
@@ -233,7 +233,7 @@ export function PurchaseOrderDialog({
                     Close
                   </button>
                 </div>
-                <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.1em] text-paper/30 print:hidden">
+                <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.1em] text-paper/55 print:hidden">
                   PDF output uses the browser print dialog (Choose “Save as PDF”). PO is not committed until issued by
                   procurement.
                 </p>
@@ -382,7 +382,7 @@ export function PurchaseOrderDialog({
 
                 {lines.length > 0 ? (
                   <div className="mt-2 flex items-center justify-between gap-3 border border-paper/12 bg-[var(--ops-panel-2)] px-3 py-2 print:hidden">
-                    <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/40">
+                    <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55">
                       Adjust quantities inline
                     </p>
                     <div className="flex flex-wrap gap-1.5">

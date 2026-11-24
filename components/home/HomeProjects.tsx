@@ -19,7 +19,7 @@ export function HomeProjects() {
           <div>
             <div className="flex items-baseline gap-3">
               <span className="meta text-gold">02</span>
-              <span className="eyebrow text-paper/45">Selected records</span>
+              <span className="eyebrow text-paper/55">Selected records</span>
             </div>
             <TextMotion
               as="h2"
@@ -48,7 +48,8 @@ export function HomeProjects() {
                   src={project.cover}
                   alt={project.coverAlt}
                   fill
-                  sizes="(min-width: 768px) 31vw, 100vw"
+                  sizes="(min-width: 768px) 31vw, calc(84vw - 34px)"
+                  quality={55}
                   className="object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
@@ -65,7 +66,7 @@ export function HomeProjects() {
                 </div>
                 <div className="shrink-0 text-right">
                   <p className="font-display text-[22px] leading-none text-paper/85">{project.year}</p>
-                  <p className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/40">
+                  <p className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-paper/55">
                     {project.status}
                   </p>
                 </div>

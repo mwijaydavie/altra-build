@@ -40,7 +40,7 @@ export function IncidentReportDialog({
                 <Dialog.Title className="font-display text-lg font-semibold tracking-tight text-paper">
                   Incident & inspection report
                 </Dialog.Title>
-                <Dialog.Description className="mt-0.5 text-[11.5px] text-paper/45">
+                <Dialog.Description className="mt-0.5 text-[11.5px] text-paper/55">
                   ISO 45001 aligned register extract · {incidents.length} records
                 </Dialog.Description>
               </div>
@@ -161,7 +161,7 @@ export function IncidentReportDialog({
               </p>
             </div>
 
-            <p className="mt-2 flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/30 print:hidden">
+            <p className="mt-2 flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-paper/55 print:hidden">
               <FileWarning className="h-3 w-3" /> Use “Save as PDF” in the print dialog to archive this report.
             </p>
           </div>
